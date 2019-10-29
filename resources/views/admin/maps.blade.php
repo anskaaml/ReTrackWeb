@@ -30,6 +30,4 @@
         </form>
 @endsection
 
-@section('scripts')
 
-@endsection

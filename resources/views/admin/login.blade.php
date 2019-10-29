@@ -27,7 +27,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button  type="button" class="login100-form-btn" onclick="location.href='{{ url('home') }}'">
 							Sign In 
 						</button>
 					</div>

@@ -148,6 +148,6 @@
 
     });
   </script>
-</body>
 
+</body>
 </html>

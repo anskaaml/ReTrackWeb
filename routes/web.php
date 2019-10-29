@@ -19,12 +19,14 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::get('/home', function () {
-    return view('admin.home');
-});
+// Route::get('/home', function () {
+//     return view('admin.home');
+// });
 
 Route::get('/agenda', function () {
     return view('admin.agenda');
 });
 
 Route::get('/maps', 'MapsController@index');
+
+Route::get('/home', 'HomeController@index');
