@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-<div class="row">
     <div class="map">
-	    {!! Mapper::render() !!}
+        <?= date('m/d/Y h:i:s a') ?>
+        {!! Mapper::render() !!}
     </div>
         <form class="wrap-map">
             <input class="input-assign" type="text" name="lokasi" placeholder="Lokasi Tujuan">
