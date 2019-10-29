@@ -21,12 +21,11 @@ Route::get('/login', function () {
     return view('admin.login');
 })->name('login');
 
-Route::get('/home', function () {
-    return view('admin.home');
-})->name('home');
-
 Route::get('/agenda', function () {
     return view('admin.agenda');
 });
 
 Route::get('/maps', 'MapsController@index')->name('maps');
+Route::get('/maps', 'MapsController@index');
+
+Route::get('/home', 'HomeController@index')->name('home');
