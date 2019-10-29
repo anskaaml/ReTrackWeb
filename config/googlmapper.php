@@ -93,7 +93,7 @@ return [
     | The default zoom level Googlmapper should use.
     |
     */
-    'zoom' => 8,
+    'zoom' => 13,
 
     /*
     |--------------------------------------------------------------------------
@@ -133,7 +133,7 @@ return [
     | Set if scale control should be displayed by Googlmapper.
     |
     */
-    'scaleControl' => false,
+    'scaleControl' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -153,7 +153,7 @@ return [
     | Set if rotate control should be displayed by Googlmapper.
     |
     */
-    'rotateControl' => false,
+    'rotateControl' => true,
 
     /*
     |--------------------------------------------------------------------------
