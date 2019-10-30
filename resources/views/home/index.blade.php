@@ -30,44 +30,44 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./">
+            <a href="./home">
               <img class="nav-icon" src="assets/img/dashboard.png" width="25" heigth="25">
               <p class="p1">Dashboard</p>
             </a>
           </li>
           
           <li>
-            <a href="./">
+            <a href="./home">
             <img class="nav-icon" src="assets/img/agenda.png" width="25" heigth="25">
               <p class="p2">Agenda</p>
             </a>
           </li>
           <li>
-            <a href="./">
+            <a href="./maps">
             <img class="nav-icon" src="assets/img/maps.png" width="25" heigth="30">
               <p class="p3">Maps</p>
             </a>
           </li>
           <li>
-            <a href="./">
+            <a href="./home">
             <img class="nav-icon" src="assets/img/chat.png" width="25" heigth="30">
               <p class="p4">Chat</p>
             </a>
           </li>
           <li>
-            <a href="./">
+            <a href="./home">
             <img class="nav-icon" src="assets/img/laporan.png" width="25" heigth="30">
               <p class="p5">Laporan</p>
             </a>
           </li>
           <li>
-            <a href="./">
+            <a href="./home">
             <img class="nav-icon" src="assets/img/data.png" width="25" heigth="30">
               <p class="p6">Data</p>
             </a>
           </li>
           <li>
-            <a href="./">
+            <a href="./home">
             <img class="nav-icon" src="assets/img/riwayat.png" width="25" heigth="30">
               <p class="p7">Riwayat</p>
             </a>
