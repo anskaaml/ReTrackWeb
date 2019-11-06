@@ -5,12 +5,9 @@
 @endsection
 
 @section('name')
-    Dashboard
+    Riwayat
 @endsection
 
 @section('content')
-<div class="row">
-         
-      </div>
-@endsection
 
+@endsection

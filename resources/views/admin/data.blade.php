@@ -5,12 +5,9 @@
 @endsection
 
 @section('name')
-    Dashboard
+    Data
 @endsection
 
 @section('content')
-<div class="row">
-         
-      </div>
-@endsection
 
+@endsection

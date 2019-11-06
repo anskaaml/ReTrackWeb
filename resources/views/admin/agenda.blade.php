@@ -1,7 +1,11 @@
-@extends('agenda.index')
+@extends('layouts.index')
 
 @section('title')
     ReTrack
+@endsection
+
+@section('name')
+    Agenda
 @endsection
 
 @section('content')
@@ -12,9 +16,8 @@
                 <button class="agenda-btn">Add New</button>
               </div>
               <div class="card-body">
-              <input type="text" class="input-search" placeholder="Search" onkeyup="myFunction()" title="Search Nama Member">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id="table">
                     <thead class=" text-primary">
                       <th>
                         No
@@ -38,13 +41,13 @@
                           
                         </td>
                         <td>
-                          <!-- <input type="text" class="input-search" placeholder="Search" onkeyup="myFunction()" title="Search Nama Member"> -->
+                          <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="myFunction()" title="Search Nama Member">
                         </td>
                         <td>
-                          <!-- <input type="text" class="input-search" placeholder="Search" onkeyup="myFunction()"> -->
+                          <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="myFunction()">
                         </td>
                         <td>
-                          <!-- <input type="text" class="input-search" placeholder="Search" onkeyup="myFunction()"> -->
+                          <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="myFunction()">
                         </td>
                         <td>
                            
@@ -64,7 +67,7 @@
                           September 29, 2019 20:21
                         </td>
                         <td>
-                           Details
+                           <a href="./">Details</a>
                         </td>
                       </tr>
                       <tr>
@@ -72,7 +75,7 @@
                           2
                         </td>
                         <td>
-                          Sukiman, Bambang, Yudo, Panji
+                          Didik, Bambang, Yudo, Panji
                         </td>
                         <td>
                           Mobil-2
@@ -81,126 +84,7 @@
                           Oktober 07, 2019 19:45
                         </td>
                         <td>
-                           Details
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          3
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           Details
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          4
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           Details
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          5
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           Details
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          6
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           Details
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          7
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           Details
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          8
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           Details
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          9
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           Details
+                          <a href="./">Details</a>
                         </td>
                       </tr>
                     </tbody>

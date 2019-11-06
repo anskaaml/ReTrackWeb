@@ -21,11 +21,25 @@ Route::get('/login', function () {
     return view('admin.login');
 })->name('login');
 
-Route::get('/agenda', function () {
-    return view('admin.agenda');
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Route::get('/maps', 'MapsController@index')->name('maps');
 Route::get('/maps', 'MapsController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/agenda', 'AgendaController@index')->name('agenda');
+
+Route::get('/chat', 'ChatController@index')->name('chat');
+
+Route::get('/laporan', 'LaporanController@index')->name('laporan');
+
+Route::get('/data', 'DataController@index')->name('data');
+
+Route::get('/riwayat', 'RiwayatController@index')->name('riwayat');
+
+Route::get('/test', function () {
+    return view('welcome');
+});

@@ -157,7 +157,7 @@ Copyright (c) 2015 Daniel Eden
   outline: none;
 }
 
-.map{
+#maps{
   width: 700px;
   height: 700px;
   position: absolute;

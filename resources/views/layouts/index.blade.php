@@ -16,7 +16,6 @@
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
@@ -35,9 +34,8 @@
               <p class="p1">Dashboard</p>
             </a>
           </li>
-          
           <li>
-            <a href="./home">
+            <a href="./agenda">
             <img class="nav-icon" src="assets/img/agenda.png" width="25" heigth="25">
               <p class="p2">Agenda</p>
             </a>
@@ -49,25 +47,25 @@
             </a>
           </li>
           <li>
-            <a href="./home">
+            <a href="./chat">
             <img class="nav-icon" src="assets/img/chat.png" width="25" heigth="30">
               <p class="p4">Chat</p>
             </a>
           </li>
           <li>
-            <a href="./home">
+            <a href="./laporan">
             <img class="nav-icon" src="assets/img/laporan.png" width="25" heigth="30">
               <p class="p5">Laporan</p>
             </a>
           </li>
           <li>
-            <a href="./home">
+            <a href="./data">
             <img class="nav-icon" src="assets/img/data.png" width="25" heigth="30">
               <p class="p6">Data</p>
             </a>
           </li>
           <li>
-            <a href="./home">
+            <a href="./riwayat">
             <img class="nav-icon" src="assets/img/riwayat.png" width="25" heigth="30">
               <p class="p7">Riwayat</p>
             </a>
@@ -87,7 +85,9 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="font-admin">Dashboard</a>
+            <a class="font-admin">
+            @yield('name')
+            </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -129,28 +129,14 @@
       
     </div>
   </div>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.3.0" type="text/javascript"></script>
-  <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
-    });
-  </script>
+  <!-- <script src="../assets/demo/demo.js"></script> -->
+  
 </body>
 
 </html>
