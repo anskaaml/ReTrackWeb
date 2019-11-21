@@ -9,10 +9,10 @@
 @endsection
 
 @section('content')
-    <div id="maps">
+    <div class="maps" id="maps"> 
     </div> 
-    <form class="wrap-map">
-        <input class="input-assign" type="text" name="lokasi" placeholder="Lokasi Tujuan">
+        <form class="wrap-map">
+            <input class="input-assign-lokasi" type="text" name="lokasi" placeholder="Lokasi Tujuan">
         <br>
         <select class="select-assign" name="kategori">
             <option value="kategori">Kategori</option>
@@ -26,7 +26,7 @@
         <br>
         <textarea class="input-deskripsi" name="deskripsi" placeholder="Deskripsi"></textarea>
         <br>
-        <input class="input-assign" type="text" name="upload-foto" placeholder="Upload Foto">
+            <input class="input-assign-upload" type="text" name="upload-foto" placeholder="Upload Foto">
         <br>
         <button class="assign-btn">Assign Tugas</button>
     </form>

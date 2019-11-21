@@ -46,10 +46,34 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/agenda', 'AgendaController@index')->name('agenda');
 
+Route::get('/tambah-agenda', 'TambahAgendaController@index')->name('tambah-agenda');
+
 Route::get('/chat', 'ChatController@index')->name('chat');
 
-Route::get('/laporan', 'LaporanController@index')->name('laporan');
+Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('laporan-polisi');
 
-Route::get('/data', 'DataController@index')->name('data');
+Route::get('/laporan-warga', 'LaporanWargaController@index')->name('laporan-warga');
+
+Route::get('/data-polisi', 'DataController@index')->name('data');
+
+Route::get('/data-polisi', function () {
+    return view('data.data-polisi');
+});
+
+Route::get('/data-mobil', function () {
+    return view('data.data-mobil');
+});
+
+Route::get('/data-tim', function () {
+    return view('data.data-tim');
+});
+
+Route::get('/data-lokasi', function () {
+    return view('data.data-lokasi');
+});
+
+Route::get('/data-kategori', function () {
+    return view('data.data-kategori');
+});
 
 Route::get('/riwayat', 'RiwayatController@index')->name('riwayat');

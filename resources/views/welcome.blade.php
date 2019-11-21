@@ -80,51 +80,74 @@
             @endif
 
             <div class="content">
-            <!-- <style>
-      /* Set the size of the div element that contains the map */
-      #maps {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
-    </style>
-                <div id="maps"></div>
+            <style>
+/* body {font-family: Arial, Helvetica, sans-serif;} */
 
-                <script>                
-                function initMap(){
-                var loc = {lat: -7.27674670, lng: 112.79474210};
-                var map = new google.maps.Map(
-                    document.getElementById('maps'), {
-                        zoom: 4, 
-                        center: loc
-                        });
-                var marker = new google.maps.Marker({
-                    position: loc,
-                    map: map
-                });
-                var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                var markers = locations.map(function(location, i){
-                    return new google.maps.Marker({
-                        position: location,
-                        label: labels[i % labels.length]
-                    });
-                });
-                var markerCluster = new MarkerClusterer(map, markers, 
-                    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-                
-            }
-            var locations = [
-                {lat: -7.1243529 , lng: 112.56474210 },
-                {lat: -7.0876776 , lng: 113.43549640 },
-                {lat: -3.4649609 , lng: 112.45684954 },
-                {lat: -2.1243529 , lng: 111.56474210 },
-            ]
-            </script>
-            <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-    </script>
-            <script async defer 
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug&callback=initMap">
-            </script> -->
-        
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 50%;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Modal Example</h2>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
+    <!-- <p>Some text in the Modal..</p> -->
+    <input class="input-assign" type="text" name="lokasi" placeholder="Lokasi Tujuan">
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
                 <div class="title m-b-md">
                     Laravel
                 </div>

@@ -1,29 +1,165 @@
-/*!
+.container-agenda {
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: inline;
+  right: 10px;
+  background-position-y: bottom;
+}
 
- =========================================================
- * Now UI Dashboard - v1.3.0
- =========================================================
+.tangani-btn{
+  background: #1F45D5;
+  cursor: pointer;
+  color: #FFFFFF;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: Segoe UI;
+  height: 28px;
+  width: 70px;
+}
 
- * Product Page: https://www.creative-tim.com/product/now-ui-dashboard
- * Copyright 2019 Creative Tim (http://www.creative-tim.com)
+.crud-btn{
+  background: #FFFFFF;
+  border-style: solid;
+  cursor: pointer;
+  color: #707070;
+  border-radius: 10px;
+  width: 100px;
+  height: 35px;
+}
 
- * Designed by www.invisionapp.com Coded by www.creative-tim.com
+.details-btn{
+  background: transparent;
+  border-style: none;
+  cursor: pointer;
+  color: #ff2727;
+}
 
- =========================================================
+.form-title2 {
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-weight: bold;
+  color: #707070;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 70px;
+}
 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+.form-title-agenda{
+  font-family: Segoe UI;
+  font-size: 15px;
+  font-weight: bold;
+  color: #707070;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 20px;
+}
 
- */
-/*     brand Colors              */
-/*      light colors         */
-/*!
-Animate.css - http://daneden.me/animate
-Licensed under the MIT license - http://opensource.org/licenses/MIT
+.form-title {
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-weight: bold;
+  color: #707070;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 20px;
+}
 
-Copyright (c) 2015 Daniel Eden
-*/
+.container-details-btn2 {
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: inline;
+}
 
-.input-search{
+.container-form-btn2 {
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 265px;
+  padding-bottom: 20px;
+}
+
+.container-form-btn {
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 265px;
+}
+
+.form-btn {
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  width: 25%;
+  height: 50px;
+  border-radius: 15px;
+  background: #3c78d8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border-style: none;
+  cursor: pointer;
+}
+
+.input-form-upload{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 100%;
+  background: #fff;
+  height: 50px;
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 0 25px;
+  outline: none;
+  background: url(../img/upload.png) no-repeat;
+  background-size: 20px;
+  background-position-x: 480px;
+  background-position-y: 15px;
+}
+
+.input-form{
   font-family: Segoe UI;
   font-size: 15px;
   line-height: 1.5;
@@ -39,13 +175,106 @@ Copyright (c) 2015 Daniel Eden
   outline: none;
 }
 
-.agenda-btn{
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  padding: 50px 20px 65px 20px; /* Location of the box */
+  right: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */ 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content-details3 {
+  background-color: #fefefe;
+  margin-left: 300px;
+  padding: 20px 50px 20px 50px;
+  border: none;
+  width: 40%;
+  height: 50%;
+  border-radius: 25px;
+}
+
+.modal-content-details2 {
+  background-color: #fefefe;
+  margin-left: 300px;
+  padding: 20px 50px 20px 50px;
+  border: none;
+  width: 40%;
+  height: 60%;
+  border-radius: 25px;
+}
+
+.modal-content-agenda {
+  background-color: #fefefe;
+  margin-left: 250px;
+  padding: 20px 50px 20px 50px;
+  border: none;
+  width: 70%;
+  height: 110%;
+  border-radius: 25px;
+}
+
+.modal-content-details {
+  background-color: #fefefe;
+  margin-left: 300px;
+  padding: 20px 50px 20px 50px;
+  border: none;
+  width: 40%;
+  height: 80%;
+  border-radius: 25px;
+}
+
+.modal-content4 {
+  background-color: #fefefe;
+  margin-left: 300px;
+  padding: 20px 100px 20px 100px;
+  border: none;
+  width: 60%;
+  height: 110%;
+  border-radius: 25px;
+}
+
+.modal-content3 {
+  background-color: #fefefe;
+  margin-left: 300px;
+  padding: 20px 100px 20px 100px;
+  border: none;
+  width: 60%;
+  height: 60%;
+  border-radius: 25px;
+}
+
+.modal-content2 {
+  background-color: #fefefe;
+  margin-left: 300px;
+  padding: 20px 100px 20px 100px;
+  border: none;
+  width: 60%;
+  height: 102%;
+  border-radius: 25px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin-left: 300px;
+  padding: 20px 100px 20px 100px;
+  border: none;
+  width: 60%;
+  height: 75%;
+  border-radius: 25px;
+}
+
+.data-kategori-btn{
   font-family: Segoe UI;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
-  width: 150px;
-  height: 50px;
+  width: 165px;
+  height: 40px;
   border-radius: 15px;
   background: #009C41;
   display: -webkit-box;
@@ -62,10 +291,179 @@ Copyright (c) 2015 Daniel Eden
   transition: all 0.4s;
   border: none;
   outline: none!important;
+  right: 50px;
+  top: 1px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.data-btn{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
+  background: #009C41;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border: none;
+  outline: none!important;
+  right: 50px;
+  top: 1px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.sub-title{
+  font-size: 17px;
+  font-family: Segoe UI;
+  font-weight: bold;
+}
+
+.input-search{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid; 
+  display: block;
+  width: 25%;
+  background: transparent;
+  height: 35px;
+  border-width: 1px;
+  padding: 0 30px 0 30px;
+  outline: none;
+  background: url(../img/search.png) no-repeat;
+  background-size: 20px;
+  background-position: left;
+  border-top: 1px;
+  border-right: 1px;
+  border-left: 1px;
+  border-color: #999999; 
+}
+
+.tambah-agenda-btn3{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #FFFFFF;
+  width: 200px;
+  height: 40px;
+  border-radius: 15px;
+  background: #3c78d8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border-style: none;
+  cursor: pointer;
+  right: 10px;
+  bottom: -550px;
+  position: absolute;
+}
+
+.tambah-agenda-btn2{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #707070;
+  width: 200px;
+  height: 40px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border-style: solid;
+  cursor: pointer;
+  right: 230px;
+  bottom: -550px;
+  position: absolute;
+}
+
+.tambah-agenda-btn{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #707070;
+  width: 200px;
+  height: 40px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border-style: solid;
+  cursor: pointer;
+  left: 20px;
+  bottom: -550px;
+  position: absolute;
 }
 
 .agenda-btn{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
+  background: #009C41;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border: none;
+  outline: none!important;
   cursor: pointer;
+  right: 50px;
+  position: absolute;
 }
 
 .assign-btn{
@@ -104,6 +502,46 @@ Copyright (c) 2015 Daniel Eden
   display: block;
 }
 
+.input-assign-upload{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 120%;
+  background: #fff;
+  height: 50px;
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 0 25px;
+  outline: none;
+  background: url(../img/upload.png) no-repeat;
+  background-size: 20px;
+  background-position-x: 200px;
+  background-position-y: 15px;
+}
+
+.input-assign-lokasi{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 120%;
+  background: #fff;
+  height: 50px;
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 0 25px;
+  outline: none;
+  background: url(../img/lokasi.png) no-repeat;
+  background-size: 15px;
+  background-position-x: 200px;
+  background-position-y: 15px;
+}
+
 .input-assign{
   font-family: Segoe UI;
   font-size: 15px;
@@ -118,6 +556,24 @@ Copyright (c) 2015 Daniel Eden
   border-width: 1px;
   padding: 0 25px;
   outline: none;
+}
+
+.form-agenda{
+  font-family: Segoe UI;
+  font-weight: 450;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 25%;
+  background: #fff;
+  height: 45px;
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 0 20px;
+  outline: none;
+  display: inline;
 }
 
 .select-assign{
@@ -155,6 +611,20 @@ Copyright (c) 2015 Daniel Eden
   border-width: 1px;
   padding: 15px 25px;
   outline: none;
+}
+
+.maps-agenda2{
+  width: 750px;
+  height: 360px; 
+  position: absolute;
+  align-items: center;
+}
+
+.maps-agenda{
+  width: 1000px;
+  height: 500px; 
+  position: absolute;
+  align-items: center;
 }
 
 #maps{
@@ -350,11 +820,12 @@ Copyright (c) 2015 Daniel Eden
   /* there must be 'right' or 'left' for ps__rail-y */
   right: 0;
   /* please don't change 'position' */
-  position: absolute; }
+  position: absolute;
+  padding: 10px; }
 
 .ps--active-x > .ps__rail-x,
 .ps--active-y > .ps__rail-y {
-  display: block;
+  display: none;
   background-color: transparent; }
 
 .ps:hover > .ps__rail-x,
@@ -378,7 +849,7 @@ Copyright (c) 2015 Daniel Eden
  * Scrollbar thumb styles
  */
 .ps__thumb-x {
-  background-color: #aaa;
+  background-color: #fff;
   border-radius: 6px;
   transition: background-color .2s linear, height .2s ease-in-out;
   -webkit-transition: background-color .2s linear, height .2s ease-in-out;
@@ -386,10 +857,12 @@ Copyright (c) 2015 Daniel Eden
   /* there must be 'bottom' for ps__thumb-x */
   bottom: 2px;
   /* please don't change 'position' */
-  position: absolute; }
+  position: absolute;
+  display: none;
+ }
 
 .ps__thumb-y {
-  background-color: #aaa;
+  background-color: #fff;
   border-radius: 6px;
   transition: background-color .2s linear, width .2s ease-in-out;
   -webkit-transition: background-color .2s linear, width .2s ease-in-out;
@@ -397,7 +870,8 @@ Copyright (c) 2015 Daniel Eden
   /* there must be 'right' for ps__thumb-y */
   right: 2px;
   /* please don't change 'position' */
-  position: absolute; }
+  position: absolute;
+  display: none; }
 
 .ps__rail-x:hover > .ps__thumb-x,
 .ps__rail-x:focus > .ps__thumb-x,
@@ -2639,7 +3113,7 @@ Created using IcoMoon - icomoon.io
 
 .table > thead > tr > th {
   border-bottom-width: 1px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: Segoe UI;
   font-weight: bold;
   }
@@ -2759,7 +3233,7 @@ Created using IcoMoon - icomoon.io
     position: relative;
     height: calc(100vh - 75px);
     overflow: auto;
-    width: 260px;
+    width: 200px;
     z-index: 4;
     padding-bottom: 100px; }
     .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,
@@ -2810,7 +3284,7 @@ Created using IcoMoon - icomoon.io
       text-transform: capitalize;
       cursor: pointer;
       font-size: 12px;
-      padding: 10px 50px;
+      padding: 10px 10px;
       line-height: 1.625rem; }
     .sidebar .nav li:first-child > a,
     .off-canvas-sidebar .nav li:first-child > a {
@@ -2966,7 +3440,7 @@ Created using IcoMoon - icomoon.io
     content: "";
     opacity: 1;
     position: absolute;
-    width: 100%;
+    width: 70%;
     height: 100%;
     top: 0;
     left: 0; }
@@ -3036,7 +3510,7 @@ Created using IcoMoon - icomoon.io
 .main-panel {
   position: relative;
   float: right;
-  width: calc(100% - 260px);
+  width: calc(100% - 185px); 
   background-color: #E3E3E3;
   background-color: #FFFFFF;
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1); }
