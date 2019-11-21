@@ -91,10 +91,6 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
- border-style: solid;
-}
-
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
@@ -146,7 +142,6 @@ iframe {
   line-height: 1.5;
   color: #666666;
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
@@ -240,6 +235,26 @@ iframe {
   margin-bottom: 10px;
 }
 
+.input101 {
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 100%;
+  background: #fff;
+  height: 50px;
+  border-width: 1px;
+  padding: 0 35px;
+  border-top: 1px;
+  border-right: 1px;
+  border-left: 1px;
+  background: url(../img/password.png) no-repeat;
+  background-size: 20px;
+  background-position: left;
+}
+
 .input100 {
   font-family: Segoe UI;
   font-size: 15px;
@@ -250,30 +265,14 @@ iframe {
   width: 100%;
   background: #fff;
   height: 50px;
-  border-radius: 15px;
   border-width: 1px;
-  padding: 0 25px;
-}
-
-
-/*------------------------------------------------------------------
-[ Focus ]*/
-.focus-input100 {
-  display: block;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 0px 0px 0px;
-  color: #3c78d8;
-}
-
-.input100:focus + .focus-input100 {
-  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
-  animation: anim-shadow 0.5s ease-in-out forwards;
+  padding: 0 35px;
+  border-top: 1px;
+  border-right: 1px;
+  border-left: 1px;
+  background: url(../img/user.png) no-repeat;
+  background-size: 20px;
+  background-position: left;
 }
 
 @-webkit-keyframes anim-shadow {
@@ -316,7 +315,6 @@ iframe {
 }
 
 .input100:focus + .focus-input100 + .symbol-input100 {
-  color: #3c78d8;
   padding-left: 28px;
 }
 
@@ -356,12 +354,6 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
-
-/* .login100-form-btn:hover {
-  background: #;
-} */
-
-
 
 /*------------------------------------------------------------------
 [ Responsive ]*/

@@ -23,7 +23,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input id="user_password"class="input100" type="password" name="user_password" placeholder="Password">
+						<input id="user_password"class="input101" type="password" name="user_password" placeholder="Password">
 						<span class="focus-input100"></span>
 					</div>
 					

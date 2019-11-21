@@ -13,8 +13,9 @@
           <div class="col-md-12">
             <div class="card card-plain">
               <div class="card-header">
-                <button class="agenda-btn">Add New</button>
+                <button class="agenda-btn" type="button" onclick="window.location='http://localhost:8000/tambah-agenda' ">Tambah Baru</button>
               </div>
+                <input type="text" class="input-search" id="input-search" placeholder="Search by Nama Member" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table" id="table">
@@ -38,23 +39,6 @@
                     <tbody>
                       <tr>
                         <td>
-                          
-                        </td>
-                        <td>
-                          <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="myFunction()" title="Search Nama Member">
-                        </td>
-                        <td>
-                          <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="myFunction()">
-                        </td>
-                        <td>
-                          <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="myFunction()">
-                        </td>
-                        <td>
-                           
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
                           1
                         </td>
                         <td>
@@ -67,7 +51,7 @@
                           September 29, 2019 20:21
                         </td>
                         <td>
-                           <a href="./">Details</a>
+                          <button class="details-btn" id="myBtn-agenda">Details</button>
                         </td>
                       </tr>
                       <tr>
@@ -75,16 +59,16 @@
                           2
                         </td>
                         <td>
-                          Didik, Bambang, Yudo, Panji
+                          Dodi, Yudo, Mandala, Fadil
                         </td>
                         <td>
-                          Mobil-2
+                          Mobil-3
                         </td>
                         <td>
-                          Oktober 07, 2019 19:45
+                          Oktober 01, 2019 10:59
                         </td>
                         <td>
-                          <a href="./">Details</a>
+                           <button class="details-btn" id="myBtn-agenda">Details</button>
                         </td>
                       </tr>
                     </tbody>
@@ -94,25 +78,24 @@
             </div>
           </div>
       </div>
-      <script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("input-search");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("table");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
+
+      <div id="myModal-agenda" class="modal">
+    <div class="modal-content-agenda">
+      <span class="form-title-agenda">Detail Agenda</span>
+        <div class="maps-agenda2" id="maps-agenda2"></div>
+        <br>
+        <div class="container-agenda">
+          <a>Member</a>
+          <a>Mobil</a>
+          <a>Tanggal</a>
+        </div>         
+  </div>
+</div>
+
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/popup-agenda.js"></script>
+<script src="../assets/js/maps-agenda2.js"></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug&callback=initMap"></script>
 @endsection
 

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class AgendaController extends Controller{
+class LaporanPolisiController extends Controller{
     
     public function index(){
-        return view('agenda.agenda');
+        return view('laporan.laporan-polisi');
     }
 }
