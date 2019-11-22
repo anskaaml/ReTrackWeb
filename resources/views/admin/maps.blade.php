@@ -26,7 +26,7 @@
         <br>
         <textarea class="input-deskripsi" name="deskripsi" placeholder="Deskripsi"></textarea>
         <br>
-            <input class="input-assign-upload" type="text" name="upload-foto" placeholder="Upload Foto">
+            <input class="input-assign-upload" type="text" onfocus="(this.type='file')" name="upload-foto" placeholder="Upload Foto">
         <br>
         <button class="assign-btn">Assign Tugas</button>
     </form>

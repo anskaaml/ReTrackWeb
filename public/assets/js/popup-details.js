@@ -1,17 +1,17 @@
-var modal = document.getElementById("myModal-details");
-var btn = document.getElementById("myBtn-details");
-var cancel = document.getElementById("btn-cancel");
+var modalDetails = document.getElementById("myModal-details");
+var btnDetails = document.getElementById("myBtn-details");
+var cancelDetails = document.getElementById("btn-cancel");
 
-btn.onclick = function() {
-  modal.style.display = "block";
+btnDetails.onclick = function() {
+  modalDetails.style.display = "block";
 }
 
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == modalDetails) {
+    modalDetails.style.display = "none";
   }
 }
 
-cancel.onclick = function() {
-  modal.style.display = "none";
+cancelDetails.onclick = function() {
+  modalDetails.style.display = "none";
 }

@@ -14,7 +14,7 @@
             <div class="card card-plain">
                 <p class="sub-title">Semua Data Pelaporan Warga</p>
               <div class="card-header">
-                <button class="data-btn" id="myBtn">Buat Laporan</button> 
+                <button class="data-btn" id="myBtn-form">Buat Laporan</button> 
               </div>
                 <input type="text" class="input-search" id="input-search" placeholder="Search by Kategori" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -60,9 +60,6 @@
                         <td>
                          <button class="tangani-btn" type="button" onclick="window.location='http://localhost:8000/maps' ">Tangani</button>
                         </td>
-                        <td>
-                          <button class="details-btn">Details</button>
-                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -72,7 +69,7 @@
           </div>
       </div>
 
-      <div id="myModal" class="modal">
+      <div id="myModal-form" class="modal-form">
     <div class="modal-content4">
       <form>
         <span class="form-title">Buat Laporan</span>
@@ -83,7 +80,7 @@
       <br>
         <input class="input-form" type="text" name="lokasi" placeholder="Lokasi Kejadian">
       <br>
-        <input class="input-form" type="datetime-local" name="waktu" placeholder="Waktu">
+        <input class="input-form" type="text" onfocus="(this.type='datetime-local')"  name="waktu" placeholder="Waktu">
       <br>
         <input class="input-form" type="text" name="deskripsi" placeholder="Deskripsi">
       <br>
@@ -95,6 +92,6 @@
   </div>
 </div>
 
-<script src="../assets/js/popup.js"></script>
+<script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/search.js"></script>
 @endsection
