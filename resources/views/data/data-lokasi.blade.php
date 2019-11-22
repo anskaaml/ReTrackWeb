@@ -14,7 +14,7 @@
             <div class="card card-plain">
                 <p class="sub-title">Semua Data Lokasi</p>
               <div class="card-header">
-                <button id="myBtn" class="data-btn">Tambah Lokasi</button> 
+                <button id="myBtn-form" class="data-btn">Tambah Lokasi</button> 
               </div>
                 <input type="text" class="input-search" id="input-search" placeholder="Search by Nama Daerah" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -57,7 +57,7 @@
           </div>
       </div>
 
-      <div id="myModal" class="modal">
+      <div id="myModal-form" class="modal-form">
     <div class="modal-content3">
       <form>
         <span class="form-title">Tambah Lokasi</span>
@@ -73,7 +73,7 @@
   </div>
 </div>
 
-<div id="myModal-details" class="modal">
+<div id="myModal-details" class="modal-details">
     <div class="modal-content-details2">
       <span class="form-title">Detail Lokasi</span>
       <br>
@@ -97,7 +97,7 @@
 </div>
 
 
-<script src="../assets/js/popup.js"></script>
+<script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/popup-details.js"></script>
 <script src="../assets/js/search.js"></script>
 @endsection

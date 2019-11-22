@@ -24,9 +24,9 @@
                     <option value="mobil-5">Mobil-5</option>
                 </select>   
                 &emsp;             
-                    <input class="form-agenda" type="date">
+                    <input class="form-agenda" type="text" onfocus="(this.type='date')"  name="tanggal" placeholder="Tanggal">
                 &emsp;                  
-                    <input class="form-agenda" type="time">  
+                    <input class="form-agenda" type="text" onfocus="(this.type='time')"  name="waktu" placeholder="Waktu">  
                 </form>
                 </div>
               </div>

@@ -15,7 +15,7 @@
             <div class="card card-plain">
                 <p class="sub-title">Semua Data Tim Polisi</p>
               <div class="card-header">
-                <button class="data-btn" id="myBtn">Tambah Tim</button>
+                <button class="data-btn" id="myBtn-form">Tambah Tim</button>
               </div>   
                 <input type="text" class="input-search" id="input-search" placeholder="Search by ID" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -70,7 +70,7 @@
           </div>
       </div>
 
-  <div id="myModal" class="modal">
+  <div id="myModal-form" class="modal-form">
     <div class="modal-content">
       <form>
         <span class="form-title">Tambah Tim</span>
@@ -88,7 +88,7 @@
   </div>
 </div>
 
-<div id="myModal-details" class="modal">
+<div id="myModal-details" class="modal-details">
     <div class="modal-content-details">
       <span class="form-title">Detail Tim</span>
       <br>
@@ -117,7 +117,7 @@
   </div>
 </div>
 
-<script src="../assets/js/popup.js"></script>
+<script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/popup-details.js"></script>
 <script src="../assets/js/search.js"></script>
 @endsection

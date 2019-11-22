@@ -11,7 +11,7 @@
 				<span class="login-title">ReTrack</span>
 					<img src="assets/img/logo.png">
 				</div>
-				<form method="POST" action="{{ route('testLogin') }}" class="login100-form validate-form">
+				<form method="POST" action="{{ route('testLogin') }}" class="login100-form">
 					@csrf
 					<span class="login100-form-title">
 						Sign In
@@ -19,12 +19,10 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Police ID is required">
 						<input id="user_employee_id" class="input100" type="text" name="user_employee_id" placeholder="Police ID" value="{{ old('user_employee_id') }}">
-						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input id="user_password"class="input101" type="password" name="user_password" placeholder="Password">
-						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="container-login100-form-btn">

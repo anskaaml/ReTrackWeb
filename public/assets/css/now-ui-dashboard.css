@@ -1,3 +1,4 @@
+
 .container-agenda {
   width: 80%;
   display: -webkit-box;
@@ -175,7 +176,20 @@
   outline: none;
 }
 
-.modal {
+.modal-form {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  padding: 50px 20px 65px 20px; /* Location of the box */
+  right: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */ 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-details{
   display: none; /* Hidden by default */
   position: fixed;
   z-index: 1; /* Sit on top */
