@@ -15,28 +15,18 @@
               <div class="card-header">
                 <button class="agenda-btn" type="button" onclick="window.location='http://localhost:8000/tambah-agenda' ">Tambah Baru</button>
               </div>
-                <input type="text" class="input-search" id="input-search" placeholder="Search by Nama Member" onkeyup="inputSearch()" title="Search">
+                <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table" id="table">
                     <thead class=" text-primary">
-                      <th>
-                        No
-                      </th>
-                      <th>
-                        Nama Member
-                      </th>
-                      <th>
-                        Mobil 
-                      </th>
-                      <th>
-                        Tanggal
-                      </th>
-                      <th>
-                        Action
-                      </th>  
+                      <th>No</th>
+                      <th>Nama Member</th>
+                      <th>Mobil</th>  
+                      <th>Tanggal</th>
+                      <th>Action</th>    
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                       <tr>
                         <td>
                           1
@@ -92,6 +82,7 @@
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/search.js"></script>
 <script src="../assets/js/popup-agenda.js"></script>
 <script src="../assets/js/maps-agenda2.js"></script>

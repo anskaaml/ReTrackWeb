@@ -17,47 +17,25 @@
               <div class="card-header">
                 <button class="data-btn" id="myBtn-form">Tambah Tim</button>
               </div>   
-                <input type="text" class="input-search" id="input-search" placeholder="Search by ID" onkeyup="inputSearch()" title="Search">
+                <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table" id="table">
                     <thead class="text-primary">
-                      <th>
-                        No
-                      </th>
-                      <th>
-                        ID
-                      </th>
-                      <th>
-                        Nama Tim
-                      </th>
-                      <th>
-                        Koordinator
-                      </th>
-                      <th>
-                        Anggota
-                      </th> 
-                      <th>
-                        
-                      </th>
+                      <th>No</th>
+                      <th>ID</th>
+                      <th>Nama Tim</th>
+                      <th>Koordinator</th>
+                      <th>Anggota</th>
+                      <th>Action</th>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                       <tr>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                           
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                           <button class="details-btn" id="myBtn-details">Details</button>
                         </td>
@@ -117,6 +95,7 @@
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/popup-details.js"></script>
 <script src="../assets/js/search.js"></script>

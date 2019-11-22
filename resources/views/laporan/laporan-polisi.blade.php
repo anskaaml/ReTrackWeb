@@ -16,47 +16,25 @@
               <div class="card-header">
                 <button id="myBtn-form" class="data-btn">Buat Laporan</button> 
               </div>
-                <input type="text" class="input-search" id="input-search" placeholder="Search by Kategori" onkeyup="inputSearch()" title="Search">
+                <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table" id="table">
                     <thead class="text-primary">
-                      <th>
-                        No
-                      </th>
-                      <th>
-                        Kategori
-                      </th>
-                      <th>
-                        Tempat   
-                      </th>
-                      <th>
-                        Tanggal
-                      </th>
-                      <th>
-                        Status
-                      </th>
-                      <th>
-                        Action
-                      </th>
+                      <th>No</th>
+                      <th>Kategori</th>
+                      <th>Tempat</th>
+                      <th>Tanggal</th>
+                      <th>Status</th>
+                      <th>Action</th>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                       <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          Kebakaran
-                        </td>
-                        <td>
-                          Mulyosari
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
-                        <td>
-                           On Progress
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                           <button class="tangani-btn" type="button" onclick="window.location='http://localhost:8000/maps' ">Tangani</button>
                         </td>
@@ -92,6 +70,7 @@
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/search.js"></script>
 @endsection

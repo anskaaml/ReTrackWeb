@@ -16,35 +16,21 @@
               <div class="card-header">
                 <button id="myBtn-form" class="data-btn">Tambah Lokasi</button> 
               </div>
-                <input type="text" class="input-search" id="input-search" placeholder="Search by Nama Daerah" onkeyup="inputSearch()" title="Search">
+                <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table" id="table">
                     <thead class="text-primary">
-                      <th>
-                        No
-                      </th>
-                      <th>
-                        Nama Daerah
-                      </th>
-                      <th>
-                        Koordinat 
-                      </th>  
-                      <th>
-
-                      </th>
+                      <th>No</th>
+                      <th>Nama Daerah</th>  
+                      <th>Koordinat</th>
+                      <th>Action</th>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                       <tr>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                           <button class="details-btn" id="myBtn-details">Details</button>
                         </td>
@@ -96,7 +82,7 @@
   </div>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/popup-details.js"></script>
 <script src="../assets/js/search.js"></script>
