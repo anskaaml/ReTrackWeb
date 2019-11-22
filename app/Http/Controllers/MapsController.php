@@ -17,9 +17,23 @@ class MapsController  extends Controller{
         $this->client = new Client();
     }
 
-    public function index() {
+    // Pure GMAPS with JS & AJAX but only have one marker for every user and marker clusterer
+    public function index()
+    {
+        return view('admin.maps');
+    }
+
+    // Pure GMAPS with JS & AJAX. Probably will be using Marker for every user
+    public function maps_marker()
+    {
+        return view('admin.maps-marker');
+    }
+      
+    // GMAPS with Googlmapper library from Sir Cornford
+    public function mapper()
+    {
         $token = Session::get('token');
-        $response= $this->client->request('GET', $this->base_url.'/history', [
+        $response= $this->client->request('GET', $this->base_url.'/history/distinct/today', [
             'headers' => [
                 'Authorization' => "Bearer {$token}"
                 ]
@@ -28,23 +42,26 @@ class MapsController  extends Controller{
         $jsonObjs = json_decode($response);
 
         Mapper::map(-7.27674670, 112.79474210);
-        
+        // If we use mapper with marker we gonna do it like this
+        // if(isset($jsonObjs)) {
+        //     for ($i = 0 ; $i < count($jsonObjs) ; $i++) {
+        //         Mapper::marker( (double) $jsonObjs[$i]->history_latitude, (double) $jsonObjs[$i]->history_longitude, [
+        //             'icon' => 'assets/img/lokasi-now.png',
+        //             'center' => true]);                
+        //     }
+        // }
+
+        // If we use mapper with polyline we gonna do it like this
         if(isset($jsonObjs)) {
-            for ($i = 0 ; $i < count($jsonObjs) ; $i++) {
-                Mapper::marker( (double) $jsonObjs[$i]->history_latitude, (double) $jsonObjs[$i]->history_longitude, [
-                    'icon' => 'assets/img/lokasi-now.png',
-                    'center' => true]);                
+            for ($i = 0 ; $i < count($jsonObjs) - 1 ; $i++) {
+                Mapper::polyline([
+                    ['latitude' => (double) $jsonObjs[$i]->history_latitude, 'longitude' => (double) $jsonObjs[$i]->history_longitude],
+                    ['latitude' => (double) $jsonObjs[$i+1]->history_latitude, 'longitude' => (double) $jsonObjs[$i+1]->history_longitude]
+                ]);
             }
         }
 
-        // Mapper::map((-7.27674670), 112.79474210)->polyline(
-        //     [
-        //         // ['latitude' => (double) $jsonObjs[0]->history_latitude, 'longitude' => (double) $jsonObjs[0]->history_longitude],
-        //         // ['latitude' => (double) end($jsonObjs)->history_latitude, 'longitude' => (double) end($jsonObjs)->history_longitude]
-        //     ]
-        //     , ['strokeColor' => '#080dcc', 'strokeOpacity' => 1, 'strokeWeight' => 4]);
-        
-        return view('admin.maps');
+        return view('admin.mapper');
     }
 }
 
