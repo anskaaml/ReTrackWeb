@@ -3,20 +3,9 @@
 namespace App\Http\Controllers;
 
 use Session;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
-{
-    public $base_url;
-    public $client;
-
-    public function __construct()
-    {
-        $this->base_url = "https://api.retrack-app.site";
-        $this->client = new Client();
-    }
-
+class AuthController extends Controller {
     public function root()
     {
         $request = $this->client->get($this->base_url);

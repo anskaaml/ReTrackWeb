@@ -3,20 +3,10 @@
 namespace App\Http\Controllers;
 
 use Session;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
 
-class MapsController  extends Controller{
-    public $base_url;
-    public $client;
-    
-    public function __construct()
-    {
-        $this->base_url = "https://api.retrack-app.site";
-        $this->client = new Client();
-    }
-
+class MapsController  extends Controller {
     // Pure GMAPS with JS & AJAX but only have one marker for every user and marker clusterer
     public function index()
     {

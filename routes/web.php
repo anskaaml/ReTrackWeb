@@ -33,14 +33,8 @@ Route::get('/maps', 'MapsController@index')->name('maps');
 // Pure GMAPS with JS & AJAX. Probably will be using Marker for every user
 Route::get('/maps-marker', 'MapsController@maps_marker')->name('maps-marker');
 
-// Pure GMAPS with JS & AJAX. Probably will be using Marker for every user but onlu recent location
-Route::get('/maps-marker0', 'MapsController@maps_marker0')->name('maps-marker0');
-
 // GMAPS with Googlmapper library from Sir Cornford
 Route::get('/mapper', 'MapsController@mapper')->name('mapper');
-
-// Just example, not gonna use this for now
-// Route::get('/testTrack', 'TrackController@trackAll');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -54,7 +48,7 @@ Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('laporan-po
 
 Route::get('/laporan-warga', 'LaporanWargaController@index')->name('laporan-warga');
 
-Route::get('/data-polisi', 'DataController@index')->name('data');
+Route::get('/data-kategori', 'CategoryController@index')->name('category');
 
 Route::get('/data-polisi', function () {
     return view('data.data-polisi');
@@ -70,10 +64,6 @@ Route::get('/data-tim', function () {
 
 Route::get('/data-lokasi', function () {
     return view('data.data-lokasi');
-});
-
-Route::get('/data-kategori', function () {
-    return view('data.data-kategori');
 });
 
 Route::get('/riwayat', 'RiwayatController@index')->name('riwayat');
