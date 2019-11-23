@@ -69,7 +69,7 @@
           </div>
       </div>
 
-      <div id="myModal-agenda" class="modal">
+      <div id="myModal-agenda" class="modal-agenda">
     <div class="modal-content-agenda">
       <span class="form-title-agenda">Detail Agenda</span>
         <div class="maps-agenda2" id="maps-agenda2"></div>

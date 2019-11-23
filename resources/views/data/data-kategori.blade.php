@@ -14,7 +14,11 @@
     <div class="card card-plain">
         <p class="sub-title">Data Categories</p>
         <div class="card-header">
+<<<<<<< HEAD
+          <button id="myBtn" class="data-kategori-btn">Add Category</button> 
+=======
           <button id="myBtn-form" class="data-kategori-btn">Create Category</button> 
+>>>>>>> 557f8e3307a215753ff3d3ae5f410fcbcca24560
         </div>
         <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
         <div class="card-body">
@@ -49,7 +53,7 @@
   </div>
 </div>
 
-<div id="myModal-form" class="modal-form">
+<div id="myModal" class="modal-form">
   <div class="modal-content3">
     <form>
       <span class="form-title2">Create Category</span>
@@ -81,7 +85,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/popup-details.js"></script>
 <script src="../assets/js/search.js"></script>
+<script src="../assets/js/form-popup.js"></script>
 @endsection
