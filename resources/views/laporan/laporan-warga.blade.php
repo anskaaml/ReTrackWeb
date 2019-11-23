@@ -14,7 +14,7 @@
             <div class="card card-plain">
                 <p class="sub-title">Semua Data Pelaporan Warga</p>
               <div class="card-header">
-                <button class="data-btn" id="myBtn-form">Buat Laporan</button> 
+                <button class="data-btn" id="myBtn">Buat Laporan</button> 
               </div>
                 <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -47,7 +47,7 @@
           </div>
       </div>
 
-      <div id="myModal-form" class="modal-form">
+      <div id="myModal" class="modal-form">
     <div class="modal-content4">
       <form>
         <span class="form-title">Buat Laporan</span>
@@ -71,6 +71,6 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/search.js"></script>
+<script src="../assets/js/form-popup.js"></script>
 @endsection
