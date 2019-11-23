@@ -20,4 +20,18 @@ class CategoryController extends Controller
 
         return view('data.data-kategori', ['categories' => $jsonObjs]);
     }
+
+    public function show($id)
+    {
+        $token = Session::get('token');
+        $response= $this->client->request('GET', $this->base_url.'/category/'.$id, [
+            'headers' => [
+                'Authorization' => "Bearer {$token}"
+                ]
+        ])->getBody()->getContents();
+    
+        $jsonObjs = json_decode($response);
+
+        
+    }
 }

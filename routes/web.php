@@ -50,12 +50,10 @@ Route::get('/laporan-warga', 'LaporanWargaController@index')->name('laporan-warg
 
 Route::get('/data-kategori', 'CategoryController@index')->name('category');
 
+Route::get('/data-mobil', 'CarController@index')->name('car');
+
 Route::get('/data-polisi', function () {
     return view('data.data-polisi');
-});
-
-Route::get('/data-mobil', function () {
-    return view('data.data-mobil');
 });
 
 Route::get('/data-tim', function () {
