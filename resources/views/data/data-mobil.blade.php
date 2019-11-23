@@ -16,7 +16,7 @@
     <div class="card-header">
       <button id="myBtn-form" class="data-btn">Create Car</button> 
     </div>
-    <input type="text" class="input-search" id="input-search" placeholder="Search by Car Number" onkeyup="inputSearch()" title="Search">
+    <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
     <div class="card-body">
       <div class="table-responsive">
         <table class="table" id="table">
@@ -95,6 +95,7 @@
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/search.js"></script>
 <script src="../assets/js/popup-details.js"></script>

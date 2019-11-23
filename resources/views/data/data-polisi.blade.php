@@ -21,42 +21,20 @@
                 <div class="table-responsive">
                   <table class="table" id="table">
                     <thead class="text-primary">
-                      <th>
-                        No
-                      </th>
-                      <th>
-                        ID
-                      </th>
-                      <th>
-                        Nama Polisi   
-                      </th>
-                      <th>
-                        Pangkat
-                      </th>
-                      <th>
-                        Status
-                      </th> 
-                      <th>
-                        
-                      </th>
+                      <th>No</th>
+                      <th>ID</th>
+                      <th>Nama Polisi</th>
+                      <th>Pangkat</th>
+                      <th>Status</th>
+                      <th>Action</th>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                       <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          22112233
-                        </td>
-                        <td>
-                          Bambang
-                        </td>
-                        <td>
-                          PROVOS
-                        </td>
-                        <td>
-                           Confirmed
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                           <button class="details-btn" id="myBtn-details">Details</button>
                         </td>
@@ -120,6 +98,7 @@
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/popup-form.js"></script>
 <script src="../assets/js/popup-details.js"></script>
 <script src="../assets/js/search.js"></script>
