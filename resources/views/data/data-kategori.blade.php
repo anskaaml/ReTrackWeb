@@ -14,7 +14,7 @@
     <div class="card card-plain">
         <p class="sub-title">Data Categories</p>
         <div class="card-header">
-          <button id="myBtn-form" class="data-kategori-btn">Add Category</button> 
+          <button id="myBtn-form" class="data-kategori-btn">Create Category</button> 
         </div>
         <input type="text" class="input-search" id="input-search" placeholder="Search by Category Name" onkeyup="inputSearch()" title="Search">
         <div class="card-body">
@@ -32,7 +32,9 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>
-                      <button class="details-btn" id="myBtn-details">Details</button>
+                      <button class="details-btn" id="myBtn-details" data-arg1={{ $category->category_id }}>
+                        Details
+                      </button>
                     </td>
                   </tr>
                 @endforeach
