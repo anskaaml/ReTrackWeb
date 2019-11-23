@@ -18,11 +18,11 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Police ID is required">
-						<input id="user_employee_id" class="input100" type="text" name="user_employee_id" placeholder="Police ID" value="{{ old('user_employee_id') }}">
+						<input class="input100" type="text" name="user_employee_id" placeholder="Police ID" value="{{ old('user_employee_id') }}">
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input id="user_password"class="input101" type="password" name="user_password" placeholder="Password">
+						<input class="input101" type="password" name="user_password" placeholder="Password">
 					</div>
 					
 					<div class="container-login100-form-btn">

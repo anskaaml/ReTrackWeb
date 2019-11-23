@@ -50,19 +50,20 @@
   </div>
 </div>
 </div>
-  <div id="myModal-form" class="modal-form">
-    <div class="modal-content">
-      <form>
-        <span class="form-title">Create Car</span>
-        <input class="input-form" type="text" name="plat" placeholder="Plat Mobil">
-        <br>
-        <input class="input-form" type="text" name="jenis" placeholder="Jenis Mobil">
-        <br>
-        <input class="input-form" type="text" name="merk" placeholder="Merk Mobil">
-        <br>
-        <div class="container-form-btn">
-          <button type="submit" class="form-btn">Create</button>
-        </div>
+<div id="myModal-form" class="modal-form">
+  <div class="modal-content">
+    <form method="post" action="{{ route('car.create') }}">
+      {{ csrf_field() }}
+      <span class="form-title">Create Car</span>
+      <input class="input-form" type="text" name="car_number" placeholder="Car Number">
+      <br>
+      <input class="input-form" type="text" name="car_brand" placeholder="Car Brand">
+      <br>
+      <input class="input-form" type="text" name="car_type" placeholder="Car Type">
+      <br>
+      <div class="container-form-btn">
+        <button type="submit" class="form-btn">Create</button>
+      </div>
     </form>
   </div>
 </div>
