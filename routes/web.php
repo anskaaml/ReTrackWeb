@@ -40,7 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/agenda', 'AgendaController@index')->name('agenda');
 
-Route::get('/tambah-agenda', 'TambahAgendaController@index')->name('tambah-agenda');
+Route::get('/add-agenda', 'AddAgendaController@index')->name('add-agenda');
 
 Route::get('/chat', 'ChatController@index')->name('chat');
 
@@ -56,12 +56,17 @@ Route::get('/data-polisi', function () {
     return view('data.data-polisi');
 });
 
-Route::get('/data-tim', function () {
-    return view('data.data-tim');
-});
-
 Route::get('/data-lokasi', function () {
     return view('data.data-lokasi');
 });
 
-Route::get('/riwayat', 'RiwayatController@index')->name('riwayat');
+
+Route::get('/create-police', 'CreatePoliceController@index')->name('create-police');
+Route::get('/details-police', 'DetailsPoliceController@index')->name('details-police');
+
+
+
+Route::get('/create-car', 'CreateCarController@index')->name('create-car');
+
+
+Route::get('/history', 'HistoryController@index')->name('history');

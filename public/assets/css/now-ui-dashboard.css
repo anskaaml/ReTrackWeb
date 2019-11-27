@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   justify-content: center;
   display: inline;
-  right: 10px;
+  right: -100px;
   background-position-y: bottom;
 }
 
@@ -190,7 +190,7 @@
 }
 
 .modal-form {
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed;
   z-index: 1; /* Sit on top */
   padding: 50px 20px 65px 20px; /* Location of the box */
@@ -203,7 +203,7 @@
 }
 
 .modal-details{
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed;
   z-index: 1; /* Sit on top */
   padding: 50px 20px 65px 20px; /* Location of the box */
@@ -381,7 +381,7 @@
   border-color: #999999; 
 }
 
-.tambah-agenda-btn3{
+.done-btn{
   font-family: Segoe UI;
   font-size: 15px;
   line-height: 1.5;
@@ -405,34 +405,6 @@
   border-style: none;
   cursor: pointer;
   right: 10px;
-  bottom: -550px;
-  position: absolute;
-}
-
-.tambah-agenda-btn2{
-  font-family: Segoe UI;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #707070;
-  width: 200px;
-  height: 40px;
-  border-radius: 15px;
-  background: #FFFFFF;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 25px;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-  border-style: solid;
-  cursor: pointer;
-  right: 230px;
   bottom: -550px;
   position: absolute;
 }
@@ -585,6 +557,24 @@
   outline: none;
 }
 
+.form-dashboard{
+  font-family: Segoe UI;
+  font-weight: 450;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 25%;
+  background: #fff;
+  height: 45px;
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 0 20px;
+  outline: none;
+  display: inline;
+}
+
 .form-agenda{
   font-family: Segoe UI;
   font-weight: 450;
@@ -641,7 +631,7 @@
 }
 
 .maps-agenda2{
-  width: 750px;
+  width: 760px;
   height: 360px; 
   position: absolute;
   align-items: center;
@@ -3357,7 +3347,7 @@ Created using IcoMoon - icomoon.io
       }
 
       .p5{
-        padding: 10px 20px 10px 38px;
+        padding: 10px 20px 10px 42px;
       }
 
       .p6{
@@ -3365,7 +3355,7 @@ Created using IcoMoon - icomoon.io
       }
 
       .p7{
-        padding: 10px 20px 10px 40px;
+        padding: 10px 20px 10px 41px;
       }
 
     .sidebar .nav i,

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class RiwayatController extends Controller{
+class HistoryController extends Controller{
     
     public function index(){
-        return view('admin.riwayat');
+        return view('admin.history');
     }
 }

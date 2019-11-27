@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class TambahAgendaController extends Controller{
+class CreatePoliceController extends Controller{
     
     public function index(){
-        return view('agenda.tambah-agenda');
+        return view('data.create-police');
     }
 }

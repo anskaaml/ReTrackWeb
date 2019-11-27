@@ -13,7 +13,7 @@
           <div class="col-md-12">
             <div class="card card-plain">
               <div class="card-header">
-                <button class="agenda-btn" type="button" onclick="window.location='http://localhost:8000/tambah-agenda' ">Tambah Baru</button>
+                <button class="agenda-btn" type="button" onclick="window.location='http://localhost:8000/add-agenda' ">Add New</button>
               </div>
                 <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -21,44 +21,19 @@
                   <table class="table" id="table">
                     <thead class=" text-primary">
                       <th>No</th>
-                      <th>Nama Member</th>
-                      <th>Mobil</th>  
-                      <th>Tanggal</th>
+                      <th>Member Name</th>
+                      <th>Car</th>  
+                      <th>Date</th>
                       <th>Action</th>    
                     </thead>
                     <tbody id="myTable">
                       <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          Sukiman, Sukijan, Sutrisman, Sukirno
-                        </td>
-                        <td>
-                          Mobil-1
-                        </td>
-                        <td>
-                          September 29, 2019 20:21
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                           <button class="details-btn" id="myBtn-agenda">Details</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          Dodi, Yudo, Mandala, Fadil
-                        </td>
-                        <td>
-                          Mobil-3
-                        </td>
-                        <td>
-                          Oktober 01, 2019 10:59
-                        </td>
-                        <td>
-                           <button class="details-btn" id="myBtn-agenda">Details</button>
                         </td>
                       </tr>
                     </tbody>
@@ -71,14 +46,14 @@
 
       <div id="myModal-agenda" class="modal-agenda">
     <div class="modal-content-agenda">
-      <span class="form-title-agenda">Detail Agenda</span>
-        <div class="maps-agenda2" id="maps-agenda2"></div>
-        <br>
-        <div class="container-agenda">
-          <a>Member</a>
-          <a>Mobil</a>
-          <a>Tanggal</a>
-        </div>         
+      <span class="form-title-agenda">Agenda Details</span>
+          <a style="padding:100px;">Member</a>
+          <a style="padding:100px;">Car</a>
+          <a style="padding:70px;">Date</a>
+          <br>
+          <br>
+          <br>
+          <div class="maps-agenda2" id="maps-agenda2"></div>  
   </div>
 </div>
 

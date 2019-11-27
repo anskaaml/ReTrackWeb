@@ -5,16 +5,16 @@
 @endsection
 
 @section('name')
-    CRUD > Data Polisi
+    CRUD > Data Police
 @endsection
 
 @section('content')
 <div class="row">
           <div class="col-md-12">
             <div class="card card-plain">
-                <p class="sub-title">Semua Data Polisi</p>
+                <p class="sub-title">Data Police</p>
               <div class="card-header">
-                <button id="myBtn" class="data-btn">Tambah Polisi</button> 
+                <button class="data-btn" type="button" onclick="window.location='http://localhost:8000/create-police' ">Create Police</button> 
               </div>
                 <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -23,8 +23,8 @@
                     <thead class="text-primary">
                       <th>No</th>
                       <th>ID</th>
-                      <th>Nama Polisi</th>
-                      <th>Pangkat</th>
+                      <th>Police Name</th>
+                      <th>Rank</th>
                       <th>Status</th>
                       <th>Action</th>
                     </thead>
@@ -36,7 +36,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                          <button class="details-btn" id="myBtn-details">Details</button>
+                          <button class="details-btn" type="button" onclick="window.location='http://localhost:8000/details-police' ">Details</button>
                         </td>
                       </tr>
                     </tbody>
@@ -47,37 +47,37 @@
           </div>
       </div>
 
-      <div id="myModal" class="modal-form">
+      <!-- <div id="myModal" class="modal-form">
     <div class="modal-content2">
       <form>
-        <span class="form-title">Tambah Polisi</span>
+        <span class="form-title">Add Police</span>
 
-        <input class="input-form" type="text" name="polisi" placeholder="Nama Polisi">
+        <input class="input-form" type="text" name="police" placeholder="Police Name">
       <br>
-        <input class="input-form" type="text" name="pangkat" placeholder="Pangkat">
+        <input class="input-form" type="text" name="rank" placeholder="Rank">
       <br>
-        <input class="input-form" type="text" name="id" placeholder="ID Polisi">
+        <input class="input-form" type="text" name="id" placeholder="Police ID">
       <br>
         <input class="input-form" type="text" name="password" placeholder="Password">
       <br>
         <input type="file" name="upload">
       <br>
       <div class="container-form-btn">
-        <button type="submit" class="form-btn">Tambah</button>
+        <button type="submit" class="form-btn">Add</button>
       </div>
     </form>
   </div>
-</div>
+</div> -->
 
-<div id="myModal-details" class="modal-details">
+<!-- <div id="myModal-details" class="modal-details">
     <div class="modal-content-details">
       <span class="form-title">Detail Polisi</span>
       <br>
-        <a>Nama Polisi</a>
+        <a>Police Name</a>
       <br>
       <br>
       <br>
-        <a>Pangkat</a>
+        <a>Rank</a>
       <br>
       <br>
       <br>
@@ -96,7 +96,7 @@
         <button type="submit" class="crud-btn" id="btn-cancel">Cancel</button>
       </div>
   </div>
-</div>
+</div> -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/popup-details.js"></script>

@@ -52,7 +52,7 @@
           <li>
             <a href="./laporan">
             <img class="nav-icon" src="assets/img/laporan.png" width="25" heigth="30">
-              <p class="p5">Laporan</p>
+              <p class="p5">Report</p>
             </a>
           </li>
           <li>
@@ -62,9 +62,9 @@
             </a>
           </li>
           <li>
-            <a href="./riwayat">
+            <a href="./history">
             <img class="nav-icon" src="assets/img/riwayat.png" width="25" heigth="30">
-              <p class="p7">Riwayat</p>
+              <p class="p7">History</p>
             </a>
           </li>
         </ul>
