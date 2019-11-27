@@ -27,14 +27,8 @@ Route::get('/login', function () {
 // Post user_employee_id and user_password to get JWT
 Route::post('/testLogin', 'AuthController@login')->name('testLogin');
 
-// Pure GMAPS with JS & AJAX but only have one marker for every user and marker clusterer
 Route::get('/maps', 'MapsController@index')->name('maps');
-
-// Pure GMAPS with JS & AJAX. Probably will be using Marker for every user
-Route::get('/maps-marker', 'MapsController@maps_marker')->name('maps-marker');
-
-// GMAPS with Googlmapper library from Sir Cornford
-Route::get('/mapper', 'MapsController@mapper')->name('mapper');
+Route::get('/maps-one', 'MapsController@mapsOne')->name('maps-one');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -49,8 +43,11 @@ Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('laporan-po
 Route::get('/laporan-warga', 'LaporanWargaController@index')->name('laporan-warga');
 
 Route::get('/data-kategori', 'CategoryController@index')->name('category');
+Route::get('/data-kategori/{id}', 'CategoryController@show')->name('category.show');
 
+// Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
+Route::post('/data-mobil/create', 'CarController@create')->name('car.create');
 
 Route::get('/data-polisi', function () {
     return view('data.data-polisi');

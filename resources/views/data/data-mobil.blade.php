@@ -14,7 +14,11 @@
     <div class="card card-plain">
       <p class="sub-title">Data Cars</p>
     <div class="card-header">
+<<<<<<< HEAD
       <button id="myBtn-form" class="data-btn" type="button" onclick="window.location='http://localhost:8000/create-car' ">Create Car</button> 
+=======
+      <button id="myBtn" class="data-btn">Create Car</button> 
+>>>>>>> cb3afeb21f59c0f84441271b160e0513435d2b9f
     </div>
     <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
     <div class="card-body">
@@ -27,7 +31,7 @@
             <th>Car Type</th>  
             <th>Action</th>
           </thead>
-          <tbody>
+          <tbody id="myTable">
             @if($cars)
               @foreach($cars as $car)
                 <tr>
@@ -50,6 +54,7 @@
   </div>
 </div>
 </div>
+<<<<<<< HEAD
   <!-- <div id="myModal-form" class="modal-form">
     <div class="modal-content">
       <form>
@@ -63,6 +68,22 @@
         <div class="container-form-btn">
           <button type="submit" class="form-btn">Create</button>
         </div>
+=======
+<div id="myModal-form" class="modal-form">
+  <div class="modal-content">
+    <form method="post" action="{{ route('car.create') }}">
+      {{ csrf_field() }}
+      <span class="form-title">Create Car</span>
+      <input class="input-form" type="text" name="car_number" placeholder="Car Number">
+      <br>
+      <input class="input-form" type="text" name="car_brand" placeholder="Car Brand">
+      <br>
+      <input class="input-form" type="text" name="car_type" placeholder="Car Type">
+      <br>
+      <div class="container-form-btn">
+        <button type="submit" class="form-btn">Create</button>
+      </div>
+>>>>>>> cb3afeb21f59c0f84441271b160e0513435d2b9f
     </form>
   </div>
 </div> -->
