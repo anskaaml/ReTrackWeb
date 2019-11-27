@@ -34,11 +34,11 @@
     <script>
         var map;
         var markerList = [];
-        var pointList = [];
+        var pointList = [[]];
 
         setInterval(function () {
-            reloadMarker();
-        }, 5000);
+            reloadMarkerAndPolyline();
+        }, 15000);
 
         function isMarkerExist(id){
             var found = false;
@@ -58,46 +58,49 @@
             return found;
         }
 
-        function isPolylineExist(id1, id2) {
-            var found = false;
-
-            for (let i = 1; i < pointList.length ; i++ ){
-                var idx1 = pointList[i-1];
-                var idx2 = pointList[i];
-                if (idx1 == id1 && idx2 == id2){
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found){
-                pointList.push(id2);
-            }
-
-            return found;
-        }
-
-        function addPolyline(data1, data2) {
-            var exist = isPolylineExist(data1.history_id, data2.history_id);
-
-            if(!exist) {
-                var patrolPath = new google.maps.Polyline({
-                    path: [
-                        {
-                            lat: parseFloat(data1.history_latitude),
-                            lng: parseFloat(data1.history_longitude)
-                        }, {
-                            lat: parseFloat(data2.history_latitude),
-                            lng: parseFloat(data2.history_longitude)
+        function addPolyline(data) {
+            pointList[0][0] = data[0];
+            for(var i = 0 ; i < data.length ; i++) {
+                var oldUserAndTeam = false;
+                var idxPointList = 0;
+                for(var j = 0 ; j < pointList.length ; j++) {
+                    if(pointList[j][0].user_id == data[i].user_id 
+                        && pointList[j][0].team_id == data[i].team_id) {
+                        var found = false;
+                        for(var k = 0 ; k < pointList[j].length ; k++) {
+                            if(pointList[j][k].history_id == data[i].history_id) {
+                                found = true;
+                                break;
+                            }
                         }
-                    ],
-                    geodesic: true,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 1.0,
-                    strokeWeight: 2
-                });
 
-                patrolPath.setMap(map);
+                        if(!found) {
+                            var patrolPath = new google.maps.Polyline({
+                                path: [
+                                    {
+                                        lat: parseFloat(pointList[j][pointList[j].length - 1].history_latitude),
+                                        lng: parseFloat(pointList[j][pointList[j].length - 1].history_longitude)
+                                    }, {
+                                        lat: parseFloat(data[i].history_latitude),
+                                        lng: parseFloat(data[i].history_longitude)
+                                    }
+                                ],
+                                geodesic: true,
+                                strokeColor: '#FF0000',
+                                strokeOpacity: 1.0,
+                                strokeWeight: 2
+                            });
+                            patrolPath.setMap(map);
+                            pointList[j].push(data[i]);
+                            oldUserAndTeam = true;
+                        }
+                        idxPointList = j;
+                    } 
+                }
+                if(!oldUserAndTeam) {
+                    pointList[idxPointList + 1] = [];
+                    pointList[idxPointList + 1][0] = (data[i]);
+                }
             }
         }
         
@@ -144,7 +147,7 @@
             });
         }
 
-        function reloadMarker(){
+        function reloadMarkerAndPolyline(){
             $.ajax({
                 url: 'https://api.retrack-app.site/history/today',
                 crossDomain: true,
@@ -155,13 +158,10 @@
                     'Authorization': 'Bearer <?php echo Session::get('token');?>'
                 },
                 success: function (result) {
-                    console.log(result);
                     for (let i = 0; i < result.length; i++) {
                         addMarker(result[i]);
                     }
-                    for (let i = 1; i < result.length; i++) {
-                        addPolyline(result[i-1], result[i]);
-                    }
+                    addPolyline(result);
                 },
                 error: function (error) {
                     console.log(error);

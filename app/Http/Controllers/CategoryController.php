@@ -30,8 +30,9 @@ class CategoryController extends Controller
                 ]
         ])->getBody()->getContents();
     
-        $jsonObjs = json_decode($response);
+        $jsonObj = json_decode($response);
+        $category = $jsonObj;
 
-        
+        // return view('data.kategori-show',compact('category'))->renderSections()['content'];
     }
 }
