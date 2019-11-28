@@ -19,22 +19,51 @@
 // API Welcome Page
 Route::get('/', 'AuthController@root');
 
+// * Auth *
 // Load Login Page
-Route::get('/login', function () {
-    return view('admin.login');
-})->name('login');
-
+Route::get('/login', 'AuthController@loginPage')->name('login');
 // Post user_employee_id and user_password to get JWT
 Route::post('/testLogin', 'AuthController@login')->name('testLogin');
+// Log out
+Route::get('/logout', 'AuthController@logout')->name('logout');
+// * Auth *
 
+// * Live Tracking *
 Route::get('/maps', 'MapsController@index')->name('maps');
 Route::get('/maps-one', 'MapsController@mapsOne')->name('maps-one');
+// * Live Tracking *
+
+// * Polisi *
+// Show All
+Route::get('/data-polisi', 'PoliceController@index')->name('police');
+// Load Create Form
+Route::get('/data-polisi/create', 'PoliceController@create')->name('police.create');
+// Post To API
+Route::post('/data-polisi/store', 'PoliceController@store')->name('police.store');
+// Show Data
+Route::get('/data-polisi/{id}', 'PoliceController@show')->name('police.show');
+// Load Update Form
+Route::post('/data-polisi/{id}/update', 'PoliceController@update')->name('police.update');
+// Put To API
+Route::get('/data-polisi/{id}/edit', 'PoliceController@edit')->name('police.edit');
+// Delete Data
+Route::get('/data-polisi/{id}/delete', 'PoliceController@delete')->name('police.delete');
+// * Polisi *
+
+// ** Belum Dirapiin **
+// Mobil
+Route::get('/data-mobil', 'CarController@index')->name('car');
+Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
+Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
+
+Route::get('/data-kategori', 'CategoryController@index')->name('category');
+Route::get('/data-kategori/{id}', 'CategoryController@show')->name('category.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/agenda', 'AgendaController@index')->name('agenda');
 
-Route::get('/add-agenda', 'AddAgendaController@index')->name('add-agenda');
+Route::get('/agenda/add', 'AgendaController@add')->name('agenda.add');
 
 Route::get('/chat', 'ChatController@index')->name('chat');
 
@@ -42,28 +71,10 @@ Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('laporan-po
 
 Route::get('/laporan-warga', 'LaporanWargaController@index')->name('laporan-warga');
 
-Route::get('/data-kategori', 'CategoryController@index')->name('category');
-Route::get('/data-kategori/{id}', 'CategoryController@show')->name('category.show');
-
-// Mobil
-Route::get('/data-mobil', 'CarController@index')->name('car');
-Route::post('/data-mobil/create', 'CarController@create')->name('car.create');
-
-Route::get('/data-polisi', function () {
-    return view('data.data-polisi');
-});
-
 Route::get('/data-lokasi', function () {
     return view('data.data-lokasi');
 });
 
-
-Route::get('/create-police', 'CreatePoliceController@index')->name('create-police');
-Route::get('/details-police', 'DetailsPoliceController@index')->name('details-police');
-
-
-
 Route::get('/create-car', 'CreateCarController@index')->name('create-car');
-
 
 Route::get('/history', 'HistoryController@index')->name('history');

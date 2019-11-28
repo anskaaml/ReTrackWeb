@@ -112,10 +112,11 @@
                     '<div id="content">'+
                         '<div id="siteNotice">'+'</div>'+
                         '<div id="bodyContent">'+
-                            '<p>' + data.user.user_employee_id +'</p>'+
-                            '<p>' + data.history_longitude +'</p>'+
-                            '<p>' + data.history_latitude +'</p>'+
-                            '<p>' + data.history_datetime +'</p>'+
+                            '<p> User :' + data.user.user_employee_id +'</p>'+
+                            '<p> Team :' + data.team_id +'</p>'+
+                            '<p> Long :' + data.history_longitude +'</p>'+
+                            '<p> Lat :' + data.history_latitude +'</p>'+
+                            '<p> Time :' + data.history_datetime +'</p>'+
                         '</div>'+
                     '</div>';
 

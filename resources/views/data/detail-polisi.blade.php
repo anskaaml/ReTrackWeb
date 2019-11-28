@@ -18,27 +18,36 @@
     <div class="modal-content-details">
       <span class="form-title">Details Police</span>
       <br>
-        <a>Police Name</a>
+        <strong>Employee ID</strong>
+      <br>
+        <?= $police->user_employee_id ?>
       <br>
       <br>
+        <strong>Name</strong>
       <br>
-        <a>Rank</a>
+        <?= $police->user_name ?>
       <br>
       <br>
+        <strong>Date of Birth</strong>
       <br>
-        <a>Status</a>
-      <br>
+        <?= $police->user_birthdate ?>
       <br>
       <br>
       <br>
       <br>
 
       <div class="container-details-btn">
-        <button type="button" class="crud-btn">Delete</button>
+        <a href="{{ route('police.delete', ['id' => $police->user_id]) }}">
+          <button type="button" class="crud-btn">Delete</button>
+        </a>
         &emsp;
-        <button type="button" class="crud-btn" onclick="window.location='http://localhost:8000/create-police' ">Update</button>
+        <a href="{{ route('police.edit', ['id' => $police->user_id]) }}">
+          <button type="button" class="crud-btn">Update</button>
+        </a>
         &emsp;
-        <button type="button" class="crud-btn" onclick="window.location='http://localhost:8000/data-polisi' " >Cancel</button>
+        <a href="{{ route('police') }}">
+          <button type="button" class="crud-btn">Cancel</button>
+        </a>
       </div>
   </div>
 </div>

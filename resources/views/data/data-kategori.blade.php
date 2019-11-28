@@ -14,11 +14,7 @@
     <div class="card card-plain">
         <p class="sub-title">Data Categories</p>
         <div class="card-header">
-<<<<<<< HEAD
           <button id="myBtn" class="data-kategori-btn">Add Category</button> 
-=======
-          <button id="myBtn-form" class="data-kategori-btn">Create Category</button> 
->>>>>>> cb3afeb21f59c0f84441271b160e0513435d2b9f
         </div>
         <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
         <div class="card-body">
