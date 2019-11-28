@@ -129,5 +129,4 @@
   <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/now-ui-dashboard.min.js?v=1.3.0') }}" type="text/javascript"></script>
   <!-- <script src="../assets/demo/demo.js"></script> -->
-  </body>
-</html>
+</body>
