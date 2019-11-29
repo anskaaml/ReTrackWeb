@@ -37,6 +37,7 @@ class CarController extends Controller
     
         $jsonObjs = json_decode($response);
         
+        return view('data.create-car', ['cars' => $jsonObjs]);
         return redirect()->route('car');
     }
 }

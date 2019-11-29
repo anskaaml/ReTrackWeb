@@ -57,13 +57,13 @@ Route::get('/data-lokasi', function () {
     return view('data.data-lokasi');
 });
 
+Route::post('/create-car', function () {
+    return view('data.create-car');
+});
 
-Route::get('/create-police', 'CreatePoliceController@index')->name('create-police');
+// Route::get('/create-police', 'CreatePoliceController@index')->name('create-police');
 Route::get('/details-police', 'DetailsPoliceController@index')->name('details-police');
 
-
-
 Route::get('/create-car', 'CreateCarController@index')->name('create-car');
-
 
 Route::get('/history', 'HistoryController@index')->name('history');

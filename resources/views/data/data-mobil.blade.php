@@ -14,11 +14,7 @@
     <div class="card card-plain">
       <p class="sub-title">Data Cars</p>
     <div class="card-header">
-<<<<<<< HEAD
-      <button id="myBtn-form" class="data-btn" type="button" onclick="window.location='http://localhost:8000/create-car' ">Create Car</button> 
-=======
-      <button id="myBtn" class="data-btn">Create Car</button> 
->>>>>>> cb3afeb21f59c0f84441271b160e0513435d2b9f
+      <button class="data-btn" type="button" onclick="window.location='{{ route('create-car') }}' ">Create Car</button> 
     </div>
     <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
     <div class="card-body">
