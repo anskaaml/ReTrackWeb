@@ -6,12 +6,12 @@ use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class RoleController extends Controller{
+class LocationController extends Controller{
     public function index()
     {
         try {
             $token = Session::get('token');
-            $response= $this->client->request('GET', $this->base_url.'/role', [
+            $response= $this->client->request('GET', $this->base_url.'/location', [
                 'headers' => [
                     'Authorization' => "Bearer {$token}"
                     ]
@@ -19,7 +19,7 @@ class RoleController extends Controller{
         
             $jsonObjs = json_decode($response);
             
-            return view('data.data-role', ['roles' => $jsonObjs]);
+            return view('data.data-location', ['locations' => $jsonObjs]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -32,9 +32,9 @@ class RoleController extends Controller{
     
     public function show($id){    
         try {
-            $jsonObjs = json_decode($this->getRole($id));
+            $jsonObjs = json_decode($this->getLocation($id));
 
-            return view('data.detail-role', ['role' => $jsonObjs]);
+            return view('data.detail-location', ['location' => $jsonObjs]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -45,10 +45,10 @@ class RoleController extends Controller{
         }
     }
 
-    public function getRole($id)
+    public function getLocation($id)
     {
         $token = Session::get('token');
-        return $response= $this->client->request('GET', $this->base_url.'/role/'.$id, [
+        return $response= $this->client->request('GET', $this->base_url.'/location/'.$id, [
             'headers' => [
                 'Authorization' => "Bearer {$token}"
                 ]
@@ -59,15 +59,15 @@ class RoleController extends Controller{
     {
         try {
             $token = Session::get('token');
-            $response= $this->client->request('DELETE', $this->base_url.'/role/'.$id.'/delete', [
+            $response= $this->client->request('DELETE', $this->base_url.'/location/'.$id.'/delete', [
                 'headers' => [
                     'Authorization' => "Bearer {$token}"
                     ]
             ])->getBody()->getContents();
 
             return redirect()
-                ->route('role')
-                ->with('success', 'Role has been deleted!');
+                ->route('location')
+                ->with('success', 'Location has been deleted!');
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -81,7 +81,7 @@ class RoleController extends Controller{
     public function create()
     {
         if(Session::get('token')) {
-            return view('data.createOrUpdate-role');
+            return view('data.createOrUpdate-location');
         } else {
             return redirect()
                 ->route('login');
@@ -93,9 +93,11 @@ class RoleController extends Controller{
         try {
             $token = Session::get('token');
             $response = $this->client
-                ->request('POST', $this->base_url.'/role',  [
+                ->request('POST', $this->base_url.'/location',  [
                     'form_params' => [
-                        'role_name' => $request->input('role_name'),
+                        'location_name' => $request->input('location_name'),
+                        'location_longitude' => $request->input('location_longitude'),
+                        'location_latitude' => $request->input('location_latitude'),
                     ],
                     'headers' => [
                         'Authorization' => "Bearer {$token}"
@@ -105,8 +107,8 @@ class RoleController extends Controller{
             $jsonObj = json_decode($response);
 
             return redirect()
-                ->route('role')
-                ->with('success', 'Role has been created!');
+                ->route('location')
+                ->with('success', 'Location has been created!');
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -119,9 +121,9 @@ class RoleController extends Controller{
 
     public function edit($id)
     {
-        $jsonObjs = json_decode($this->getRole($id));
+        $jsonObjs = json_decode($this->getLocation($id));
 
-        return view('data.createOrUpdate-role', ['role' => $jsonObjs]);
+        return view('data.createOrUpdate-location', ['location' => $jsonObjs]);
     }
 
     public function update(Request $request, $id)
@@ -129,9 +131,11 @@ class RoleController extends Controller{
         try {
             $token = Session::get('token');
             $response = $this->client
-                ->request('PUT', $this->base_url.'/role/'.$id, [
+                ->request('PUT', $this->base_url.'/location/'.$id, [
                     'form_params' => [
-                        'role_name' => $request->input('role_name'),
+                        'location_name' => $request->input('location_name'),
+                        'location_longitude' => $request->input('location_longitude'),
+                        'location_latitude' => $request->input('location_latitude'),
                     ],
                     'headers' => [
                         'Authorization' => "Bearer {$token}"
@@ -141,8 +145,8 @@ class RoleController extends Controller{
             $jsonObj = json_decode($response);
 
             return redirect()
-                ->route('role')
-                ->with('success', 'Role has been updated!');
+                ->route('location')
+                ->with('success', 'Location has been updated!');
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
