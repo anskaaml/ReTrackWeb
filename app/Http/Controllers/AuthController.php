@@ -14,6 +14,11 @@ class AuthController extends Controller {
         return $response;
     }
 
+    public function loginPage()
+    {
+        return view('admin.login');
+    }
+
     public function login(Request $request)
     {
         $response = $this->client
@@ -22,9 +27,8 @@ class AuthController extends Controller {
                     'user_employee_id' => $request->input('user_employee_id'),
                     'user_password' => $request->input('user_password')
             ]
-        ]);
-        
-        $response = $response->getBody()->getContents();
+        ])->getBody()->getContents();
+
         $jsonObj = json_decode($response);
         if (isset($jsonObj->token)) {
             Session::put('token', $jsonObj->token);
@@ -33,5 +37,12 @@ class AuthController extends Controller {
         }
 
         return redirect()->route('login')->with('failed', 'User is not registered');
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+
+        return redirect()->route('login');
     }
 }

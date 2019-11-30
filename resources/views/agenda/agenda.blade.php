@@ -33,7 +33,9 @@
                         <td></td>
                         <td></td>
                         <td>
-                          <button class="details-btn" id="myBtn-agenda">Details</button>
+                        <a href="http://localhost:8000/detail-agenda">
+                          <button class="details-btn" >Details</button>
+                        </a>
                         </td>
                       </tr>
                     </tbody>
@@ -44,24 +46,8 @@
           </div>
       </div>
 
-      <div id="myModal-agenda" class="modal-agenda">
-    <div class="modal-content-agenda">
-      <span class="form-title-agenda">Agenda Details</span>
-          <a style="padding:100px;">Member</a>
-          <a style="padding:100px;">Car</a>
-          <a style="padding:70px;">Date</a>
-          <br>
-          <br>
-          <br>
-          <div class="maps-agenda2" id="maps-agenda2"></div>  
-  </div>
-</div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/search.js"></script>
 <script src="../assets/js/popup-agenda.js"></script>
-<script src="../assets/js/maps-agenda2.js"></script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug&callback=initMap"></script>
 @endsection
 

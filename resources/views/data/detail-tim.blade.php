@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    CRUD > Data Police
+    CRUD > Data Team Police
 @endsection
 
 @section('content')
@@ -16,29 +16,33 @@
     <div class="card-body">
     <div id="myModal-details" class="modal-details">
     <div class="modal-content-details">
-      <span class="form-title">Details Police</span>
+      <span class="form-title">Details Team</span>
       <br>
-        <a>Police Name</a>
+        <strong>Team Name</strong>
       <br>
-      <br>
-      <br>
-        <a>Rank</a>
+
       <br>
       <br>
+        <strong>Coordinator</strong>
       <br>
-        <a>Status</a>
+        
       <br>
+      <br>
+        <strong>Member</strong>
+      <br>
+        
       <br>
       <br>
       <br>
       <br>
 
       <div class="container-details-btn">
-        <button type="button" class="crud-btn">Delete</button>
+          <button type="button" class="crud-btn">Delete</button>
         &emsp;
-        <button type="button" class="crud-btn" onclick="window.location='http://localhost:8000/create-police' ">Update</button>
+
+          <button type="button" class="crud-btn">Update</button>
         &emsp;
-        <button type="button" class="crud-btn" onclick="window.location='http://localhost:8000/data-polisi' " >Cancel</button>
+          <button type="button" class="crud-btn">Cancel</button>
       </div>
   </div>
 </div>

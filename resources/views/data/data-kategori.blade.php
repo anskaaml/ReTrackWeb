@@ -14,11 +14,7 @@
     <div class="card card-plain">
         <p class="sub-title">Data Categories</p>
         <div class="card-header">
-<<<<<<< HEAD
           <button id="myBtn" class="data-kategori-btn">Add Category</button> 
-=======
-          <button id="myBtn-form" class="data-kategori-btn">Create Category</button> 
->>>>>>> cb3afeb21f59c0f84441271b160e0513435d2b9f
         </div>
         <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
         <div class="card-body">
@@ -49,37 +45,6 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<div id="myModal" class="modal-form">
-  <div class="modal-content3">
-    <form>
-      <span class="form-title2">Create Category</span>
-      <input class="input-form" type="text" name="kategori" placeholder="Nama Kategori">
-      <br>
-      <div class="container-form-btn">
-        <button type="submit" class="form-btn">Create</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div id="myModal-details" class="modal-details">
-  <div class="modal-content-details3">
-    <span class="form-title">Category Details</span>
-    <br>
-    <a>Category Name</a>
-    <br>
-    <br>
-    <br>
-    <div class="container-details-btn">
-      <button type="submit" class="crud-btn">Delete</button>
-        &emsp;
-      <button type="submit" class="crud-btn">Update</button>
-        &emsp;
-      <button type="submit" class="crud-btn" id="btn-cancel">Cancel</button>
     </div>
   </div>
 </div>

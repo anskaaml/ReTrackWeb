@@ -9,30 +9,24 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $token = Session::get('token');
-        $response= $this->client->request('GET', $this->base_url.'/category', [
-            'headers' => [
-                'Authorization' => "Bearer {$token}"
-                ]
-        ])->getBody()->getContents();
-    
-        $jsonObjs = json_decode($response);
+        try {
+            $token = Session::get('token');
+            $response= $this->client->request('GET', $this->base_url.'/category', [
+                'headers' => [
+                    'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+        
+            $jsonObjs = json_decode($response);
 
-        return view('data.data-kategori', ['categories' => $jsonObjs]);
-    }
-
-    public function show($id)
-    {
-        $token = Session::get('token');
-        $response= $this->client->request('GET', $this->base_url.'/category/'.$id, [
-            'headers' => [
-                'Authorization' => "Bearer {$token}"
-                ]
-        ])->getBody()->getContents();
-    
-        $jsonObj = json_decode($response);
-        $category = $jsonObj;
-
-        // return view('data.kategori-show',compact('category'))->renderSections()['content'];
+            return view('data.data-kategori', ['categories' => $jsonObjs]);
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
+        }
     }
 }
