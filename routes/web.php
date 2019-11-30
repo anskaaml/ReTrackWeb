@@ -50,6 +50,12 @@ Route::get('/data-polisi/{id}/edit', 'PoliceController@edit')->name('police.edit
 Route::get('/data-polisi/{id}/delete', 'PoliceController@delete')->name('police.delete');
 // * Polisi *
 
+// * Agenda *
+Route::get('/agenda', 'AgendaController@index')->name('agenda');
+Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
+Route::get('/agenda/add', 'AgendaController@add')->name('agenda.add');
+// * Agenda *
+
 // ** Belum Dirapiin **
 // Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
@@ -60,10 +66,6 @@ Route::get('/data-kategori', 'CategoryController@index')->name('category');
 Route::get('/data-kategori/{id}', 'CategoryController@show')->name('category.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/agenda', 'AgendaController@index')->name('agenda');
-
-Route::get('/agenda/add', 'AgendaController@add')->name('agenda.add');
 
 Route::get('/chat', 'ChatController@index')->name('chat');
 

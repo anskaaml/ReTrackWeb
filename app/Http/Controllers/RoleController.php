@@ -19,7 +19,7 @@ class RoleController extends Controller{
         
             $jsonObjs = json_decode($response);
             
-            return view('data.data-role', ['role' => $jsonObjs]);
+            return view('data.data-role', ['roles' => $jsonObjs]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
