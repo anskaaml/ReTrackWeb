@@ -1,4 +1,11 @@
 
+.close{
+  color: #AAAAAA;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
 .container-agenda {
   width: 80%;
   display: -webkit-box;
@@ -177,7 +184,7 @@
 }
 
 .modal-agenda {
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed;
   z-index: 1; /* Sit on top */
   padding: 50px 20px 65px 20px; /* Location of the box */

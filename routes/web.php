@@ -62,21 +62,51 @@ Route::get('/data-mobil', 'CarController@index')->name('car');
 Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
 
+Route::get('/crud-mobil', function () {
+    return view('data.createOrUpdate-mobil');
+});
+Route::get('/detail-mobil', function () {
+    return view('data.detail-mobil');
+});
+
+// Kategori
 Route::get('/data-kategori', 'CategoryController@index')->name('category');
 Route::get('/data-kategori/{id}', 'CategoryController@show')->name('category.show');
+
+Route::get('/crud-kategori', function () {
+    return view('data.createOrUpdate-kategori');
+});
+Route::get('/detail-kategori', function () {
+    return view('data.detail-kategori');
+});
+
+// Lokasi
+Route::get('/data-lokasi', function () {
+    return view('data.data-lokasi');
+});
+Route::get('/crud-lokasi', function () {
+    return view('data.createOrUpdate-lokasi');
+});Route::get('/detail-lokasi', function () {
+    return view('data.detail-lokasi');
+});
+
+// Tim
+Route::get('/data-tim', function () {
+    return view('data.data-tim');
+});
+Route::get('/crud-tim', function () {
+    return view('data.createOrUpdate-tim');
+});
+Route::get('/detail-tim', function () {
+    return view('data.detail-tim');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/chat', 'ChatController@index')->name('chat');
 
 Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('laporan-polisi');
-
 Route::get('/laporan-warga', 'LaporanWargaController@index')->name('laporan-warga');
 
-Route::get('/data-lokasi', function () {
-    return view('data.data-lokasi');
-});
-
-Route::get('/create-car', 'CreateCarController@index')->name('create-car');
-
 Route::get('/history', 'HistoryController@index')->name('history');
+

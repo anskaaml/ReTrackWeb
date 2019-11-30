@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    CRUD > Create Car
+    CRUD > Create Category
 @endsection
 
 @section('content')
@@ -15,17 +15,14 @@
             <div class="card-header"></div>
             <div class="card-body">
                 <div id="myModal-form" class="modal-form">
-                    <div class="modal-content">
+                    <div class="modal-content3">
                     <form>
-                        <span class="form-title">Create Car</span>
-                        <input class="input-form" type="text" name="number" placeholder="Car Number">
+                        <span class="form-title">Create Category</span>
                         <br>
-                        <input class="input-form" type="text" name="brand" placeholder="Car Brand">
-                        <br>
-                        <input class="input-form" type="text" name="type" placeholder="Car Type">
+                        <input class="input-form" type="text" name="category_name" placeholder="Category Name">
                         <br>
                         <div class="container-form-btn">
-                            <button type="submit" class="form-btn">Create</button>
+                            <button type="submit" class="form-btn">Done</button>
                         </div>
                     </form>
                     </div>
