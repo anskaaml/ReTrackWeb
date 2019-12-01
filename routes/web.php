@@ -74,6 +74,24 @@ Route::get('/detail-kategori', function () {
     return view('data.detail-kategori');
 });
 
+
+// * Role *
+// Show All
+Route::get('/data-role', 'RoleController@index')->name('role');
+// Load Create Form
+Route::get('/data-role/create', 'RoleController@create')->name('role.create');
+// Post To API
+Route::post('/data-role/store', 'RoleController@store')->name('role.store');
+// Show Data
+Route::get('/data-role/{id}', 'RoleController@show')->name('role.show');
+// Load Update Form
+Route::post('/data-role/{id}/update', 'RoleController@update')->name('role.update');
+// Put To API
+Route::get('/data-role/{id}/edit', 'RoleController@edit')->name('role.edit');
+// Delete Data
+Route::get('/data-role/{id}/delete', 'RoleController@delete')->name('role.delete');
+// * Role *
+
 // Lokasi
 Route::get('/data-lokasi', function () {
     return view('data.data-lokasi');
