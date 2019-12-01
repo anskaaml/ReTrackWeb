@@ -52,8 +52,8 @@ Route::get('/data-polisi/{id}/delete', 'PoliceController@delete')->name('police.
 
 // * Agenda *
 Route::get('/agenda', 'AgendaController@index')->name('agenda');
+Route::get('/agenda/create', 'AgendaController@create')->name('agenda.create');
 Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
-Route::get('/agenda/add', 'AgendaController@add')->name('agenda.add');
 // * Agenda *
 
 // ** Belum Dirapiin **

@@ -39,9 +39,9 @@
                     <td>{{ $team->car->car_number }}</td>
                     <td>{{ $team->agenda->agenda_date }}</td>
                     <td>
-                      <!-- <a href="{{ route('agenda.show', ['id' => $team->team_id]) }}"> -->
+                      <a href="{{ route('agenda.show', ['id' => $team->team_id]) }}">
                         <button class="details-btn" id="myBtn-agenda" type="button">Details</button>
-                      <!-- </a> -->
+                      </a>
                     </td>
                   </tr>
                 @endforeach

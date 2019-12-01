@@ -6,8 +6,7 @@ use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AgendaController extends Controller{
-    
+class AgendaController extends Controller{    
     public function index()
     {
         try {
@@ -31,6 +30,16 @@ class AgendaController extends Controller{
         }
     }
 
+    public function create()
+    {
+        if(Session::get('token')) {
+            return view('agenda.create-agenda');
+        } else {
+            return redirect()
+                ->route('login');
+        }
+    }
+    
     public function show($id)
     {
         try {
@@ -43,8 +52,7 @@ class AgendaController extends Controller{
         
             $jsonObjs = json_decode($response);
             
-            return view('admin.home');
-            // return view('agenda.detail-agenda', ['team' => $jsonObjs]);
+            return view('agenda.detail-agenda', ['team' => $jsonObjs]);
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -53,10 +61,5 @@ class AgendaController extends Controller{
                 echo($e->getResponse()->getBody());
             }
         }
-    }
-
-    public function add()
-    {
-        return view('agenda.create-agenda');
     }
 }
