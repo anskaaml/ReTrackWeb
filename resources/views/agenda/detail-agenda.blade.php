@@ -30,7 +30,11 @@
                             {{ $user->user_name }},
                         @endforeach
                         </a>
+                        @if($team->car)
                         <a>{{ $team->car->car_number }}</a>
+                        @else
+                        <a></a>
+                        @endif
                         <a style="padding:70px;">{{ $team->agenda->agenda_date }}</a>
                         <br>
                         <br>
