@@ -36,7 +36,11 @@
                         {{ $user->user_name }},
                       @endforeach
                     </td>
+                    @if($team->car)
                     <td>{{ $team->car->car_number }}</td>
+                    @else
+                    <td></td>
+                    @endif
                     <td>{{ $team->agenda->agenda_date }}</td>
                     <td>
                       <a href="{{ route('agenda.show', ['id' => $team->team_id]) }}">
