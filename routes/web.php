@@ -50,7 +50,14 @@ Route::get('/data-polisi/{id}/edit', 'PoliceController@edit')->name('police.edit
 Route::get('/data-polisi/{id}/delete', 'PoliceController@delete')->name('police.delete');
 // * Polisi *
 
-// * Mobil *
+// * Agenda *
+Route::get('/agenda', 'AgendaController@index')->name('agenda');
+Route::get('/agenda/create', 'AgendaController@create')->name('agenda.create');
+Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
+// * Agenda *
+
+// ** Belum Dirapiin **
+// Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
 Route::post('/data-mobil/store_car', 'CarController@store')->name('car.store');
@@ -67,6 +74,24 @@ Route::get('/data-kategori/{id}', 'CategoryController@show')->name('category.sho
 Route::post('/data-kategori/{id}/update', 'CategoryController@update')->name('category.update');
 Route::get('/data-kategori/{id}/edit', 'CategoryController@edit')->name('category.edit');
 Route::get('/data-kategori/{id}/delete', 'CategoryController@delete')->name('category.delete');
+
+
+// * Role *
+// Show All
+Route::get('/data-role', 'RoleController@index')->name('role');
+// Load Create Form
+Route::get('/data-role/create', 'RoleController@create')->name('role.create');
+// Post To API
+Route::post('/data-role/store', 'RoleController@store')->name('role.store');
+// Show Data
+Route::get('/data-role/{id}', 'RoleController@show')->name('role.show');
+// Load Update Form
+Route::post('/data-role/{id}/update', 'RoleController@update')->name('role.update');
+// Put To API
+Route::get('/data-role/{id}/edit', 'RoleController@edit')->name('role.edit');
+// Delete Data
+Route::get('/data-role/{id}/delete', 'RoleController@delete')->name('role.delete');
+// * Role *
 
 // Lokasi
 Route::get('/data-lokasi', 'LocationController@index')->name('location');
@@ -88,20 +113,6 @@ Route::get('/data-tim/{id}/delete', 'TeamController@delete')->name('team.delete'
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Agenda
-Route::get('/agenda', 'AgendaController@index')->name('agenda');
-Route::get('/agenda/add', 'AgendaController@add')->name('agenda.add');
-
-Route::get('/add-agenda', function () {
-    return view('agenda.add-agenda');
-});
-Route::get('/detail-agenda', function () {
-    return view('agenda.detail-agenda');
-});
-Route::get('/add-member', function () {
-    return view('agenda.add-member');
-});
 
 Route::get('/chat', 'ChatController@index')->name('chat');
 

@@ -38,7 +38,7 @@
 
         setInterval(function () {
             reloadMarkerAndPolyline();
-        }, 15000);
+        }, 60000);
 
         function isMarkerExist(id){
             var found = false;

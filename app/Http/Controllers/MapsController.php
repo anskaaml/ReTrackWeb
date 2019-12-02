@@ -9,12 +9,22 @@ use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
 class MapsController extends Controller {
     public function index()
     {
-        return view('admin.maps');
+        if(Session::get('token')) {
+            return view('admin.maps');
+        } else {
+            return redirect()
+                ->route('login');
+        }
     }
 
     public function mapsOne()
     {
-        return view('admin.maps-one');
+        if(Session::get('token')) {
+            return view('admin.maps-one');
+        } else {
+            return redirect()
+                ->route('login');
+        }
     }
 }
 
