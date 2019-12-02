@@ -34,85 +34,47 @@
     <script>
         var map;
         var markerList = [];
-        var pointList = [];
+        var gmapMarkers = [];
 
         setInterval(function () {
             reloadMarker();
-        }, 5000);
+        }, 10000);
 
-        function isMarkerExist(id){
+        function isMarkerExist(data){
             var found = false;
 
-            for (i in markerList){
-                var idx = markerList[i];
-                if (idx == id){
+            for (var i = 0 ; i < data.length ; i++){
+                if (markerList[i].history_id == data.history_id) {
                     found = true;
+                    break;
+                } else if (markerList[i].team_id == data.team_id) {
+                    markerList.splice(i, 1);
+                    gmapMarkers[i].setMap(null);
+                    gmapMarkers.splice(i, 1);
                     break;
                 }
             }
 
             if (!found){
-                markerList.push(id);
+                markerList.push(data);
             }
 
             return found;
-        }
-
-        function isPolylineExist(id1, id2) {
-            var found = false;
-
-            for (let i = 1; i < pointList.length ; i++ ){
-                var idx1 = pointList[i-1];
-                var idx2 = pointList[i];
-                if (idx1 == id1 && idx2 == id2){
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found){
-                pointList.push(id2);
-            }
-
-            return found;
-        }
-
-        function addPolyline(data1, data2) {
-            var exist = isPolylineExist(data1.history_id, data2.history_id);
-
-            if(!exist) {
-                var patrolPath = new google.maps.Polyline({
-                    path: [
-                        {
-                            lat: parseFloat(data1.history_latitude),
-                            lng: parseFloat(data1.history_longitude)
-                        }, {
-                            lat: parseFloat(data2.history_latitude),
-                            lng: parseFloat(data2.history_longitude)
-                        }
-                    ],
-                    geodesic: true,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 1.0,
-                    strokeWeight: 2
-                });
-
-                patrolPath.setMap(map);
-            }
         }
         
         function addMarker(data){
-            var exist = isMarkerExist(data.history_id);
+            var exist = isMarkerExist(data);
             
             if (!exist){
                 var contentString = 
                     '<div id="content">'+
                         '<div id="siteNotice">'+'</div>'+
                         '<div id="bodyContent">'+
-                            '<p>' + data.user.user_employee_id +'</p>'+
-                            '<p>' + data.history_longitude +'</p>'+
-                            '<p>' + data.history_latitude +'</p>'+
-                            '<p>' + data.history_datetime +'</p>'+
+                            '<p> User :' + data.user.user_employee_id +'</p>'+
+                            '<p> Team :' + data.team_id +'</p>'+
+                            '<p> Long :' + data.history_longitude +'</p>'+
+                            '<p> Lat :' + data.history_latitude +'</p>'+
+                            '<p> Time :' + data.history_datetime +'</p>'+
                         '</div>'+
                     '</div>';
 
@@ -134,6 +96,8 @@
                 marker.addListener('click', function() {
                     infowindow.open(map, marker);
                 });
+                
+                gmapMarkers.push(marker);
             }
 
         }
@@ -146,7 +110,7 @@
 
         function reloadMarker(){
             $.ajax({
-                url: 'https://api.retrack-app.site/history/today',
+                url: 'https://api.retrack-app.site/history/latest',
                 crossDomain: true,
                 async: false,
                 type: 'GET',
@@ -155,12 +119,8 @@
                     'Authorization': 'Bearer <?php echo Session::get('token');?>'
                 },
                 success: function (result) {
-                    console.log(result);
                     for (let i = 0; i < result.length; i++) {
                         addMarker(result[i]);
-                    }
-                    for (let i = 1; i < result.length; i++) {
-                        addPolyline(result[i-1], result[i]);
                     }
                 },
                 error: function (error) {

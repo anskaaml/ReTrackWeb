@@ -46,9 +46,11 @@
     $totalLong = 0;
     $avgLat;
     $totalLat = 0;
-    $startLat = $team->agenda->checkpoints[0]->checkpoint_latitude;
-    $startLong = $team->agenda->checkpoints[0]->checkpoint_longitude;
     $checkpoints = $team->agenda->checkpoints;
+    $startLat = $checkpoints[0]->checkpoint_latitude;
+    $endLat = $checkpoints[count($checkpoints) - 1]->checkpoint_latitude;
+    $startLong = $checkpoints[0]->checkpoint_longitude;
+    $endLong = $checkpoints[count($checkpoints) - 1]->checkpoint_longitude;
     foreach ($checkpoints as $checkpoint) {
         $totalLong += $checkpoint->checkpoint_longitude;
         $totalLat += $checkpoint->checkpoint_latitude;
@@ -61,7 +63,7 @@
     function initMap(){
         var waypts = [];
         <?php
-            for ($i=1; $i < count($checkpoints); $i++) { 
+            for ($i=1; $i < count($checkpoints) - 1; $i++) { 
         ?>
             waypts.push({
                 location: 
@@ -77,6 +79,7 @@
         var directionsService = new google.maps.DirectionsService();
         var directionsRenderer = new google.maps.DirectionsRenderer();
         var start = new google.maps.LatLng(<?= $startLat ?>, <?= $startLong ?>);
+        var end = new google.maps.LatLng(<?= $endLat ?>, <?= $endLong ?>);
         var map = new google.maps.Map(
             document.getElementById('maps-agenda2'), {
                 zoom: 15, 
@@ -87,7 +90,7 @@
         directionsService.route(
             {
                 origin: start,
-                destination: start,
+                destination: end,
                 waypoints: waypts,
                 optimizeWaypoints: false,
                 travelMode: 'DRIVING'

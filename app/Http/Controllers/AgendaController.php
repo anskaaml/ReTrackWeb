@@ -20,7 +20,7 @@ class AgendaController extends Controller{
             $jsonObjs = json_decode($response);
             
             return view('agenda.agenda', ['teams' => $jsonObjs]);
-        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+        } catch(\Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
@@ -53,7 +53,7 @@ class AgendaController extends Controller{
             $jsonObjs = json_decode($response);
             
             return view('agenda.detail-agenda', ['team' => $jsonObjs]);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
