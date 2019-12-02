@@ -18,31 +18,32 @@
     <div class="modal-content-details">
       <span class="form-title">Details Team</span>
       <br>
-        <strong>Team Name</strong>
-      <br>
-
+        <strong>Car ID</strong>&emsp;&emsp;&emsp;&emsp;<?= $team->car_id ?>
       <br>
       <br>
-        <strong>Coordinator</strong>
       <br>
-        
+        <strong>Police ID</strong>&emsp;&emsp;&emsp;<?= $team->user_id ?>
       <br>
       <br>
-        <strong>Member</strong>
       <br>
-        
+        <strong>Agenda ID</strong>&emsp;&emsp;<?= $team->agenda_id ?>
       <br>
       <br>
       <br>
       <br>
 
       <div class="container-details-btn">
+      <a href="{{ route('team.delete', ['id' => $team->car_id]) }}">
           <button type="button" class="crud-btn">Delete</button>
+      </a>
         &emsp;
-
+      <a href="{{ route('team.edit', ['id' => $team->user_id]) }}">
           <button type="button" class="crud-btn">Update</button>
+      </a>
         &emsp;
+      <a href="{{ route('team') }}">
           <button type="button" class="crud-btn">Cancel</button>
+      </a>
       </div>
   </div>
 </div>

@@ -14,7 +14,9 @@
             <div class="card card-plain">
                 <p class="sub-title">Data Locations</p>
               <div class="card-header">
-                <button class="data-btn">Create Location</button> 
+              <a href="{{ route('location.create') }}">
+                <button class="data-lokasi-btn">Create Location</button>
+              </a> 
               </div>
                 <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -22,19 +24,29 @@
                   <table class="table" id="table">
                     <thead class="text-primary">
                       <th>#</th>
-                      <th>Area Name</th>  
-                      <th>Coordinate</th>
+                      <th>Location Name</th>  
+                      <th>Longitude</th>
+                      <th>Latitude</th>
                       <th>Action</th>
                     </thead>
                     <tbody id="myTable">
+                      @if($locations)
+                        @foreach($locations as $location)
                       <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $location->location_name }}</td>
+                        <td>{{ $location->location_longitude }}</td>
+                        <td>{{ $location->location_latitude }}</td>
                         <td>
+                        <a href="{{ route('location.show', ['id' => $location->location_id]) }}">
                           <button class="details-btn">Details</button>
+                        </a>
                         </td>
                       </tr>
+                      @endforeach
+                  @else
+                    <p class="text-center text-primary">No Location Created Yet!</p>
+                  @endif
                     </tbody>
                   </table>
                 </div>

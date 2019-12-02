@@ -19,7 +19,7 @@ class LocationController extends Controller{
         
             $jsonObjs = json_decode($response);
             
-            return view('data.data-location', ['locations' => $jsonObjs]);
+            return view('data.data-lokasi', ['locations' => $jsonObjs]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -34,7 +34,7 @@ class LocationController extends Controller{
         try {
             $jsonObjs = json_decode($this->getLocation($id));
 
-            return view('data.detail-location', ['location' => $jsonObjs]);
+            return view('data.detail-lokasi', ['location' => $jsonObjs]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -81,7 +81,7 @@ class LocationController extends Controller{
     public function create()
     {
         if(Session::get('token')) {
-            return view('data.createOrUpdate-location');
+            return view('data.createOrUpdate-lokasi');
         } else {
             return redirect()
                 ->route('login');
@@ -123,7 +123,7 @@ class LocationController extends Controller{
     {
         $jsonObjs = json_decode($this->getLocation($id));
 
-        return view('data.createOrUpdate-location', ['location' => $jsonObjs]);
+        return view('data.createOrUpdate-lokasi', ['location' => $jsonObjs]);
     }
 
     public function update(Request $request, $id)

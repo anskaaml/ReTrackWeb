@@ -14,7 +14,9 @@
     <div class="card card-plain">
       <p class="sub-title">Data Cars</p>
     <div class="card-header">
-      <button id="myBtn-form" class="data-btn" type="button" onclick="window.location='http://localhost:8000/data-mobil/create' ">Create Car</button> 
+      <a href="{{ route('car.create') }}">
+        <button id="myBtn-form" class="data-btn" type="button">Create Car</button>
+      </a> 
     </div>
     <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
     <div class="card-body">
@@ -36,7 +38,9 @@
                   <td>{{ $car->car_brand }}</td>
                   <td>{{ $car->car_type }}</td>
                   <td>
-                    <button class="details-btn" id="myBtn-details">Details</button>
+                    <a href="{{ route('car.show', ['id' => $car->car_id]) }}">
+                      <button class="details-btn" id="myBtn-details">Details</button>
+                    </a>  
                   </td>
                 </tr>
               @endforeach

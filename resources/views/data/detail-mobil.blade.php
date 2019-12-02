@@ -18,31 +18,33 @@
     <div class="modal-content-details">
       <span class="form-title">Details Car</span>
       <br>
-        <strong>Car Number</strong>
-      <br>
-
+        <strong>Car Number</strong>&emsp;&emsp;<?= $car->car_number ?>
       <br>
       <br>
-        <strong>Car Brand</strong>
       <br>
-        
+        <strong>Car Brand</strong>&emsp;&emsp;&emsp;<?= $car->car_brand ?>
       <br>
       <br>
-        <strong>Car Type</strong>
       <br>
-        
+        <strong>Car Type</strong>&emsp;&emsp;&emsp;&emsp;<?= $car->car_type ?>
+      <br>
       <br>
       <br>
       <br>
       <br>
 
       <div class="container-details-btn">
+      <a href="{{ route('car.delete', ['id' => $car->car_id]) }}">
           <button type="button" class="crud-btn">Delete</button>
+      </a>    
         &emsp;
-
+      <a href="{{ route('car.edit', ['id' => $car->car_id]) }}">
           <button type="button" class="crud-btn">Update</button>
+      </a>
         &emsp;
+      <a href="{{ route('car') }}">
           <button type="button" class="crud-btn">Cancel</button>
+      </a>
       </div>
   </div>
 </div>

@@ -18,20 +18,24 @@
     <div class="modal-content-details3">
       <span class="form-title">Details Categories</span>
       <br>
-        <strong>Category Name</strong>
-        
+        <strong>Category Name</strong>&emsp;&emsp;<?= $category->category_name ?>
       <br>
       <br>
       <br>
       <br>
 
       <div class="container-details-btn">
+        <a href="{{ route('category.delete', ['id' => $category->category_id]) }}">
           <button type="button" class="crud-btn">Delete</button>
+        </a>
         &emsp;
-
+        <a href="{{ route('category.edit', ['id' => $category->category_id]) }}">
           <button type="button" class="crud-btn">Update</button>
+        </a>
         &emsp;
+        <a href="{{ route('category') }}">
           <button type="button" class="crud-btn">Cancel</button>
+        </a>
       </div>
   </div>
 </div>

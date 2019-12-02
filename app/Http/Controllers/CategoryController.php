@@ -34,7 +34,7 @@ class CategoryController extends Controller
         try {
             $jsonObjs = json_decode($this->getCategory($id));
 
-            return view('data.detail-category', ['category' => $jsonObjs]);
+            return view('data.detail-kategori', ['category' => $jsonObjs]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -81,7 +81,7 @@ class CategoryController extends Controller
     public function create()
     {
         if(Session::get('token')) {
-            return view('data.createOrUpdate-category');
+            return view('data.createOrUpdate-kategori');
         } else {
             return redirect()
                 ->route('login');
@@ -121,7 +121,7 @@ class CategoryController extends Controller
     {
         $jsonObjs = json_decode($this->getCategory($id));
 
-        return view('data.createOrUpdate-category', ['category' => $jsonObjs]);
+        return view('data.createOrUpdate-kategori', ['category' => $jsonObjs]);
     }
 
     public function update(Request $request, $id)

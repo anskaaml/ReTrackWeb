@@ -14,7 +14,9 @@
     <div class="card card-plain">
         <p class="sub-title">Data Categories</p>
         <div class="card-header">
-          <button id="myBtn" class="data-kategori-btn">Add Category</button> 
+          <a href="{{ route('category.create') }}">
+            <button type="button" class="data-kategori-btn">Create Category</button> 
+          </a>
         </div>
         <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
         <div class="card-body">
@@ -32,9 +34,9 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>
-                    <button class="details-btn" id="myBtn-details">
-                      Details
-                    </button>
+                    <a href="{{ route('category.show', ['id' => $category->category_id]) }}">
+                      <button class="details-btn" id="myBtn-details">Details</button>
+                    </a>
                     </td>
                   </tr>
                 @endforeach

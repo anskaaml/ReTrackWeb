@@ -16,15 +16,19 @@
             <div class="card-body">
                 <div id="myModal-form" class="modal-form">
                     <div class="modal-content3">
-                    <form>
+                    @if(isset($category))
+                        <span class="form-title">Update Category</span>
+                        {{ Form::model($category, ['route' => ['category.update', $category->category_id], 'method' => 'post']) }}
+                    @else
                         <span class="form-title">Create Category</span>
-                        <br>
-                        <input class="input-form" type="text" name="category_name" placeholder="Category Name">
+                        {{ Form::open(['route' => 'category.store']) }}
+                    @endif
+                        {{ Form::text('category_name', Request::old('category_name'), ['class' => 'input-form', 'placeholder' => 'Category Name']) }}
                         <br>
                         <div class="container-form-btn">
                             <button type="submit" class="form-btn">Done</button>
                         </div>
-                    </form>
+                    {{ Form::close() }}
                     </div>
                 </div>
             </div>
