@@ -9,6 +9,21 @@
 @endsection
 
 @section('content')
+<?php
+  function getAddress($lat,$lng)
+  {
+     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+     $json = @file_get_contents($url);
+     $data = json_decode($json);
+     $status = $data->status;
+    
+    if ($status == "OK")
+        return $data->results[0]->formatted_address;
+    else
+        return false;
+  }
+?>
+
 <div class="row">
           <div class="col-md-12">
             <div class="card card-plain">
@@ -22,7 +37,7 @@
                     <thead class="text-primary">
                       <th>#</th>
                       <th>Police Name</th>
-                      <th>Location( Longitude , Latitude )</th>
+                      <th>Location</th>
                       <th>Date</th>
                     </thead>
                     <tbody id="myTable">
@@ -31,7 +46,12 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $history-> user-> user_name }}</td>
-                    <td>{{ $history-> history_longitude }}   , {{ $history-> history_latitude }}</td>
+                    <td>
+                      <?php 
+                        $data = getAddress($history-> history_latitude, $history-> history_longitude); echo ($data);
+                      ?>
+                    </td>
+                    <!-- <td>{{ $history-> history_longitude }}   , {{ $history-> history_latitude }}</td> -->
                     <td>{{ $history-> history_datetime }}</td>
                   </tr>
                 @endforeach

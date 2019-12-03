@@ -91,7 +91,7 @@
                         lng: parseFloat(data.history_longitude)
                     },
                     //label: location.user.user_employee_id,
-                    icon: 'assets/img/circle.png'
+                    icon: 'assets/img/car-black-light.png'
                 })
                 marker.addListener('click', function() {
                     infowindow.open(map, marker);
