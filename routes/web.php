@@ -124,7 +124,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/chat', 'ChatController@index')->name('chat');
 
 Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('laporan-polisi');
-Route::get('/laporan-warga', 'LaporanWargaController@index')->name('laporan-warga');
+Route::get('/laporan-warga', 'CaseEntryController@index')->name('case_entry');
+Route::get('/laporan-warga/create', 'CaseEntryController@create')->name('case_entry.create');
+Route::get('/laporan-warga/{id}', 'CaseEntryController@show')->name('case_entry.show');
+Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('case_entry.update');
+Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
+Route::get('/laporan-warga/{id}/delete', 'CaseEntryController@delete')->name('case_entry.delete');
 
 Route::get('/history', 'HistoryController@index')->name('history');
 

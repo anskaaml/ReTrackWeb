@@ -19,7 +19,7 @@ class CaseEntryController extends Controller{
         
             $jsonObjs = json_decode($response);
             
-            return view('data.data-case-entry', ['case_entry' => $jsonObjs]);
+            return view('laporan.laporan-warga', ['case_entries' => $jsonObjs]);
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -34,7 +34,7 @@ class CaseEntryController extends Controller{
         try {
             $jsonObjs = json_decode($this->getCaseEntry($id));
 
-            return view('data.detail-case-entry', ['case_entry' => $jsonObjs]);
+            return view('laporan.detail-laporanWarga', ['case_entry' => $jsonObjs]);
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -66,7 +66,7 @@ class CaseEntryController extends Controller{
             ])->getBody()->getContents();
 
             return redirect()
-                ->route('case-entry')
+                ->route('laporan.laporan-warga')
                 ->with('success', 'Case Entry has been deleted!');
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
@@ -81,7 +81,7 @@ class CaseEntryController extends Controller{
     public function create()
     {
         if(Session::get('token')) {
-            return view('data.createOrUpdate-case-entry');
+            return view('laporan.createOrUpdate-laporanWarga');
         } else {
             return redirect()
                 ->route('login');
@@ -112,7 +112,7 @@ class CaseEntryController extends Controller{
             $jsonObj = json_decode($response);
 
             return redirect()
-                ->route('case-entry')
+                ->route('laporan-warga')
                 ->with('success', 'Case Entry has been created!');
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
@@ -128,7 +128,7 @@ class CaseEntryController extends Controller{
     {
         $jsonObjs = json_decode($this->getCaseEntry($id));
 
-        return view('data.createOrUpdate-case-entry', ['case_entry' => $jsonObjs]);
+        return view('laporan.createOrUpdate-laporanWarga', ['case_entry' => $jsonObjs]);
     }
 
     public function update(Request $request, $id)
@@ -155,7 +155,7 @@ class CaseEntryController extends Controller{
             $jsonObj = json_decode($response);
 
             return redirect()
-                ->route('case-entry')
+                ->route('laporan-warga')
                 ->with('success', 'Case Entry has been updated!');
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
