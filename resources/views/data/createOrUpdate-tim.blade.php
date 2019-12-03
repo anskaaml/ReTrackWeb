@@ -16,18 +16,23 @@
             <div class="card-body">
                 <div id="myModal-form" class="modal-form">
                     <div class="modal-content">
-                    <form>
+                    @if(isset($team))
+                        <span class="form-title">Update Team</span>
+                        {{ Form::model($team, ['route' => ['team.update', $team->team_id], 'method' => 'post']) }}
+                    @else
                         <span class="form-title">Create Team</span>
-                        <input class="input-form" type="text" name="team_name" placeholder="Team Name">
-                        <br>
-                        <input class="input-form" type="text" name="coordinator" placeholder="Coordinator">
-                        <br>
-                        <input class="input-form" type="text" name="member" placeholder="Member">
-                        <br>
+                        {{ Form::open(['route' => 'team.store']) }}
+                    @endif
+                        {{ Form::text('car_id', Request::old('car_id'), ['class' => 'input-form', 'placeholder' => 'Car ID']) }}
+                    <br>
+                        {{ Form::text('user_id', Request::old('user_id'), ['class' => 'input-form', 'placeholder' => 'Police ID']) }}
+                    <br>
+                        {{ Form::text('agenda_id', Request::old('agenda_id'), ['class' => 'input-form', 'placeholder' => 'Agenda ID']) }}
+                    <br>
                         <div class="container-form-btn">
                             <button type="submit" class="form-btn">Done</button>
                         </div>
-                    </form>
+                    {{ Form::close() }}
                     </div>
                 </div>
             </div>

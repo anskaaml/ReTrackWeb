@@ -16,18 +16,23 @@
             <div class="card-body">
                 <div id="myModal-form" class="modal-form">
                     <div class="modal-content">
-                    <form>
+                    @if(isset($car))
+                        <span class="form-title">Update Car</span>
+                        {{ Form::model($car, ['route' => ['car.update', $car->car_id], 'method' => 'post']) }}
+                    @else
                         <span class="form-title">Create Car</span>
-                        <input class="input-form" type="text" name="number" placeholder="Car Number">
-                        <br>
-                        <input class="input-form" type="text" name="brand" placeholder="Car Brand">
-                        <br>
-                        <input class="input-form" type="text" name="type" placeholder="Car Type">
-                        <br>
+                        {{ Form::open(['route' => 'car.store']) }}
+                    @endif
+                        {{ Form::text('car_number', Request::old('car_number'), ['class' => 'input-form', 'placeholder' => 'Car Number']) }}
+                    <br>
+                        {{ Form::text('car_brand', Request::old('car_brand'), ['class' => 'input-form', 'placeholder' => 'Car Brand']) }}
+                    <br>
+                        {{ Form::text('car_type', Request::old('car_type'), ['class' => 'input-form', 'placeholder' => 'Car Type']) }}
+                    <br>
                         <div class="container-form-btn">
                             <button type="submit" class="form-btn">Done</button>
                         </div>
-                    </form>
+                    {{ Form::close() }}
                     </div>
                 </div>
             </div>

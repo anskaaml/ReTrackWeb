@@ -15,8 +15,9 @@
             <div class="card card-plain">
                 <p class="sub-title">Data Team Police</p>
               <div class="card-header">
+                <a href="{{ route('team.create') }}">
                   <button class="data-btn" type="button">Create Team</button>
-                
+                </a>
               </div>   
                 <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
               <div class="card-body">
@@ -24,23 +25,29 @@
                   <table class="table" id="table">
                     <thead class="text-primary">
                       <th>#</th>
-                      <th>ID</th>
-                      <th>Team Name</th>
-                      <th>Coordinator</th>
-                      <th>Member</th>
+                      <th>Car ID</th>
+                      <th>Police ID</th>
+                      <th>Agenda ID</th>
                       <th>Action</th>
                     </thead>
                     <tbody id="myTable">
+                      @if($teams)
+                        @foreach($teams as $team)
                       <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $team->car_id }}</td>
+                        <td>{{ $team->user_id }}</td>
+                        <td>{{ $team->agenda_id }}</td>
                         <td>
-                          <button class="details-btn" id="myBtn-details">Details</button>
+                          <a href="{{ route('team.show', ['id' => $team->team_id]) }}">
+                            <button class="details-btn" id="myBtn-details">Details</button>
+                          </a>
                         </td>
                       </tr>
+                      @endforeach
+                    @else
+                      <p class="text-center text-primary">No User Created Yet!</p>
+                    @endif
                     </tbody>
                   </table>
                 </div>

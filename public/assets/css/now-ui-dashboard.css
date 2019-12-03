@@ -242,6 +242,16 @@
   border-radius: 25px;
 }
 
+.modal-content-agenda2 {
+  background-color: #fefefe;
+  margin-left: 250px;
+  padding: 20px 50px 20px 50px;
+  border: none;
+  width: 40%;
+  height: 100%;
+  border-radius: 25px;
+}
+
 .modal-content-agenda {
   background-color: #fefefe;
   margin-left: 250px;
@@ -308,6 +318,35 @@
   line-height: 1.5;
   color: #fff;
   width: 165px;
+  height: 40px;
+  border-radius: 15px;
+  background: #009C41;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border: none;
+  outline: none!important;
+  right: 50px;
+  top: 1px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.data-lokasi-btn{
+  font-family: Segoe UI;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  width: 155px;
   height: 40px;
   border-radius: 15px;
   background: #009C41;

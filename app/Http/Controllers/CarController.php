@@ -80,7 +80,7 @@ class CarController extends Controller
     public function create()
     {
         if(Session::get('token')) {
-            return view('data.createOrUpdate-car');
+            return view('data.createOrUpdate-mobil');
         } else {
             return redirect()
                 ->route('login');
@@ -122,15 +122,15 @@ class CarController extends Controller
     {
         $jsonObjs = json_decode($this->getCar($id));
 
-        return view('data.createOrUpdate-car', ['car' => $jsonObjs]);
+        return view('data.createOrUpdate-mobil', ['car' => $jsonObjs]);
     }
 
-    public function store(Request $request, $id)
+    public function store_car(Request $request)
     {
         try {
             $token = Session::get('token');
             $response = $this->client
-                ->request('PUT', $this->base_url.'/car',  [
+                ->request('POST', $this->base_url.'/car',  [
                     'form_params' => [
                         'car_number' => $request->input('car_number'),
                         'car_brand' => $request->input('car_brand'),
@@ -145,7 +145,38 @@ class CarController extends Controller
 
             return redirect()
                 ->route('car')
-                ->with('success', 'Car has been update!');
+                ->with('success', 'Car has been created!');
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $token = Session::get('token');
+            $response = $this->client
+                ->request('PUT', $this->base_url.'/car/'.$id, [
+                    'form_params' => [
+                        'car_number' => $request->input('car_number'),
+                        'car_brand' => $request->input('car_brand'),
+                        'car_type' => $request->input('car_type'),
+                    ],
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+        
+            $jsonObj = json_decode($response);
+
+            return redirect()
+                ->route('car')
+                ->with('success', 'Car has been updated!');
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

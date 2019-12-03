@@ -59,26 +59,21 @@ Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
 // ** Belum Dirapiin **
 // Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
-Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
-
-Route::get('/crud-mobil', function () {
-    return view('data.createOrUpdate-mobil');
-});
-Route::get('/detail-mobil', function () {
-    return view('data.detail-mobil');
-});
+Route::post('/data-mobil/store_car', 'CarController@store')->name('car.store');
+Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
+Route::post('/data-polisi/{id}/update', 'CarController@update')->name('car.update');
+Route::get('/data-polisi/{id}/edit', 'CarController@edit')->name('car.edit');
+Route::get('/data-polisi/{id}/delete', 'CarController@delete')->name('car.delete');
 
 // Kategori
 Route::get('/data-kategori', 'CategoryController@index')->name('category');
+Route::get('/data-kategori/create', 'CategoryController@create')->name('category.create');
+Route::post('/data-kategori/store', 'CategoryController@store')->name('category.store');
 Route::get('/data-kategori/{id}', 'CategoryController@show')->name('category.show');
-
-Route::get('/crud-kategori', function () {
-    return view('data.createOrUpdate-kategori');
-});
-Route::get('/detail-kategori', function () {
-    return view('data.detail-kategori');
-});
+Route::post('/data-kategori/{id}/update', 'CategoryController@update')->name('category.update');
+Route::get('/data-kategori/{id}/edit', 'CategoryController@edit')->name('category.edit');
+Route::get('/data-kategori/{id}/delete', 'CategoryController@delete')->name('category.delete');
 
 
 // * Role *
@@ -99,25 +94,23 @@ Route::get('/data-role/{id}/delete', 'RoleController@delete')->name('role.delete
 // * Role *
 
 // Lokasi
-Route::get('/data-lokasi', function () {
-    return view('data.data-lokasi');
-});
-Route::get('/crud-lokasi', function () {
-    return view('data.createOrUpdate-lokasi');
-});Route::get('/detail-lokasi', function () {
-    return view('data.detail-lokasi');
-});
+Route::get('/data-lokasi', 'LocationController@index')->name('location');
+Route::get('/data-lokasi/create', 'LocationController@create')->name('location.create');
+Route::post('/data-lokasi/store', 'LocationController@store')->name('location.store');
+Route::get('/data-lokasi/{id}', 'LocationController@show')->name('location.show');
+Route::post('/data-lokasi/{id}/update', 'LocationController@update')->name('location.update');
+Route::get('/data-lokasi/{id}/edit', 'LocationController@edit')->name('location.edit');
+Route::get('/data-lokasi/{id}/delete', 'LocationController@delete')->name('location.delete');
 
 // Tim
-Route::get('/data-tim', function () {
-    return view('data.data-tim');
-});
-Route::get('/crud-tim', function () {
-    return view('data.createOrUpdate-tim');
-});
-Route::get('/detail-tim', function () {
-    return view('data.detail-tim');
-});
+Route::get('/data-tim', 'TeamController@index')->name('team');
+Route::get('/data-tim/create', 'TeamController@create')->name('team.create');
+Route::post('/data-tim/store', 'TeamController@store')->name('team.store');
+Route::get('/data-tim/{id}', 'TeamController@show')->name('team.show');
+Route::post('/data-tim/{id}/update', 'TeamController@update')->name('team.update');
+Route::get('/data-tim/{id}/edit', 'TeamController@edit')->name('team.edit');
+Route::get('/data-tim/{id}/delete', 'TeamController@delete')->name('team.delete');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
