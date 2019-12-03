@@ -35,7 +35,7 @@
                         @else
                         <a></a>
                         @endif
-                        <a style="padding:70px;">{{ $team->agenda->agenda_date }}</a>
+                        <a style="padding:70px;">{{ \Carbon\Carbon::parse($team->agenda->agenda_date)-> format('d, M Y') }}</a>
                         <br>
                         <br>
                         <div class="maps-agenda2" id="maps-agenda2"></div>  

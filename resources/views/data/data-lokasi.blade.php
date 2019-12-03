@@ -9,6 +9,20 @@
 @endsection
 
 @section('content')
+<?php
+  function getAddress($lat,$lng)
+  {
+     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+     $json = @file_get_contents($url);
+     $data = json_decode($json);
+     $status = $data->status;
+    
+    if ($status == "OK")
+        return $data->results[0]->formatted_address;
+    else
+        return false;
+  }
+?>
 <div class="row">
           <div class="col-md-12">
             <div class="card card-plain">
@@ -25,8 +39,7 @@
                     <thead class="text-primary">
                       <th>#</th>
                       <th>Location Name</th>  
-                      <th>Longitude</th>
-                      <th>Latitude</th>
+                      <th>Address</th>
                       <th>Action</th>
                     </thead>
                     <tbody id="myTable">
@@ -35,8 +48,11 @@
                       <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $location->location_name }}</td>
-                        <td>{{ $location->location_longitude }}</td>
-                        <td>{{ $location->location_latitude }}</td>
+                        <td>
+                            <?php 
+                              $data = getAddress($location-> location_latitude, $location-> location_longitude); echo ($data);
+                            ?>
+                          </td> 
                         <td>
                         <a href="{{ route('location.show', ['id' => $location->location_id]) }}">
                           <button class="details-btn">Details</button>

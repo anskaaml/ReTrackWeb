@@ -55,6 +55,7 @@ class CaseEntryController extends Controller{
         ])->getBody()->getContents();
     }
 
+    
     public function delete($id)
     {
         try {

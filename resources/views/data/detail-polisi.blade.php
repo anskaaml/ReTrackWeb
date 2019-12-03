@@ -30,7 +30,7 @@
                   <br>
                     <strong>Date of Birth</strong>
                   <br>
-                    <?= $police->user_birthdate ?>
+                    <?= \Carbon\Carbon::parse($police->user_birthdate)-> format('d M Y') ?>
                   <br>
                   <br>
                   <br>
