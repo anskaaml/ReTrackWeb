@@ -40,6 +40,9 @@
               @endif
             </tbody>
                   </table>
+                  <div>
+                  {{ $histories->links() }}
+                  </div>
                 </div>
               </div>
             </div>
