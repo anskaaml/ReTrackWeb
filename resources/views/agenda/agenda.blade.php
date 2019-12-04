@@ -13,7 +13,9 @@
   <div class="col-md-12">
     <div class="card card-plain">
       <div class="card-header">
-        <button class="agenda-btn" type="button" onclick="window.location='http://localhost:8000/agenda/add' ">Create Agenda</button>
+        <a href="{{ route('agenda.create') }}">
+          <button class="agenda-btn" type="button">Create Agenda</button>
+        </a>
       </div>
       <input type="text" class="input-search" id="input-search" placeholder="Search" onkeyup="inputSearch()" title="Search">
       <div class="card-body">
