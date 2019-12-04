@@ -43,7 +43,7 @@
         function isMarkerExist(data){
             var found = false;
 
-            for (var i = 0 ; i < data.length ; i++){
+            for (var i = 0 ; i < markerList.length ; i++){
                 if (markerList[i].history_id == data.history_id) {
                     found = true;
                     break;
@@ -97,6 +97,7 @@
                     infowindow.open(map, marker);
                 });
                 
+                marker.setMap(map);
                 gmapMarkers.push(marker);
             }
 
