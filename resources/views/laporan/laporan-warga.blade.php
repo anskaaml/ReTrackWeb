@@ -41,9 +41,8 @@
                       <th>Case Reporter</th>
                       <th>Category Name</th>
                       <th>Case Location</th>
-                      <th>Case description</th>
-                      <th>Case date</th>    
-                      <th>Case time</th>
+                      <th>Case Date</th>    
+                      <th>Case Time</th>
                     </thead>
                     <tbody id="myTable">
                     @if($case_entries)
@@ -62,8 +61,7 @@
                             ?>
                           </td> 
                           <!-- <td>{{ $case_entry-> case_longitude }} , {{ $case_entry-> case_latitude }}</td> -->
-                          <td>{{ $case_entry-> case_description}}</td>
-                          <td>{{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d, M Y') }}</td>
+                          <td>{{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}</td>
                           <td>{{ $case_entry-> case_time}}</td>
                           <td>
                             <a href="{{ route('case_entry.show', ['id' => $case_entry->case_id]) }}">

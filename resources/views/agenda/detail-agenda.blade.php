@@ -35,10 +35,14 @@
                         @else
                         <a></a>
                         @endif
-                        <a style="padding:70px;">{{ $team->agenda->agenda_date }}</a>
+                        <a style="padding:70px;">{{ \Carbon\Carbon::parse($team->agenda->agenda_date)->format('d M Y') }}</a>
                         <br>
                         <br>
+                        @if($team->agenda->checkpoints)
                         <div class="maps-agenda2" id="maps-agenda2"></div>  
+                        @else
+                        <div style="text-align:center">Map Not Rendered Because Checkpoints Isn't Created Yet</div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -46,21 +50,22 @@
     </div>
 </div>
 <?php
-    $avgLong;
-    $totalLong = 0;
-    $avgLat;
-    $totalLat = 0;
-    $checkpoints = $team->agenda->checkpoints;
-    $startLat = $checkpoints[0]->checkpoint_latitude;
-    $endLat = $checkpoints[count($checkpoints) - 1]->checkpoint_latitude;
-    $startLong = $checkpoints[0]->checkpoint_longitude;
-    $endLong = $checkpoints[count($checkpoints) - 1]->checkpoint_longitude;
-    foreach ($checkpoints as $checkpoint) {
-        $totalLong += $checkpoint->checkpoint_longitude;
-        $totalLat += $checkpoint->checkpoint_latitude;
-    }
-    $avgLong = $totalLong/count($checkpoints);
-    $avgLat = $totalLat/count($checkpoints);
+    if($team->agenda->checkpoints) {
+        $avgLong;
+        $totalLong = 0;
+        $avgLat;
+        $totalLat = 0;
+        $checkpoints = $team->agenda->checkpoints;
+        $startLat = $checkpoints[0]->checkpoint_latitude;
+        $endLat = $checkpoints[count($checkpoints) - 1]->checkpoint_latitude;
+        $startLong = $checkpoints[0]->checkpoint_longitude;
+        $endLong = $checkpoints[count($checkpoints) - 1]->checkpoint_longitude;
+        foreach ($checkpoints as $checkpoint) {
+            $totalLong += $checkpoint->checkpoint_longitude;
+            $totalLat += $checkpoint->checkpoint_latitude;
+        }
+        $avgLong = $totalLong/count($checkpoints);
+        $avgLat = $totalLat/count($checkpoints);
 ?>
 
 <script>
@@ -109,5 +114,8 @@
         );
         directionsRenderer.setMap(map);
     }
+    <?php
+    }
+    ?>
 </script>
 @endsection

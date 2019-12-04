@@ -26,37 +26,31 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./home">
+            <a href="{{ route('home') }}">
               <img class="nav-icon" src="{{ asset('assets/img/dashboard.png') }}" width="25" heigth="25">
               <p class="p1">Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./agenda">
-            <img class="nav-icon" src="{{ asset('assets/img/agenda.png') }}" width="25" heigth="25">
+            <a href="{{ route('agenda') }}">
+              <img class="nav-icon" src="{{ asset('assets/img/agenda.png') }}" width="25" heigth="25">
               <p class="p2">Agenda</p>
             </a>
           </li>
           <li>
-            <a href="./maps">
-            <img class="nav-icon" src="{{ asset('assets/img/maps.png') }}" width="25" heigth="30">
+            <a href="{{ route('maps') }}">
+              <img class="nav-icon" src="{{ asset('assets/img/maps.png') }}" width="25" heigth="30">
               <p class="p3">Maps</p>
             </a>
           </li>
           <li>
-            <a href="./chat">
-            <img class="nav-icon" src="{{ asset('assets/img/chat.png') }}" width="25" heigth="30">
-              <p class="p4">Chat</p>
-            </a>
-          </li>
-          <li>
-            <a href="./laporan">
-            <img class="nav-icon" src="{{ asset('assets/img/laporan.png') }}" width="25" heigth="30">
+            <a href="{{ route('case_entry') }}">
+              <img class="nav-icon" src="{{ asset('assets/img/laporan.png') }}" width="25" heigth="30">
               <p class="p5">Report</p>
             </a>
           </li>
           <li>
-            <a href="./data">
+            <a href="">
             <img class="nav-icon" src="{{ asset('assets/img/data.png') }}" width="25" heigth="30">
               <p class="p6">Data</p>
             </a>
@@ -66,8 +60,8 @@
                 </ul>
           </li>
           <li>
-            <a href="./history">
-            <img class="nav-icon" src="{{ asset('assets/img/riwayat.png') }}" width="25" heigth="30">
+            <a href="{{ route('history') }}">
+              <img class="nav-icon" src="{{ asset('assets/img/riwayat.png') }}" width="25" heigth="30">
               <p class="p7">History</p>
             </a>
           </li>

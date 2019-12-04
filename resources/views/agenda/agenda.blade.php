@@ -43,7 +43,7 @@
                     @else
                     <td></td>
                     @endif
-                    <td>{{ $team->agenda->agenda_date }}</td>
+                    <td>{{ \Carbon\Carbon::parse($team->agenda->agenda_date)->format('d M Y') }}</td>
                     <td>
                       <a href="{{ route('agenda.show', ['id' => $team->team_id]) }}">
                         <button class="details-btn" id="myBtn-agenda" type="button">Details</button>

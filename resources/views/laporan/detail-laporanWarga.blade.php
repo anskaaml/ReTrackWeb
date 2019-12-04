@@ -56,9 +56,11 @@
       <br>
         <strong>Case Date</strong>
       <br>
-        <?=$case_entry->case_date ?>
+      <?= \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') ?>
       <br>
       <br>
+
+
         <strong>Case Time</strong>
       <br>
         <?=$case_entry->case_time?>
