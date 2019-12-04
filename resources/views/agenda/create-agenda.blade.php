@@ -16,14 +16,15 @@
               <div class="card-header">
               <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
                 <form method="POST">
-                <select class="form-agenda" name="pick-car">
+                <!-- <select class="form-agenda" name="pick-car">
                     <option>Pick a Car</option>
                     <option value="car-1">Car-1</option>
                     <option value="car-2">Car-2</option>
                     <option value="car-3">Car-3</option>
                     <option value="car-4">Car-4</option>
                     <option value="car-5">Car-5</option>
-                </select>                  
+                </select>                   -->
+                {{ Form::select('car_id', $cars, null, ['class' => 'form-agenda']) }}
               <div class="card-body">
                 <div class="table-responsive">
                     <table class="table" id="dynamicTable">
