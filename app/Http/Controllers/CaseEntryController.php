@@ -81,11 +81,29 @@ class CaseEntryController extends Controller{
     
     public function create()
     {
-        if(Session::get('token')) {
-            return view('laporan.createOrUpdate-laporanWarga');
-        } else {
-            return redirect()
-                ->route('login');
+        try {
+            $token = Session::get('token');
+            $response= $this->client->request('GET', $this->base_url.'/category/', [
+                'headers' => [
+                    'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+        
+            $jsonObjs = json_decode($response);
+            
+            $arr = [];
+            for ($i=0; $i < count($jsonObjs); $i++) { 
+                $arr[$jsonObjs[$i]->category_id] = $jsonObjs[$i]->category_name;
+            }
+            
+            return view('laporan.createOrUpdate-laporanWarga', ['category' => $arr]);
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
         }
     }
 

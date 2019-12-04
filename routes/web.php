@@ -64,7 +64,7 @@ Route::post('/data-mobil/store_car', 'CarController@store')->name('car.store');
 Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
 Route::post('/data-mobil/{id}/update', 'CarController@update')->name('car.update');
 Route::get('/data-mobil/{id}/edit', 'CarController@edit')->name('car.edit');
-Route::get('/data-mobil/{id}/delete', 'CarController@delete')->name('car.delete');
+Route::get('/data-mobilph/{id}/delete', 'CarController@delete')->name('car.delete');
 
 // Kategori
 Route::get('/data-kategori', 'CategoryController@index')->name('category');
@@ -102,7 +102,6 @@ Route::post('/data-lokasi/{id}/update', 'LocationController@update')->name('loca
 Route::get('/data-lokasi/{id}/edit', 'LocationController@edit')->name('location.edit');
 Route::get('/data-lokasi/{id}/delete', 'LocationController@delete')->name('location.delete');
 
-<<<<<<< HEAD
 //  Tim
 // Route::get('/data-tim', 'TeamController@index')->name('team');
 // Route::get('/data-tim/create', 'TeamController@create')->name('team.create');
@@ -113,12 +112,11 @@ Route::get('/data-lokasi/{id}/delete', 'LocationController@delete')->name('locat
 // Route::get('/data-tim/{id}/delete', 'TeamController@delete')->name('team.delete');
 
 
-=======
->>>>>>> 3aed1eb16b78d3ca04fa34532d3b987c6875ff47
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/laporan-warga', 'CaseEntryController@index')->name('case_entry');
 Route::get('/laporan-warga/create', 'CaseEntryController@create')->name('case_entry.create');
+Route::get('/laporan-warga/store', 'CaseEntryController@store')->name('case_entry.store');
 Route::get('/laporan-warga/{id}', 'CaseEntryController@show')->name('case_entry.show');
 Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('case_entry.update');
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');

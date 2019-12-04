@@ -24,11 +24,11 @@
                   {{ Form::model($case_entry, ['route' => ['case_entry.update', $case_entry->case_id], 'method' => 'post']) }}
                 @else
                   <span class="form-title">Create Case Entry</span>
-                  {{ Form::open(['route' => 'case_entry.create']) }}
+                  {{ Form::open(['route' => 'case_entry.store']) }}
                 @endif
                     {{ Form::text('case_reporter', Request::old('case_reporter'), ['class' => 'input-form', 'placeholder' => 'Name Reporter']) }}
                     <br>
-                    {!! Form::select('category_name',  category-> category_name, null, ['class' => 'form-control']) !!}
+                    {{ Form::select('category_id', $category, null, ['class' => 'form-agenda']) }}
                     <br>
                     {{ Form::date('case_date', Request::old('case_date'), ['class' => 'input-form', 'placeholder' => 'Case Date']) }}
                     <br>
