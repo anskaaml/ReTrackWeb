@@ -65,13 +65,13 @@
                           <td>{{ $case_entry-> case_time}}</td>
                           <td>
                             <a href="{{ route('case_entry.show', ['id' => $case_entry->case_id]) }}">
-                        <button class="details-btn" type="button">Details</button>
-                      </a>
-                    </td>
-                  </tr>
-                @endforeach
+                              <button class="details-btn" type="button">Details</button>
+                            </a>
+                          </td>
+                        </tr>
+                      @endforeach
                       @else
-                        <p class="text-center text-primary">No User Created Yet!</p>
+                        <p class="text-center text-primary">No Case Entry Created Yet!</p>
                       @endif
                     </tbody>
                   </table>

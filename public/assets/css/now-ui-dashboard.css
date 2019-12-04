@@ -432,7 +432,7 @@
   font-size: 15px;
   line-height: 1.5;
   color: #FFFFFF;
-  width: 200px;
+  width: 150px;
   height: 40px;
   border-radius: 15px;
   background: #3c78d8;
@@ -451,7 +451,7 @@
   border-style: none;
   cursor: pointer;
   right: 10px;
-  bottom: -550px;
+  bottom: -470px;
   position: absolute;
 }
 
@@ -621,6 +621,42 @@
   display: inline;
 }
 
+.form-agenda-dynamic{
+  font-family: Segoe UI;
+  font-weight: 450;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 70%;
+  background: #fff;
+  height: 45px;
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 0 20px;
+  outline: none;
+  display: inline;
+}
+
+.form-agenda-dynamic2{
+  font-family: Segoe UI;
+  font-weight: 450;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999999;
+  border-style: solid;
+  display: block;
+  width: 80%;
+  background: #fff;
+  height: 45px;
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 0 20px;
+  outline: none;
+  display: inline;
+}
+
 .form-agenda{
   font-family: Segoe UI;
   font-weight: 450;
@@ -685,7 +721,7 @@
 
 .maps-agenda{
   width: 1000px;
-  height: 500px; 
+  height: 450px; 
   position: absolute;
   align-items: center;
 }

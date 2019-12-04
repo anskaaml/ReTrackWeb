@@ -14,35 +14,47 @@
             <div class="card card-plain">
                 <p class="sub-title">Add Checkpoints</p>
               <div class="card-header">
+              <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
                 <form method="POST">
-                <select class="form-agenda" name="pick-car">
+                <!-- <select class="form-agenda" name="pick-car">
                     <option>Pick a Car</option>
                     <option value="car-1">Car-1</option>
                     <option value="car-2">Car-2</option>
                     <option value="car-3">Car-3</option>
                     <option value="car-4">Car-4</option>
                     <option value="car-5">Car-5</option>
-                </select>   
-                &emsp;             
-                    <input class="form-agenda" type="text" onfocus="(this.type='date')"  name="date" placeholder="Date">
-                &emsp;                  
-                    <input class="form-agenda" type="text" onfocus="(this.type='time')"  name="time" placeholder="Time">  
-              </div>
+                </select>                   -->
+                {{ Form::select('car_id', $cars, null, ['class' => 'form-agenda']) }}
               <div class="card-body">
-                <a style="display:inline;">Latitude : </a><div id="latclicked" style="display:inline;"></div>&emsp;
-                <a style="display:inline;">Longitude : </a><div id="longclicked" style="display:inline;"></div>
-                
-                <div class="maps-agenda" id="maps-agenda"></div>
-
-                <button class="tambah-agenda-btn">Add Member</button>
-                <button type="submit" class="done-btn">Done</button>
-             </div>
+                <div class="table-responsive">
+                    <table class="table" id="dynamicTable">
+                        <thead class="text-primary">
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input  class="form-agenda-dynamic" type="date" name="addmore[0][date]" placeholder="Date"></td>
+                                <td><input  class="form-agenda-dynamic2"  type="time" name="addmore[0][time]" placeholder="Time"></td>
+                                <td><div id="latclicked"></div></td>
+                                <td><div id="longclicked"></div></td>
+                                <td><button class="btn btn-success" style="border-radius:15px;" type="button" name="add" id="addmore">Add</button></td>
+                            </tr>
+                    </table>
+                      <div class="maps-agenda" id="maps-agenda"></div>
+                    <button type="submit" class="done-btn">Submit</button>
+                </div>
            </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<script src="../assets/js/search.js"></script>
+<script src="../assets/js/add-input.js"></script>
 <script src="../assets/js/maps-agenda.js"></script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug&callback=initMap"></script>
