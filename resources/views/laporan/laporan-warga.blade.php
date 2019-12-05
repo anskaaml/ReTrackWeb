@@ -9,20 +9,22 @@
 @endsection
 
 @section('content')
-<?php
+<!-- <?php
   function getAddress($lat,$lng)
   {
-     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
-     $json = @file_get_contents($url);
-     $data = json_decode($json);
-     $status = $data->status;
-    
-    if ($status == "OK")
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+    $json = @file_get_contents($url);
+    $data = json_decode($json);
+    $status = $data->status;
+       
+    if ($status == "OK") {
         return $data->results[0]->formatted_address;
-    else
+    }
+    else {
         return false;
+    }
   }
-?>
+?> -->
 <div class="row">
           <div class="col-md-12">
             <div class="card card-plain">
@@ -55,12 +57,12 @@
                           @else
                           <td></td>
                           @endif
-                          <td>
+                          <!-- <td>
                             <?php 
                               $data = getAddress($case_entry-> case_latitude, $case_entry-> case_longitude); echo ($data);
                             ?>
-                          </td> 
-                          <!-- <td>{{ $case_entry-> case_longitude }} , {{ $case_entry-> case_latitude }}</td> -->
+                          </td>  -->
+                          <td>{{ $case_entry-> case_longitude }} , {{ $case_entry-> case_latitude }}</td>
                           <td>{{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}</td>
                           <td>{{ $case_entry-> case_time}}</td>
                           <td>

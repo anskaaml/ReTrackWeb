@@ -116,7 +116,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/laporan-warga', 'CaseEntryController@index')->name('case_entry');
 Route::get('/laporan-warga/create', 'CaseEntryController@create')->name('case_entry.create');
-Route::get('/laporan-warga/store', 'CaseEntryController@store')->name('case_entry.store');
+Route::post('/laporan-warga/store', 'CaseEntryController@store')->name('case_entry.store');
 Route::get('/laporan-warga/{id}', 'CaseEntryController@show')->name('case_entry.show');
 Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('case_entry.update');
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
