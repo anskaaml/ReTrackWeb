@@ -75,13 +75,27 @@
                       @else
                         <p class="text-center text-primary">No Case Entry Created Yet!</p>
                       @endif
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
+                    </td> 
+                    <!-- <td>{{ $case_entry-> case_longitude }} , {{ $case_entry-> case_latitude }}</td> -->
+                    <td>{{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}</td>
+                    <td>{{ $case_entry-> case_time}}</td>
+                    <td>
+                      <a href="{{ route('case_entry.show', ['id' => $case_entry->case_id]) }}">
+                        <button class="details-btn" type="button">Details</button>
+                      </a>
+                    </td>
+                  </tr>
+                @endforeach
+              @else
+                <p class="text-center text-primary">No Case Entry Created Yet!</p>
+              @endif
+            </tbody>
+          </table>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../assets/js/search.js"></script>

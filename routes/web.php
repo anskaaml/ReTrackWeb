@@ -11,12 +11,6 @@
 |
 */
 
-// Laravel Welcome Page
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// API Welcome Page
 Route::get('/', 'AuthController@root');
 
 // * Auth *

@@ -44,9 +44,11 @@
       <br>
         <strong>Case Location</strong>
       <br>
+      @if($case_entry->case_latitude && $case_entry->case_longitude)
       <?php 
           $data = getAddress($case_entry-> case_latitude, $case_entry-> case_longitude); echo ($data);
       ?>
+      @endif
       <br>
       <br>
         <strong>Case Description</strong>

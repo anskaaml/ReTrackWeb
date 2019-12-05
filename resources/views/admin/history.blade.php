@@ -12,10 +12,10 @@
 <?php
   function getAddress($lat,$lng)
   {
-     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
-     $json = @file_get_contents($url);
-     $data = json_decode($json);
-     $status = $data->status;
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+    $json = @file_get_contents($url);
+    $data = json_decode($json);
+    $status = $data->status;
     
     if ($status == "OK")
         return $data->results[0]->formatted_address;
@@ -47,9 +47,11 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $history-> user-> user_name }}</td>
                     <td>
+                      @if($history->history_latitude && $history->history_longitude)
                       <?php 
                         $data = getAddress($history-> history_latitude, $history-> history_longitude); echo ($data);
                       ?>
+                      @endif
                     </td>
                     <!-- <td>{{ $history-> history_longitude }}   , {{ $history-> history_latitude }}</td> -->
                     <td>{{ $history-> history_datetime }}</td>
