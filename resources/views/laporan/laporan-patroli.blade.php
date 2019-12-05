@@ -46,9 +46,11 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $patrol_report->user->user_name }}</td>
                         <td>
+                        @if($patrol_report->patrol_latitude && $patrol_report->patrol_longitude)
                           <?php 
                             $data = getAddress($patrol_report-> patrol_latitude, $patrol_report-> patrol_longitude); echo ($data);
                           ?>
+                        @endif
                         </td>
                         <td>{{ \Carbon\Carbon::parse($patrol_report->patrol_date)->format('d M Y') }}</td>
                         <td>{{ $patrol_report->patrol_time }}</td>

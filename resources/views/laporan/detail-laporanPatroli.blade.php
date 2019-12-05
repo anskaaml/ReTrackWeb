@@ -46,9 +46,11 @@
       <br>
         <strong>Location</strong>
       <br>
+      @if($patrol_report->patrol_latitude && $patrol_report->patrol_longitude)
         <?php 
           $data = getAddress($patrol_report-> patrol_latitude, $patrol_report-> patrol_longitude); echo ($data);
         ?>
+        @endif
       <br>
       <br>
       <strong>Description</strong>
