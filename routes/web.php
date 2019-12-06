@@ -56,9 +56,9 @@ Route::get('/data-mobil', 'CarController@index')->name('car');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
 Route::post('/data-mobil/store_car', 'CarController@store')->name('car.store');
 Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
-Route::post('/data-polisi/{id}/update', 'CarController@update')->name('car.update');
-Route::get('/data-polisi/{id}/edit', 'CarController@edit')->name('car.edit');
-Route::get('/data-polisi/{id}/delete', 'CarController@delete')->name('car.delete');
+Route::post('/data-mobil/{id}/update', 'CarController@update')->name('car.update');
+Route::get('/data-mobil/{id}/edit', 'CarController@edit')->name('car.edit');
+Route::get('/data-mobil/{id}/delete', 'CarController@delete')->name('car.delete');
 
 // Kategori
 Route::get('/data-kategori', 'CategoryController@index')->name('category');

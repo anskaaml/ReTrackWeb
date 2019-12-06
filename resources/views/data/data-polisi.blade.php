@@ -27,6 +27,8 @@
               <th>Employee ID</th>
               <th>Name</th>
               <th>Birthdate</th>
+              <th>Gender</th>
+              <th>Role</th>
               <th>Action</th>
             </thead>
             <tbody id="myTable">
@@ -36,7 +38,25 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $police->user_employee_id }}</td>
                     <td>{{ $police->user_name }}</td>
-                    <td>{{ $police->user_birthdate }}</td>
+                    <td>
+                      @if($police->user_birthdate)
+                        {{ \Carbon\Carbon::parse($police->user_birthdate)->format('d M Y') }}
+                      @endif
+                    </td>
+                    <td>
+                      <?php
+                        if($police->user_gender == 'true') {
+                          echo "Male";
+                        } else {
+                          echo "Female";
+                        }
+                      ?>
+                    </td>
+                    <td>
+                      @if($police->role_id)
+                        {{ $police->role->role_name }}
+                      @endif
+                    </td>
                     <td>
                       <a href="{{ route('police.show', ['id' => $police->user_id]) }}">
                         <button class="details-btn" type="button">Details</button>
