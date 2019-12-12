@@ -32,11 +32,29 @@ class AgendaController extends Controller{
 
     public function create()
     {
-        if(Session::get('token')) {
-            return view('agenda.create-agenda');
-        } else {
-            return redirect()
-                ->route('login');
+        try {
+            $token = Session::get('token');
+            $response= $this->client->request('GET', $this->base_url.'/car', [
+                'headers' => [
+                    'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+        
+            $jsonObjs = json_decode($response);
+            
+            $arr = [];
+            for ($i=0; $i < count($jsonObjs); $i++) { 
+                $arr[$jsonObjs[$i]->car_id] = $jsonObjs[$i]->car_number;
+            }
+            
+            return view('agenda.create-agenda', ['cars' => $arr]);
+        } catch(\Exception $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
         }
     }
 

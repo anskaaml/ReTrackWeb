@@ -29,9 +29,12 @@
               <br>
               {{ Form::password('user_password', ['class' => 'input-form', 'placeholder' => 'Password']) }}
               <br>
-              {{ Form::text('user_birthdate', Request::old('user_birthdate'), ['class' => 'input-form', 'placeholder' => 'Birthdate']) }}
+              {{ Form::date('user_birthdate', Request::old('user_birthdate'), ['class' => 'input-form', 'placeholder' => 'Birthdate']) }}
               <br>
-        
+              {{ Form::select('user_gender', [null=>'Select Gender'] + $genders, Request::old('user_gender'), ['class' => 'input-form']) }}
+              <br>
+              {{ Form::select('role_id', [null=>'Select Role'] + $roles, Request::old('role_id'), ['class' => 'input-form']) }}
+              <br>
               <div class="container-form-btn">
                 <button type="submit" class="form-btn">Done</button>
               </div>
