@@ -32,7 +32,8 @@
                             <th>Time</th>
                             <th>Latitude</th>
                             <th>Longitude</th>
-                            <th>Action</th>
+                            <th></th>
+                            <th></th>
                         </thead>
                         <tbody>
                             <tr>
@@ -40,6 +41,7 @@
                                 <td><input  class="form-agenda-dynamic2"  type="time" name="addmore[0][time]" placeholder="Time"></td>
                                 <td><div id="latclicked"></div></td>
                                 <td><div id="longclicked"></div></td>
+                                <td><a href="{{ route('agenda.add-member') }}"><button class="btn btn-success" style="border-radius:15px;background-color:#3c78d8" type="button" name="addmember">Add Member</button></a></td>
                                 <td><button class="btn btn-success" style="border-radius:15px;" type="button" name="add" id="addmore">Add</button></td>
                             </tr>
                     </table>
