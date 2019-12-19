@@ -78,7 +78,7 @@
             </div>
             <a class="font-admin">
             @yield('name')
-            </a>
+            </a>     
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>

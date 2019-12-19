@@ -57,6 +57,16 @@ class AgendaController extends Controller{
             }
         }
     }
+
+    public function addmember()
+    {
+        if(Session::get('token')) {
+            return view('agenda.add-member');
+        } else {
+            return redirect()
+                ->route('login');
+        }
+    }
     
     public function show($id)
     {

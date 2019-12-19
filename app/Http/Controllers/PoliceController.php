@@ -77,14 +77,29 @@ class PoliceController extends Controller{
             }
         }
     }
+
+    public function getGenders()
+    {
+        $genders['true'] = 'Male';
+        $genders['false'] = 'Female';
+        
+        return $genders;
+    }
     
     public function create()
     {
-        if(Session::get('token')) {
-            return view('data.createOrUpdate-polisi');
-        } else {
-            return redirect()
-                ->route('login');
+        try {
+            $genders = $this->getGenders();
+            $roles = $this->getRoles();
+
+            return view('data.createOrUpdate-polisi', ['genders' => $genders, 'roles' => $roles]);
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
         }
     }
 
@@ -101,7 +116,7 @@ class PoliceController extends Controller{
                         'user_birthdate' => $request->input('user_birthdate'),
                         'user_gender' => $request->input('user_gender'),
                         // 'user_photo' => $request->input('user_photo'),
-                        'user_role' => $request->input('user_role'),
+                        'role_id' => $request->input('role_id'),
                         'user_status' => $request->input('user_status'),
                     ],
                     'headers' => [
@@ -124,11 +139,42 @@ class PoliceController extends Controller{
         }
     }
 
+    public function getRoles()
+    {
+        $token = Session::get('token');
+        $response= $this->client->request('GET', $this->base_url.'/role', [
+            'headers' => [
+                'Authorization' => "Bearer {$token}"
+                ]
+        ])->getBody()->getContents();
+    
+        $jsonObjs = json_decode($response);
+        
+        $roles = [];
+        for ($i=0; $i < count($jsonObjs); $i++) { 
+            $roles[$jsonObjs[$i]->role_id] = $jsonObjs[$i]->role_name;
+        }
+
+        return $roles;
+    }
+
+
     public function edit($id)
     {
-        $jsonObjs = json_decode($this->getPolice($id));
+        try {
+            $police = json_decode($this->getPolice($id));
+            $genders = $this->getGenders();
+            $roles = $this->getRoles();
 
-        return view('data.createOrUpdate-polisi', ['police' => $jsonObjs]);
+            return view('data.createOrUpdate-polisi', ['police' => $police, 'genders' => $genders, 'roles' => $roles]);
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
+        }
     }
 
     public function update(Request $request, $id)
@@ -144,7 +190,7 @@ class PoliceController extends Controller{
                         'user_birthdate' => $request->input('user_birthdate'),
                         'user_gender' => $request->input('user_gender'),
                         // 'user_photo' => $request->input('user_photo'),
-                        'user_role' => $request->input('user_role'),
+                        'role_id' => $request->input('role_id'),
                         'user_status' => $request->input('user_status'),
                     ],
                     'headers' => [
@@ -157,11 +203,13 @@ class PoliceController extends Controller{
             return redirect()
                 ->route('police')
                 ->with('success', 'Police has been updated!');
-        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+        } 
+        catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
-            } else {
+            } 
+            else {
                 echo($e->getResponse()->getBody());
             }
         }

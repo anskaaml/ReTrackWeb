@@ -28,11 +28,29 @@
                     <?= $police->user_name ?>
                   <br>
                   <br>
-                    <strong>Date of Birth</strong>
+                    <strong>Birthdate</strong>
                   <br>
-                    <?= \Carbon\Carbon::parse($police->user_birthdate)-> format('d M Y') ?>
+                  @if($police->user_birthdate)
+                    <?= \Carbon\Carbon::parse($police->user_birthdate)->format('d M Y') ?>
+                  @endif
                   <br>
                   <br>
+                  <strong>Gender</strong>
+                  <br>
+                  <?php
+                    if($police->user_gender == true) {
+                      echo "Male";
+                    } else  {
+                      echo "Female";
+                    }
+                  ?>
+                  <br>
+                  <br>
+                  <strong>Role</strong>
+                  <br>
+                  @if($police->role_id)
+                    {{ $police->role->role_name }}
+                  @endif
                   <br>
                   <br>
                   <div class="container-details-btn">

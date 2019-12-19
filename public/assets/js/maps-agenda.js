@@ -34,10 +34,9 @@ function initMap(){
   });
 
   google.maps.event.addListener(map,'click',function(event) {   
-    var i=0;
-      ++i;             
-        document.getElementById('latclicked')[i].innerHTML = event.latLng.lat();
-        document.getElementById('longclicked')[i].innerHTML =  event.latLng.lng();
+                  
+        document.getElementById('latclicked').innerHTML = event.latLng.lat();
+        document.getElementById('longclicked').innerHTML =  event.latLng.lng();
     });
 }
 
