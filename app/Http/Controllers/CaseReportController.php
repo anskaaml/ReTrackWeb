@@ -19,7 +19,7 @@ class CaseReportController extends Controller
         
             $jsonObjs = json_decode($response);
             
-            return view('laporan.laporanKasus', ['case_reports' => $jsonObjs]);
+            return view('laporan.laporan-kasus', ['case_reports' => $jsonObjs]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

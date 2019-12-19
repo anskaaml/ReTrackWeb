@@ -67,7 +67,7 @@ class CaseEntryController extends Controller{
             ])->getBody()->getContents();
 
             return redirect()
-                ->route('laporan.laporan-warga')
+                ->route('case_entry')
                 ->with('success', 'Case Entry has been deleted!');
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
@@ -131,7 +131,7 @@ class CaseEntryController extends Controller{
             $jsonObj = json_decode($response);
 
             return redirect()
-                ->route('laporan-warga')
+                ->route('case_entry')
                 ->with('success', 'Case Entry has been created!');
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
@@ -174,7 +174,7 @@ class CaseEntryController extends Controller{
             $jsonObj = json_decode($response);
 
             return redirect()
-                ->route('laporan-warga')
+                ->route('case_entry')
                 ->with('success', 'Case Entry has been updated!');
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {

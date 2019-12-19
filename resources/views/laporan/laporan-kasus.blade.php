@@ -45,7 +45,7 @@
                       <th>Case Report Status</th>
                     </thead>
                     <tbody id="myTable">
-                      @if($)
+                      @if($case_reports)
                         @foreach($case_reports as $case_report)
                       <tr>
                         <td>{{ $loop->iteration }}</td>

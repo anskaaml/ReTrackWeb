@@ -121,4 +121,10 @@ Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('case_repor
 Route::get('/laporan-patroli', 'LaporanPatroliController@index')->name('patrol_report');
 Route::get('/laporan-patroli/{id}', 'LaporanPatroliController@show')->name('patrol_report.show');
 
+
+Route::get('/laporan-kasus', 'CaseReportController@index')->name('case_report');
+Route::get('/laporan-kasus/{id}', 'CaseReportController@show')->name('case_entry.show');
+
+
+
 Route::get('/history', 'HistoryController@index')->name('history');
