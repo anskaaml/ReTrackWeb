@@ -15,12 +15,22 @@
             <div class="card-header"></div>
     <div class="card-body">
     <div id="myModal-details" class="modal-details">
-    <div class="modal-content-details3">
-      <span class="form-title">Details Categories</span>
+    <div class="modal-content-details">
+      <span class="form-title">Details Category</span>
       <br>
-        <strong>Category Name</strong>&emsp;&emsp;<?= $category->category_name ?>
+        <strong>Category Name</strong>
+      <br>
+        {{ $category->category_name }}
       <br>
       <br>
+        <strong>Created At</strong>
+      <br>
+        {{ date("Y-m-d H:i:s T", strtotime($category->created_at.' UTC')) }}
+      <br>
+      <br>
+        <strong>Updated At</strong>
+      <br>
+        {{ date("Y-m-d H:i:s T", strtotime($category->updated_at.' UTC')) }}
       <br>
       <br>
 

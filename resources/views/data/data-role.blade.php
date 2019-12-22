@@ -25,6 +25,9 @@
             <thead class="text-primary">
               <th>#</th>
               <th>Role Name</th>
+              <th>Created At</th>
+              <th>Updated At</th>
+              <th>Action</th>
             </thead>
             <tbody id="myTable">
               @if($roles)
@@ -32,6 +35,8 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $role->role_name }}</td>
+                    <td>{{ date("Y-m-d H:i:s T", strtotime($role->created_at.' UTC')) }}</td>
+                    <td>{{ date("Y-m-d H:i:s T", strtotime($role->updated_at.' UTC')) }}</td>
                     <td>
                       <a href="{{ route('role.show', ['id' => $role->role_id]) }}">
                         <button class="details-btn" type="button">Details</button>

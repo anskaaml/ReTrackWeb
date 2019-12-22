@@ -38,11 +38,13 @@
           <table class="table" id="table">
             <thead class="text-primary">
               <th>#</th>
-              <th>Case Reporter</th>
-              <th>Category Name</th>
-              <th>Case Location</th>
-              <th>Case Date</th>    
-              <th>Case Time</th>
+              <th>Reporter</th>
+              <th>Category</th>
+              <th>Location</th>
+              <th>Date</th>    
+              <th>Time</th>
+              <th>Details</th>
+              <th>Handle</th>
             </thead>
             <tbody id="myTable">
               @if($case_entries)
@@ -69,6 +71,9 @@
                       <a href="{{ route('case_entry.show', ['id' => $case_entry->case_id]) }}">
                         <button class="details-btn" type="button">Details</button>
                       </a>
+                    </td>
+                    <td>
+                      <button class="tangani-btn" type="button" onclick="window.location='http://localhost:8000/maps' ">Handle</button>
                     </td>
                   </tr>
                 @endforeach

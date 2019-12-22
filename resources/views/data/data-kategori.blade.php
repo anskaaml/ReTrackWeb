@@ -25,6 +25,8 @@
             <thead class="text-primary">
               <th>#</th>
               <th>Category Name</th>
+              <th>Created At</th>
+              <th>Updated At</th>
               <th>Action</th>
             </thead>
             <tbody id="myTable">
@@ -33,6 +35,8 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $category->category_name }}</td>
+                    <td>{{ date("Y-m-d H:i:s T", strtotime($category->created_at.' UTC')) }}</td>
+                    <td>{{ date("Y-m-d H:i:s T", strtotime($category->updated_at.' UTC')) }}</td>
                     <td>
                     <a href="{{ route('category.show', ['id' => $category->category_id]) }}">
                       <button class="details-btn" id="myBtn-details">Details</button>

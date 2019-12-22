@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    CRUD > Data Role
+    CRUD > Data Roles
 @endsection
 
 @section('content')
@@ -20,9 +20,17 @@
       <br>
         <strong>Role Name</strong>
       <br>
-        <?= $role->role_name ?>
+        {{ $role->role_name }}
       <br>
       <br>
+        <strong>Created At</strong>
+      <br>
+      {{ date("Y-m-d H:i:s T", strtotime($role->created_at.' UTC')) }}
+      <br>
+      <br>
+        <strong>Updated At</strong>
+      <br>
+      {{ date("Y-m-d H:i:s T", strtotime($role->updated_at.' UTC')) }}
       <br>
       <br>
 

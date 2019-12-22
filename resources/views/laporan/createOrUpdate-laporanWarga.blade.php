@@ -28,13 +28,15 @@
                 @endif
                     {{ Form::text('case_reporter', Request::old('case_reporter'), ['class' => 'input-form', 'placeholder' => 'Name Reporter']) }}
                     <br>
-                    {{ Form::select('category_id', $category, null, ['class' => 'form-agenda']) }}
+                    {{ Form::select('category_id', [null=>'Select Category'] + $category, Request::old('category_id'), ['class' => 'input-form']) }}
                     <br>
                     {{ Form::date('case_date', Request::old('case_date'), ['class' => 'input-form', 'placeholder' => 'Case Date']) }}
                     <br>
-                    {{ Form::text('case_description', Request::old('case_description'), ['class' => 'input-form', 'placeholder' => 'Case Description']) }}
+                    {{ Form::time('case_time', Request::old('case_time'), ['class' => 'input-form', 'placeholder' => 'Case Date']) }}
                     <br>
-                    <input id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" placeholder="Search" />
+                    {{ Form::textarea('case_description', Request::old('case_description'), ['class' => 'input-form', 'placeholder' => 'Case Description']) }}
+                    <br>
+                    <input id="autocomplete_search" name="autocomplete_search" type="text" class="input-form" placeholder="Search" />
                     <input type="hidden" name="case_entry.latitude" class="case_entry.latitude">
                     <input type="hidden" name="case_entry.longitude" class="case_entry.longitude">
                     <br>
