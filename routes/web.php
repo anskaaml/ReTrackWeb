@@ -120,15 +120,10 @@ Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('c
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
 Route::get('/laporan-warga/{id}/delete', 'CaseEntryController@delete')->name('case_entry.delete');
 
-Route::get('/laporan-polisi', 'LaporanPolisiController@index')->name('case_report');
-
 Route::get('/laporan-patroli', 'LaporanPatroliController@index')->name('patrol_report');
 Route::get('/laporan-patroli/{id}', 'LaporanPatroliController@show')->name('patrol_report.show');
 
-
-Route::get('/laporan-kasus', 'CaseReportController@index')->name('case_report');
-// Route::get('/laporan-kasus/{id}', 'CaseReportController@show')->name('case_entry.show');
-
-
+Route::get('/laporan-polisi', 'CaseReportController@index')->name('case_report');
+Route::get('/laporan-polisi/{id}', 'CaseReportController@show')->name('case_report.show');
 
 Route::get('/history', 'HistoryController@index')->name('history');

@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    Report > Case Report
+    Report > Case Entry
 @endsection
 
 @section('content')

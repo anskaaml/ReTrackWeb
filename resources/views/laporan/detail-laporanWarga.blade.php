@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    CRUD > Data Team Police
+  Case Entry > Details
 @endsection
 
 @section('content')

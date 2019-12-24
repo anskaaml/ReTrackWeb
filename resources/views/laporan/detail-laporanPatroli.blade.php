@@ -5,17 +5,17 @@
 @endsection
 
 @section('name')
-    CRUD > Patrol Reports
+    Patrol Report > Details
 @endsection
 
 @section('content')
 <?php
   function getAddress($lat,$lng)
   {
-     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
-     $json = @file_get_contents($url);
-     $data = json_decode($json);
-     $status = $data->status;
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+    $json = @file_get_contents($url);
+    $data = json_decode($json);
+    $status = $data->status;
     
     if ($status == "OK")
         return $data->results[0]->formatted_address;
@@ -61,11 +61,6 @@
       <br>
 
       <div class="container-details-btn">
-          <!-- <button type="button" class="crud-btn">Delete</button>
-        &emsp;
-
-          <button type="button" class="crud-btn">Update</button>
-        &emsp; -->
           <button type="button" class="crud-btn">Cancel</button>
       </div>
   </div>

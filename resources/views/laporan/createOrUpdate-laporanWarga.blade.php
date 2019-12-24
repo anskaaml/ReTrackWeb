@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    CRUD > Create Case Report
+    Case Entry > Create
 @endsection
 
 @section('content')

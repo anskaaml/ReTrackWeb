@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    CRUD > Patrol Reports
+  Case Report > Details
 @endsection
 
 @section('content')
