@@ -126,6 +126,23 @@ class PoliceController extends Controller{
             
             $jsonObj = json_decode($response);
 
+            if($request->user_photo) {
+                $file = fopen($request->user_photo->path(), 'r');
+                $response = $this->client
+                    ->request('PUT', $this->base_url.'/user/'.$jsonObjs->user_id, [
+                    'multipart' => [
+                        [
+                            'name'     => 'user_photo',
+                            'contents' => $file,
+                            'filename' => 'tmp.jpg'
+                        ],
+                    ],
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                    ]
+                ]);
+            }
+
             return redirect()
                 ->route('police')
                 ->with('success', 'Police has been created!');
@@ -189,16 +206,30 @@ class PoliceController extends Controller{
                         'user_password' => $request->input('user_password'),
                         'user_birthdate' => $request->input('user_birthdate'),
                         'user_gender' => $request->input('user_gender'),
-                        // 'user_photo' => $request->input('user_photo'),
                         'role_id' => $request->input('role_id'),
                         'user_status' => $request->input('user_status'),
                     ],
                     'headers' => [
                         'Authorization' => "Bearer {$token}"
                     ]
-            ])->getBody()->getContents();
+            ]);
         
-            $jsonObj = json_decode($response);
+            if($request->user_photo) {
+                $file = fopen($request->user_photo->path(), 'r');
+                $response = $this->client
+                    ->request('PUT', $this->base_url.'/user/'.$id, [
+                    'multipart' => [
+                        [
+                            'name'     => 'user_photo',
+                            'contents' => $file,
+                            'filename' => 'tmp.jpg'
+                        ],
+                    ],
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                    ]
+                ]);
+            }
 
             return redirect()
                 ->route('police')
@@ -211,6 +242,7 @@ class PoliceController extends Controller{
             } 
             else {
                 echo($e->getResponse()->getBody());
+                echo($file);
             }
         }
     }
