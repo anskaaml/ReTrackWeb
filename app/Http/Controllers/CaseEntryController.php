@@ -20,7 +20,7 @@ class CaseEntryController extends Controller{
             $jsonObjs = json_decode($response);
             
             return view('laporan.laporan-warga', ['case_entries' => $jsonObjs]);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
@@ -35,7 +35,7 @@ class CaseEntryController extends Controller{
             $jsonObjs = json_decode($this->getCaseEntry($id));
 
             return view('laporan.detail-laporanWarga', ['case_entry' => $jsonObjs]);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
@@ -69,7 +69,7 @@ class CaseEntryController extends Controller{
             return redirect()
                 ->route('case_entry')
                 ->with('success', 'Case Entry has been deleted!');
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
@@ -79,24 +79,31 @@ class CaseEntryController extends Controller{
         }
     }
     
+    public function getCategories()
+    {
+        $token = Session::get('token');
+        $response= $this->client->request('GET', $this->base_url.'/category/', [
+            'headers' => [
+                'Authorization' => "Bearer {$token}"
+                ]
+        ])->getBody()->getContents();
+        
+        $jsonObjs = json_decode($response);
+            
+        $categories = [];
+        for ($i=0; $i < count($jsonObjs); $i++) { 
+            $categories[$jsonObjs[$i]->category_id] = $jsonObjs[$i]->category_name;
+        }
+
+        return $categories;
+    }
+    
     public function create()
     {
         try {
-            $token = Session::get('token');
-            $response= $this->client->request('GET', $this->base_url.'/category/', [
-                'headers' => [
-                    'Authorization' => "Bearer {$token}"
-                    ]
-            ])->getBody()->getContents();
-        
-            $jsonObjs = json_decode($response);
+            $categories = $this->getCategories();
             
-            $arr = [];
-            for ($i=0; $i < count($jsonObjs); $i++) { 
-                $arr[$jsonObjs[$i]->category_id] = $jsonObjs[$i]->category_name;
-            }
-            
-            return view('laporan.createOrUpdate-laporanWarga', ['category' => $arr]);
+            return view('laporan.createOrUpdate-laporanWarga', ['categories' => $categories]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -121,19 +128,35 @@ class CaseEntryController extends Controller{
                         'case_longitude' => $request->input('case_longitude'),
                         'case_latitude' => $request->input('case_latitude'),
                         'case_description' => $request->input('case_description'),
-                        'case_photo' => $request->input('case_photo'),
                     ],
                     'headers' => [
                         'Authorization' => "Bearer {$token}"
                     ]
             ])->getBody()->getContents();
+        
+            $jsonObjs = json_decode($response);
             
-            $jsonObj = json_decode($response);
+            if($request->case_photo) {
+                $file = fopen($request->case_photo->path(), 'r');
+                $response = $this->client
+                    ->request('PUT', $this->base_url.'/case-entry/'.$jsonObjs->case_id, [
+                    'multipart' => [
+                        [
+                            'name'     => 'case_photo',
+                            'contents' => $file,
+                            'filename' => 'tmp.jpg'
+                        ],
+                    ],
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                    ]
+                ]);
+            }
 
             return redirect()
                 ->route('case_entry')
                 ->with('success', 'Case Entry has been created!');
-        } catch(Exception $e) {
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
@@ -145,9 +168,19 @@ class CaseEntryController extends Controller{
 
     public function edit($id)
     {
-        $jsonObjs = json_decode($this->getCaseEntry($id));
+        try {
+            $jsonObjs = json_decode($this->getCaseEntry($id));
+            $categories = $this->getCategories();
 
-        return view('laporan.createOrUpdate-laporanWarga', ['case_entry' => $jsonObjs]);
+            return view('laporan.createOrUpdate-laporanWarga', ['case_entry' => $jsonObjs, 'categories' => $categories]);
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
+        }
     }
 
     public function update(Request $request, $id)
@@ -164,24 +197,39 @@ class CaseEntryController extends Controller{
                         'case_longitude' => $request->input('case_longitude'),
                         'case_latitude' => $request->input('case_latitude'),
                         'case_description' => $request->input('case_description'),
-                        'case_photo' => $request->input('case_photo'),
                     ],
                     'headers' => [
                         'Authorization' => "Bearer {$token}"
                     ]
-            ])->getBody()->getContents();
-        
-            $jsonObj = json_decode($response);
+            ]);
+
+            if($request->case_photo) {
+                $file = fopen($request->case_photo->path(), 'r');
+                $response = $this->client
+                    ->request('PUT', $this->base_url.'/case-entry/'.$id, [
+                    'multipart' => [
+                        [
+                            'name'     => 'case_photo',
+                            'contents' => $file,
+                            'filename' => 'tmp.jpg'
+                        ],
+                    ],
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                    ]
+                ]);
+            }
 
             return redirect()
                 ->route('case_entry')
                 ->with('success', 'Case Entry has been updated!');
-        } catch(Exception $e) {
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
             } else {
                 echo($e->getResponse()->getBody());
+                echo($file);
             }
         }
     }

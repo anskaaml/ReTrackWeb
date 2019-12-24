@@ -41,8 +41,8 @@
               <th>Reporter</th>
               <th>Category</th>
               <th>Location</th>
-              <th>Date</th>    
-              <th>Time</th>
+              <th>Datetime</th>
+              <th>Photo</th>
               <th>Details</th>
               <th>Handle</th>
             </thead>
@@ -65,8 +65,15 @@
                       @endif
                     </td> 
                     <!-- <td>{{ $case_entry-> case_longitude }} , {{ $case_entry-> case_latitude }}</td> -->
-                    <td>{{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}</td>
-                    <td>{{ $case_entry-> case_time}}</td>
+                    <td>
+                      {{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}
+                      {{ $case_entry-> case_time}}
+                    </td>
+                    <td>
+                      @if($case_entry->case_photo)
+                        <img src="<?= "https://api.retrack-app.site".$case_entry->case_photo ?>" height="100px">
+                      @endif
+                    </td>
                     <td>
                       <a href="{{ route('case_entry.show', ['id' => $case_entry->case_id]) }}">
                         <button class="details-btn" type="button">Details</button>

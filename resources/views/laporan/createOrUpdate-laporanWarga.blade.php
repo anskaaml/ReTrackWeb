@@ -21,14 +21,14 @@
                
                 @if(isset($case_entry))
                   <span class="form-title">Update Case Entry</span>
-                  {{ Form::model($case_entry, ['route' => ['case_entry.update', $case_entry->case_id], 'method' => 'post']) }}
+                  {{ Form::model($case_entry, ['route' => ['case_entry.update', $case_entry->case_id], 'method' => 'post', 'files' => true]) }}
                 @else
                   <span class="form-title">Create Case Entry</span>
-                  {{ Form::open(['route' => 'case_entry.store']) }}
+                  {{ Form::open(['route' => 'case_entry.store', 'files' => true ]) }}
                 @endif
                     {{ Form::text('case_reporter', Request::old('case_reporter'), ['class' => 'input-form', 'placeholder' => 'Name Reporter']) }}
                     <br>
-                    {{ Form::select('category_id', [null=>'Select Category'] + $category, Request::old('category_id'), ['class' => 'input-form']) }}
+                    {{ Form::select('category_id', [null=>'Select Category'] + $categories, Request::old('category_id'), ['class' => 'input-form']) }}
                     <br>
                     {{ Form::date('case_date', Request::old('case_date'), ['class' => 'input-form', 'placeholder' => 'Case Date']) }}
                     <br>
@@ -36,7 +36,10 @@
                     <br>
                     {{ Form::textarea('case_description', Request::old('case_description'), ['class' => 'input-form', 'placeholder' => 'Case Description']) }}
                     <br>
-                    <input id="autocomplete_search" name="autocomplete_search" type="text" class="input-form" placeholder="Search" />
+                    {{ Form::file('case_photo', ['class' => 'input-form']) }}
+                    <br>
+
+                    <input id="autocomplete_search" name="autocomplete_search" type="text" class="input-form" placeholder="Search Location" />
                     <input type="hidden" name="case_entry.latitude" class="case_entry.latitude">
                     <input type="hidden" name="case_entry.longitude" class="case_entry.longitude">
                     <br>
