@@ -67,6 +67,7 @@
             </tbody>
           </table>
         </div>
+        {{ $patrol_reports->links() }}
       </div>
     </div>
   </div>

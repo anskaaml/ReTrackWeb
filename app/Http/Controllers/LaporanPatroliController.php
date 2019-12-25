@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Session;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class LaporanPatroliController extends Controller{
     
-    public function index(){
+    public function index(Request $request){
         try {
             $token = Session::get('token');
             $response= $this->client->request('GET', $this->base_url.'/patrol-report', [
@@ -18,8 +20,26 @@ class LaporanPatroliController extends Controller{
         
             $jsonObjs = json_decode($response);
             
-            return view('laporan.laporan-patroli', ['patrol_reports' => $jsonObjs]);
-        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            // Get current page form url e.x. &page=1
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+    
+            // Create a new Laravel collection from the array data
+            $itemCollection = collect($jsonObjs);
+    
+            // Define how many items we want to be visible in each page
+            $perPage = 5;
+
+            // Slice the collection to get the items to display in current page
+            $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+
+            // Create our paginator and pass it to the view
+            $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+    
+            // set url path for generted links
+            $paginatedItems->setPath($request->url());
+
+            return view('laporan.laporan-patroli', ['patrol_reports' => $paginatedItems]);
+        } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
