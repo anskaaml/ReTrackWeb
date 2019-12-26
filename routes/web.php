@@ -100,16 +100,6 @@ Route::post('/data-lokasi/{id}/update', 'LocationController@update')->name('loca
 Route::get('/data-lokasi/{id}/edit', 'LocationController@edit')->name('location.edit');
 Route::get('/data-lokasi/{id}/delete', 'LocationController@delete')->name('location.delete');
 
-//  Tim
-// Route::get('/data-tim', 'TeamController@index')->name('team');
-// Route::get('/data-tim/create', 'TeamController@create')->name('team.create');
-// Route::post('/data-tim/store', 'TeamController@store')->name('team.store');
-// Route::get('/data-tim/{id}', 'TeamController@show')->name('team.show');
-// Route::post('/data-tim/{id}/update', 'TeamController@update')->name('team.update');
-// Route::get('/data-tim/{id}/edit', 'TeamController@edit')->name('team.edit');
-// Route::get('/data-tim/{id}/delete', 'TeamController@delete')->name('team.delete');
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/laporan-warga', 'CaseEntryController@index')->name('case_entry');
@@ -120,8 +110,8 @@ Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('c
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
 Route::get('/laporan-warga/{id}/delete', 'CaseEntryController@delete')->name('case_entry.delete');
 
-Route::get('/laporan-patroli', 'LaporanPatroliController@index')->name('patrol_report');
-Route::get('/laporan-patroli/{id}', 'LaporanPatroliController@show')->name('patrol_report.show');
+Route::get('/laporan-patroli', 'PatrolReportController@index')->name('patrol_report');
+Route::get('/laporan-patroli/{id}', 'PatrolReportController@show')->name('patrol_report.show');
 
 Route::get('/laporan-polisi', 'CaseReportController@index')->name('case_report');
 Route::get('/laporan-polisi/{id}', 'CaseReportController@show')->name('case_report.show');

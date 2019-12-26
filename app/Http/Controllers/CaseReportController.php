@@ -32,7 +32,7 @@ class CaseReportController extends Controller
 
     public function show($id){
         try{
-            $jsonObjs = json_decode($this->getCar($id));
+            $jsonObjs = json_decode($this->getCaseReport($id));
 
             return view('laporan.detail-laporanPolisi', ['case_report' => $jsonObjs]);
         }catch(\GuzzleHttp\Exception\BadResponseException $e){

@@ -37,31 +37,28 @@
             <?= $case_entry->case_reporter ?>
             <br>
             <br>
-            <strong>Category</strong>
+            <strong>Case</strong>
             <br>
             @if($case_entry->category_id)
               <?= $case_entry->category->category_name ?>
             @endif
-            <br>
-            <br>
-            <strong>Case Location</strong>
-            <br>
+            
+            @if($case_entry->case_date)
+              {{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}
+            @endif
+            <?=$case_entry->case_time?>
+
             @if($case_entry->case_latitude && $case_entry->case_longitude)
             <?php 
               $data = getAddress($case_entry-> case_latitude, $case_entry-> case_longitude); echo ($data);
             ?>
             @endif
+            
             <br>
             <br>
             <strong>Case Description</strong>
             <br>
             <?= $case_entry->case_description?>
-            <br>
-            <br>
-            <strong>Case Datetime</strong>
-            <br>
-            <?= \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') ?>
-            <?=$case_entry->case_time?>
             <br>
             <br>
             <strong>Case Photo</strong>

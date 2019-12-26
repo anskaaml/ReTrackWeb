@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Http\Controllers\Controller;
 
-class LaporanPatroliController extends Controller{
+class PatrolReportController extends Controller{
     
     public function index(){
         try {

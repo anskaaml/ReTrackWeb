@@ -35,27 +35,56 @@
           <table class="table" id="table">
             <thead class="text-primary">
               <th>#</th>
-              <th>Name Reporter</th>  
-              <th>Name Police</th>
-              <th>Case Report Date</th>
-              <th>Category</th>
-              <th>Case Report Status</th>
+              <th>Police Name</th>
+              <th>Case</th>
+              <th>Photo</th>
+              <th>Status</th>
             </thead>
             <tbody id="myTable">
               @if($case_reports)
                 @foreach($case_reports as $case_report)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $case_report-> case_entry-> case_reporter }}</td>
-                    <td>{{ $case_report-> user-> user_name }}</td>
-                    <td>{{ $case_report-> case_report_date }}</td>
-                    <td>{{ $case_report-> case_entry-> category-> category_name }}</td>
-                    <td>{{ $case_report-> case_status }}</td>
                     <td>
-                      <?php 
-                        $data = getAddress($location-> location_latitude, $location-> location_longitude); echo ($data);
+                      @if($case_report-> user)
+                        {{ $case_report-> user-> user_name }}
+                      @endif
+                    </td>
+                    <td>
+                      @if($case_report-> case_entry)
+                        @if($case_report-> case_entry-> category)
+                          {{ $case_report-> case_entry-> category-> category_name }}
+                        @endif
+
+                        @if($case_report->case_entry->case_date)
+                          {{ \Carbon\Carbon::parse($case_report->case_entry-> case_date)-> format('d M Y') }}
+                        @endif
+
+                        {{ $case_report-> case_entry->case_time}}
+                        
+                        @if($case_report->case_entry->case_latitude && $case_report->case_entry->case_longitude)
+                          <?php 
+                            $data = getAddress($case_report->case_entry->case_latitude, $case_report->case_entry->case_longitude);
+                            echo ($data);
+                          ?>
+                        @endif
+                      @endif
+                    </td>
+                    <td>
+                      @if($case_report->case_report_photo)
+                        <img src="<?= "https://api.retrack-app.site".$case_report->case_report_photo ?>" height="120px">
+                      @endif
+                    </td>
+                    <td>
+                      <?php
+                        if($case_report-> case_report_status == 0)
+                          echo("Invalid");
+                        else if($case_report-> case_report_status == 1)
+                          echo("Not Done");
+                        else if($case_report-> case_report_status == 2)
+                          echo("Done");
                       ?>
-                    </td> 
+                    </td>
                     <td>
                       <a href="{{ route('case_report.show', ['id' => $case_report-> case_report_id]) }}">
                         <button class="details-btn">Details</button>

@@ -5,7 +5,7 @@
 @endsection
 
 @section('name')
-    Case Entry > Create
+    Case Entry > Create / Update
 @endsection
 
 @section('content')
@@ -18,7 +18,6 @@
             <div class="card-body">
               <div id="myModal" class="modal-form">
                 <div class="modal-content4">
-               
                 @if(isset($case_entry))
                   <span class="form-title">Update Case Entry</span>
                   {{ Form::model($case_entry, ['route' => ['case_entry.update', $case_entry->case_id], 'method' => 'post', 'files' => true]) }}
@@ -38,10 +37,11 @@
                     <br>
                     {{ Form::file('case_photo', ['class' => 'input-form']) }}
                     <br>
-
-                    <input id="autocomplete_search" name="autocomplete_search" type="text" class="input-form" placeholder="Search Location" />
-                    <input type="hidden" name="case_entry.latitude" class="case_entry.latitude">
-                    <input type="hidden" name="case_entry.longitude" class="case_entry.longitude">
+                    <input id="autocomplete_search" name="autocomplete_search" type="text" class="input-form" autocomplete="on" runat="server"/>
+                    {{ Form::hidden('case_latitude', Request::old('case_latitude'), ['id' => 'case_latitude']) }}
+                    {{ Form::hidden('case_longitude', Request::old('case_longitude'), ['id' => 'case_longitude']) }}
+                    <!-- <input type="hidden" id="case_latitude" name="case_latitude" class="case_latitude">
+                    <input type="hidden" id="case_longitude" name="case_longitude" class="case_longitude"> -->
                     <br>
                     <div class="container-form-btn">
                       <button type="submit" class="form-btn">Done</button>
@@ -56,25 +56,29 @@
 @endsection
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug&libraries=places"></script>
 <script>
-  google.maps.event.addDomListener(window, 'load', initialize);
-    function initialize() {
-      var input = document.getElementById('autocomplete_search');
+  function initialize() {
+    var input = document.getElementById('autocomplete_search');
 
-      var defaultBounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(-7.291979, 112.782211),
-            new google.maps.LatLng(-7.271099, 112.757982));
+    var defaultBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(-7.291979, 112.782211),
+      new google.maps.LatLng(-7.271099, 112.757982)
+    );
+  
+    var autocomplete = new google.maps.places.Autocomplete(input, {
+      bounds: defaultBounds,
+      types: ['establishment']
+    });
 
-      
-      var autocomplete = new google.maps.places.Autocomplete(input, {
-                              bounds: defaultBounds
-                            });
-     
-      autocomplete.addListener('place_changed', function () {
-     
+    google.maps.event.addListener(autocomplete,'place_changed', function () {
       var place = autocomplete.getPlace();
       // place variable will have all the information you are looking for.
-      $('#case_entry.latitude').val(place.geometry['location'].lat());
-      $('#case_entry.longitude').val(place.geometry['location'].lng());
+      console.log(place.geometry.location.lat());
+      console.log(place.geometry.location.lng());
+      document.getElementById('case_latitude').value = place.geometry.location.lat();
+      document.getElementById('case_longitude').value = place.geometry.location.lng();
+      // $('#case_latitude').val(place.geometry['location'].lat());
+      // $('#case_longitude').val(place.geometry['location'].lng());
     });
   }
+  google.maps.event.addDomListener(window, 'load', initialize);
 </script>

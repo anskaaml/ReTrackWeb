@@ -39,12 +39,9 @@
             <thead class="text-primary">
               <th>#</th>
               <th>Reporter</th>
-              <th>Category</th>
-              <th>Location</th>
-              <th>Datetime</th>
+              <th>Case</th>
               <th>Photo</th>
-              <th>Details</th>
-              <th>Handle</th>
+              <th>Action</th>
             </thead>
             <tbody id="myTable">
               @if($case_entries)
@@ -52,12 +49,16 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $case_entry-> case_reporter }}</td>
-                    @if($case_entry->category)
-                      <td>{{ $case_entry-> category-> category_name}}</td>
-                    @else
-                      <td></td>
-                    @endif
                     <td>
+                      @if($case_entry->category)
+                        {{ $case_entry-> category-> category_name}}
+                      @endif
+
+                      @if($case_entry->case_date)
+                        {{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}
+                      @endif
+
+                      {{ $case_entry-> case_time}}
                       @if($case_entry->case_latitude && $case_entry->case_longitude)
                         <?php 
                           $data = getAddress($case_entry->case_latitude, $case_entry->case_longitude); echo ($data);
@@ -66,20 +67,14 @@
                     </td> 
                     <!-- <td>{{ $case_entry-> case_longitude }} , {{ $case_entry-> case_latitude }}</td> -->
                     <td>
-                      {{ \Carbon\Carbon::parse($case_entry-> case_date)-> format('d M Y') }}
-                      {{ $case_entry-> case_time}}
-                    </td>
-                    <td>
                       @if($case_entry->case_photo)
-                        <img src="<?= "https://api.retrack-app.site".$case_entry->case_photo ?>" height="100px">
+                        <img src="<?= "https://api.retrack-app.site".$case_entry->case_photo ?>" height="120px">
                       @endif
                     </td>
                     <td>
                       <a href="{{ route('case_entry.show', ['id' => $case_entry->case_id]) }}">
                         <button class="details-btn" type="button">Details</button>
                       </a>
-                    </td>
-                    <td>
                       <button class="tangani-btn" type="button" onclick="window.location='http://localhost:8000/maps' ">Handle</button>
                     </td>
                   </tr>

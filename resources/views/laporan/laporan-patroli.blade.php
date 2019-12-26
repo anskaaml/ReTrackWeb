@@ -12,10 +12,10 @@
 <?php
   function getAddress($lat,$lng)
   {
-     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
-     $json = @file_get_contents($url);
-     $data = json_decode($json);
-     $status = $data->status;
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+    $json = @file_get_contents($url);
+    $data = json_decode($json);
+    $status = $data->status;
     
     if ($status == "OK")
         return $data->results[0]->formatted_address;
@@ -35,8 +35,9 @@
               <th>#</th>
               <th>Police</th>
               <th>Location</th>
-              <th>Date</th>
-              <th>Time</th>
+              <th>Datetime</th>
+              <th>Photo</th>
+              <th>Status</th>
               <th>Action</th>
             </thead>
             <tbody id="myTable">
@@ -44,7 +45,11 @@
                 @foreach($patrol_reports as $patrol_report)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $patrol_report->user->user_name }}</td>
+                    <td>
+                    @if($patrol_report->user)
+                      {{ $patrol_report->user->user_name }}
+                    @endif
+                    </td>
                     <td>
                       @if($patrol_report->patrol_latitude && $patrol_report->patrol_longitude)
                         <?php 
@@ -52,8 +57,25 @@
                         ?>
                       @endif
                     </td>
-                    <td>{{ \Carbon\Carbon::parse($patrol_report->patrol_date)->format('d M Y') }}</td>
-                    <td>{{ $patrol_report->patrol_time }}</td>
+                    <td>
+                      @if($patrol_report->patrol_date)
+                        {{ \Carbon\Carbon::parse($patrol_report->patrol_date)->format('d M Y') }}
+                      @endif
+                      {{ $patrol_report->patrol_time }}
+                    </td>
+                    <td>
+                      @if($patrol_report->patrol_photo)
+                        <img src="<?= "https://api.retrack-app.site".$patrol_report->patrol_photo ?>" height="120px">
+                      @endif
+                    </td>
+                    <td>
+                      <?php 
+                      if($patrol_report->patrol_status == 0)
+                        echo("Aman");
+                      else if($patrol_report->patrol_status == 0)
+                        echo("Rawan");
+                      ?>
+                    </td>
                     <td>
                       <a href="{{ route('patrol_report.show', ['id' => $patrol_report->patrol_report_id]) }}">
                         <button class="details-btn" type="button">Details</button>
