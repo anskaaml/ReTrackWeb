@@ -50,6 +50,7 @@
           </tbody>
         </table>
       </div>
+      {{ $cars->links() }}
     </div>
   </div>
 </div>

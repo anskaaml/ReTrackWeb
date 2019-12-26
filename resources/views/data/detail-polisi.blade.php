@@ -46,6 +46,13 @@
                   ?>
                   <br>
                   <br>
+                  <strong>User Photo</strong>
+                  <br>
+                  @if($police->user_photo)
+                    <img src="<?= "https://api.retrack-app.site".$police->user_photo ?>" height="100px">
+                  @endif
+                  <br>
+                  <br>
                   <strong>Role</strong>
                   <br>
                   @if($police->role_id)

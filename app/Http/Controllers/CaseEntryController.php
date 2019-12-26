@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class CaseEntryController extends Controller{
-    public function index()
+    public function index(Request $request)
     {
         try {
             $token = Session::get('token');
@@ -19,7 +21,25 @@ class CaseEntryController extends Controller{
         
             $jsonObjs = json_decode($response);
             
-            return view('laporan.laporan-warga', ['case_entries' => $jsonObjs]);
+             // Get current page form url e.x. &page=1
+             $currentPage = LengthAwarePaginator::resolveCurrentPage();
+    
+             // Create a new Laravel collection from the array data
+             $itemCollection = collect($jsonObjs);
+     
+             // Define how many items we want to be visible in each page
+             $perPage = 5;
+ 
+             // Slice the collection to get the items to display in current page
+             $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+ 
+             // Create our paginator and pass it to the view
+             $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+     
+             // set url path for generted links
+             $paginatedItems->setPath($request->url()); 
+
+            return view('laporan.laporan-warga', ['case_entries' => $paginatedItems]);
         } catch(\Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

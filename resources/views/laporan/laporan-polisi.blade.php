@@ -98,6 +98,7 @@
             </tbody>
           </table>
         </div>
+        {{ $case_reports->links() }}
       </div>
     </div>
   </div>

@@ -85,6 +85,7 @@
             </tbody>
           </table>
         </div>
+        {{ $case_entries->links() }}
       </div>
     </div>
   </div>

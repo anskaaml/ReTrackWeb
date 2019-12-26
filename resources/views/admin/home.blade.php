@@ -24,8 +24,16 @@
                     <option value="police-report">Police Report</option>
                     <option value="citizen-report">Citizen Report</option>
                 </select>          
-                </form>            
+                </form>  
+
+                <script type="text/javascript" src="../assets/js/chart.js"></script>
+                
+                <div style="width: 1000px;height: 1000px; font-family: roboto;">
+		            <canvas id="myChart"></canvas>
+            </div>          
         </div>
     </div>
+
+<script src="../assets/js/chart-data.js"></script>
 @endsection
 

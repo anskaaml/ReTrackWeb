@@ -28,6 +28,7 @@
               <th>Name</th>
               <th>Birthdate</th>
               <th>Gender</th>
+              <th>Photo<th>
               <th>Role</th>
               <th>Action</th>
             </thead>
@@ -53,6 +54,11 @@
                       ?>
                     </td>
                     <td>
+                      @if($police->user_photo)
+                         <img src="<?= "https://api.retrack-app.site".$police->user_photo ?>" height="100px">
+                      @endif
+                    </td>
+                    <td>
                       @if($police->role_id)
                         {{ $police->role->role_name }}
                       @endif
@@ -70,6 +76,7 @@
             </tbody>
           </table>
         </div>
+        {{ $polices->links() }}
       </div>
     </div>
   </div>

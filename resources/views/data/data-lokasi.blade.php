@@ -66,6 +66,7 @@
                     </tbody>
                   </table>
                 </div>
+                {{ $locations->links() }}
               </div>
             </div>
           </div>

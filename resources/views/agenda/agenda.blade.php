@@ -57,6 +57,7 @@
             </tbody>
           </table>
         </div>
+        {{ $teams->links() }}
       </div>
     </div>
   </div>
