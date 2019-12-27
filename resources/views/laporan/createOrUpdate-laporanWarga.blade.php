@@ -72,12 +72,8 @@
     google.maps.event.addListener(autocomplete,'place_changed', function () {
       var place = autocomplete.getPlace();
       // place variable will have all the information you are looking for.
-      console.log(place.geometry.location.lat());
-      console.log(place.geometry.location.lng());
       document.getElementById('case_latitude').value = place.geometry.location.lat();
       document.getElementById('case_longitude').value = place.geometry.location.lng();
-      // $('#case_latitude').val(place.geometry['location'].lat());
-      // $('#case_longitude').val(place.geometry['location'].lng());
     });
   }
   google.maps.event.addDomListener(window, 'load', initialize);

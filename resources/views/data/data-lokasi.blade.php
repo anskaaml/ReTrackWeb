@@ -12,10 +12,10 @@
 <?php
   function getAddress($lat,$lng)
   {
-     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
-     $json = @file_get_contents($url);
-     $data = json_decode($json);
-     $status = $data->status;
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+    $json = @file_get_contents($url);
+    $data = json_decode($json);
+    $status = $data->status;
     
     if ($status == "OK")
         return $data->results[0]->formatted_address;
@@ -49,9 +49,11 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $location->location_name }}</td>
                         <td>
+                          @if($location->location_latitude && $location->location_longitude)
                             <?php 
                               $data = getAddress($location-> location_latitude, $location-> location_longitude); echo ($data);
                             ?>
+                          @endif
                           </td> 
                         <td>
                         <a href="{{ route('location.show', ['id' => $location->location_id]) }}">
@@ -73,7 +75,5 @@
       </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="../assets/js/popup-details.js"></script>
 <script src="../assets/js/search.js"></script>
-<script src="../assets/js/form-popup.js"></script>
 @endsection

@@ -9,6 +9,20 @@
 @endsection
 
 @section('content')
+<?php
+  function getAddress($lat,$lng)
+  {
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+    $json = @file_get_contents($url);
+    $data = json_decode($json);
+    $status = $data->status;
+    
+    if ($status == "OK")
+        return $data->results[0]->formatted_address;
+    else
+        return false;
+  }
+?>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-plain">
@@ -18,20 +32,30 @@
     <div class="modal-content-details">
       <span class="form-title">Details Location</span>
       <br>
-        <strong>Location Name</strong>&emsp;&emsp;&emsp;<?= $location->location_name ?>
+        <strong>Location Name</strong>
+      <br>
+        <?= $location->location_name ?>
       <br>
       <br>
+        <strong>Location Longitude</strong>
       <br>
-        <strong>Location Longitude</strong>&emsp;<?= $location->location_longitude ?>
-      <br>
-      <br>
-      <br>
-        <strong>Location Latitude</strong>&emsp;&emsp;<?= $location->location_latitude ?>
+        <?= $location->location_longitude ?>
       <br>
       <br>
+        <strong>Location Latitude</strong>
+      <br>
+        <?= $location->location_latitude ?>
       <br>
       <br>
-
+        <strong>Address</strong>
+      <br>
+        @if($location->location_latitude && $location->location_longitude)
+          <?php 
+            $data = getAddress($location-> location_latitude, $location-> location_longitude); echo ($data);
+          ?>
+        @endif
+      <br>
+      <br>
       <div class="container-details-btn">
       <a href="{{ route('location.delete', ['id' => $location->location_id]) }}">
           <button type="button" class="crud-btn">Delete</button>
