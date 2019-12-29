@@ -30,7 +30,7 @@
       <div class="card-body">
         <div id="myModal-details" class="modal-details">
           <div class="modal-content-details">
-            <span class="form-title">Details Laporan Warga</span>
+            <span class="form-title">Detail Case Reports</span>
             <br>
             <strong>Case Reporter</strong>
             <br>

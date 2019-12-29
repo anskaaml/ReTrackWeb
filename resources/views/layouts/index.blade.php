@@ -54,6 +54,10 @@
             <img class="nav-icon" src="{{ asset('assets/img/data.png') }}" width="25" heigth="30">
               <p class="p6">Data</p>
             </a>
+            <ul>
+         <li><a href='#'><span>Car Data</span></a></li>
+         <li><a href='#'><span>Police Data</span></a></li>
+      </ul>
           </li>
           <li>
             <a href="{{ route('history') }}">
