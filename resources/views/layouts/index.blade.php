@@ -98,9 +98,7 @@
                   <span class="font-admin">Admin</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Admin 1</a>
-                  <a class="dropdown-item" href="#">Admin 2</a>
-                  <a class="dropdown-item" href="#">Admin 3</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
               </li>
               <li class="nav-item">
