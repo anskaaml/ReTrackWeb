@@ -54,6 +54,10 @@
             <img class="nav-icon" src="{{ asset('assets/img/data.png') }}" width="25" heigth="30">
               <p class="p6">Data</p>
             </a>
+            <ul>
+         <li><a href='#'><span>Car Data</span></a></li>
+         <li><a href='#'><span>Police Data</span></a></li>
+      </ul>
           </li>
           <li>
             <a href="{{ route('history') }}">
@@ -94,9 +98,7 @@
                   <span class="font-admin">Admin</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Admin 1</a>
-                  <a class="dropdown-item" href="#">Admin 2</a>
-                  <a class="dropdown-item" href="#">Admin 3</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
               </li>
               <li class="nav-item">

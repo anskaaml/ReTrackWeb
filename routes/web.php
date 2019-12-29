@@ -50,12 +50,7 @@ Route::get('/agenda/create', 'AgendaController@create')->name('agenda.create');
 Route::post('/agenda/store', 'AgendaController@store')->name('agenda.store');
 Route::get('/agenda/add-member', 'AgendaController@addmember')->name('agenda.add-member');
 Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
-// * Agenda *
-// Route::get('/add-member', function () {
-// return view('agenda.add-member');
-//     });
 
-// ** Belum Dirapiin **
 // Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
