@@ -100,7 +100,7 @@ Route::post('/data-lokasi/{id}/update', 'LocationController@update')->name('loca
 Route::get('/data-lokasi/{id}/edit', 'LocationController@edit')->name('location.edit');
 Route::get('/data-lokasi/{id}/delete', 'LocationController@delete')->name('location.delete');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'AuthController@home')->name('home');
 
 Route::get('/laporan-warga', 'CaseEntryController@index')->name('case_entry');
 Route::get('/laporan-warga/create', 'CaseEntryController@create')->name('case_entry.create');

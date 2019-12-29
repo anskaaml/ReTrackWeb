@@ -21,27 +21,26 @@
                         </a>
                         
                         <span class="form-title-agenda">Agenda Details</span>              
-                        <strong style="padding:100px;">Member</strong>
-                        <strong style="padding:100px;">Car</strong>
-                        <strong style="padding:70px;">Date</strong>
+                        <strong>Member</strong>
                         <br>
-                        <a style="padding:100px;">
                         @foreach($team->users as $user)
                             {{ $user->user_name }},
                         @endforeach
-                        </a>
-                        @if($team->car)
-                        <a>{{ $team->car->car_number }}</a>
-                        @else
-                        <a></a>
-                        @endif
-                        <a style="padding:70px;">{{ \Carbon\Carbon::parse($team->agenda->agenda_date)-> format('d, M Y') }}</a>
                         <br>
+                        <strong>Car</strong>
+                        <br>
+                        @if($team->car)
+                            {{ $team->car->car_number }}
+                        @endif
+                        <br>
+                        <strong>Date</strong>
+                        <br>
+                        {{ \Carbon\Carbon::parse($team->agenda->agenda_date)-> format('d, M Y') }}
                         <br>
                         @if($team->agenda->checkpoints)
-                        <div class="maps-agenda2" id="maps-agenda2"></div>  
+                            <div class="maps-agenda2" id="maps-agenda2"></div>  
                         @else
-                        <div style="text-align:center">Map Not Rendered Because Checkpoints Isn't Created Yet</div>
+                            <div style="text-align:center">Map Not Rendered Because Checkpoints Isn't Created Yet</div>
                         @endif
                     </div>
                 </div>

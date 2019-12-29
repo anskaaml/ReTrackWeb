@@ -40,13 +40,16 @@ class AuthController extends Controller {
             ])->getBody()->getContents();
 
             $jsonObj = json_decode($response);
-            if (isset($jsonObj->token)) {
-                Session::put('token', $jsonObj->token);
+            if(isset($jsonObj->token) && isset($jsonObj->role_id)) {
+                // 2 is admin id
+                if($jsonObj->role_id == 2) {
+                    Session::put('token', $jsonObj->token);
 
-                return redirect()->route('home');
+                    return redirect()->route('home');
+                }
             }
 
-            return redirect()->route('login')->with('failed', 'User is not registered');
+            return redirect()->route('login')->with('failed', 'User is not registered / not allowed to login');
         } else {
             return redirect()->route('home');
         }
@@ -58,6 +61,14 @@ class AuthController extends Controller {
             $request->session()->flush();
 
             return redirect()->route('login');
+        } else {
+            return redirect()->route('login');
+        }
+    }
+
+    public function home(){
+        if(Session::get('token')) {
+            return view('admin.home');
         } else {
             return redirect()->route('login');
         }

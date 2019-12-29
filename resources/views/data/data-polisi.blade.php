@@ -28,7 +28,7 @@
               <th>Name</th>
               <th>Birthdate</th>
               <th>Gender</th>
-              <th>Photo<th>
+              <th>Photo</th>
               <th>Role</th>
               <th>Action</th>
             </thead>
@@ -55,7 +55,7 @@
                     </td>
                     <td>
                       @if($police->user_photo)
-                         <img src="<?= "https://api.retrack-app.site".$police->user_photo ?>" height="100px">
+                        <img src="<?= "https://api.retrack-app.site".$police->user_photo ?>" height="100px">
                       @endif
                     </td>
                     <td>
