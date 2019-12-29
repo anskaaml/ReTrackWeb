@@ -116,7 +116,6 @@
           @yield('content')
       </div>
     </div>
-  </div>
   <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
   <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>

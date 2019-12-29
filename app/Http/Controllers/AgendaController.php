@@ -67,7 +67,7 @@ class AgendaController extends Controller{
             }
             
             return view('agenda.create-agenda', ['cars' => $cars]);
-        } catch(\Exception $e) {
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
@@ -75,6 +75,11 @@ class AgendaController extends Controller{
                 echo($e->getResponse()->getBody());
             }
         }
+    }
+
+    public function store(Request $request)
+    {
+        return null;
     }
 
     public function addmember()

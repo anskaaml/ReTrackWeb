@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 class AuthController extends Controller {
     public function root()
     {
-        // $request = $this->client->get($this->base_url);
-        // $response = $request->getBody();
-    
-        // return $response;
         if(Session::get('token')) {
             return redirect()->route('home');
         } else {
