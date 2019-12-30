@@ -65,8 +65,21 @@ class AgendaController extends Controller{
             for ($i=0; $i < count($jsonObjs); $i++) { 
                 $cars[$jsonObjs[$i]->car_id] = $jsonObjs[$i]->car_number;
             }
+
+            $response= $this->client->request('GET', $this->base_url.'/user', [
+                'headers' => [
+                    'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+        
+            $jsonObjs = json_decode($response);
+
+            $users = [];
+            for ($i=0; $i < count($jsonObjs); $i++) { 
+                $users[$jsonObjs[$i]->user_id] = $jsonObjs[$i]->user_name;
+            }
             
-            return view('agenda.create-agenda', ['cars' => $cars]);
+            return view('agenda.create-agenda', ['cars' => $cars, 'users' => $users]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -79,7 +92,78 @@ class AgendaController extends Controller{
 
     public function store(Request $request)
     {
-        return null;
+        try {
+            $token = Session::get('token');
+            $response = $this->client
+                ->request('POST', $this->base_url.'/agenda',  [
+                    'form_params' => [
+                        'agenda_date' => date('Y-m-d'),
+                        'agenda_status' => true,
+                    ],
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+            
+            $jsonObj = json_decode($response);
+            $agendaId = $jsonObj->agenda_id;
+            
+            for($i = 0 ; $i < count($request->input('checkpoint_longitude')) ; $i++) {
+                $response = $this->client
+                    ->request('POST', $this->base_url.'/checkpoint',  [
+                        'form_params' => [
+                            'agenda_id' => $agendaId,
+                            'checkpoint_longitude' => $request->input('checkpoint_longitude.'.$i),
+                            'checkpoint_latitude' => $request->input('checkpoint_latitude.'.$i),
+                            'checkpoint_datetime' => gmdate("Y-m-d H:i:s", strtotime($request->input('checkpoint_date.'.$i).' '.$request->input('checkpoint_time.'.$i)))
+                        ],
+                        'headers' => [
+                            'Authorization' => "Bearer {$token}"
+                        ]
+                ]);
+            }
+
+            $response = $this->client
+                ->request('POST', $this->base_url.'/team',  [
+                    'form_params' => [
+                        'car_id' => $request->input('car_id'),
+                        'agenda_id' => $agendaId,
+                        // Coordinator
+                        'user_id' => $request->input('user_id.0'),
+                    ],
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+            
+            $jsonObj = json_decode($response);
+            $teamId = $jsonObj->team_id;
+            for($i = 0 ; $i < count($request->input('user_id')) ; $i++) {
+                if($request->input('user_id.'.$i)) {
+                    $response = $this->client
+                        ->request('POST', $this->base_url.'/member',  [
+                            'form_params' => [
+                                'team_id' => $teamId,
+                                'user_id' => $request->input('user_id.'.$i),
+                            ],
+                            'headers' => [
+                                'Authorization' => "Bearer {$token}"
+                            ]
+                    ]);
+                }
+            }
+
+            return redirect()
+                ->route('agenda')
+                ->with('success', 'Agenda has been created!');
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
+        }
     }
 
     public function addmember()
