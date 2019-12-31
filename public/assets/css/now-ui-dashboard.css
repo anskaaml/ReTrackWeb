@@ -545,8 +545,8 @@
   border-style: none;
   cursor: pointer;
   right: 10px;
-  bottom: -470px;
-  position: absolute;
+  /* bottom: -470px;
+  position: absolute; */
 }
 
 .tambah-agenda-btn{
@@ -809,14 +809,14 @@
 .maps-agenda2{
   width: 760px;
   height: 360px; 
-  position: absolute;
+  /* position: absolute; */
   align-items: center;
 }
 
 .maps-agenda{
   width: 1000px;
-  height: 450px; 
-  position: absolute;
+  height: 300px; 
+  /* position: absolute; */
   align-items: center;
 }
 

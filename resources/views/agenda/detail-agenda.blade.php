@@ -1,4 +1,4 @@
-@extends('layouts.maps')
+@extends('layouts.index')
 
 @section('title')
     ReTrack
@@ -20,29 +20,65 @@
                             <span class="close" onclick="hide(); return false">&times;</span>
                         </a>
                         
-                        <span class="form-title-agenda">Agenda Details</span>              
-                        <strong style="padding:100px;">Member</strong>
-                        <strong style="padding:100px;">Car</strong>
-                        <strong style="padding:70px;">Date</strong>
-                        <br>
-                        <a style="padding:100px;">
-                        @foreach($team->users as $user)
-                            {{ $user->user_name }},
-                        @endforeach
-                        </a>
-                        @if($team->car)
-                        <a>{{ $team->car->car_number }}</a>
-                        @else
-                        <a></a>
-                        @endif
-                        <a style="padding:70px;">{{ \Carbon\Carbon::parse($team->agenda->agenda_date)-> format('d, M Y') }}</a>
-                        <br>
-                        <br>
+                        <span class="form-title-agenda">Agenda Details</span>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Coordinator</strong>
+                                        <br>
+                                        @if($team->coordinator)
+                                            {{ $team->coordinator->user_name }}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <strong>Member</strong>
+                                        <br>
+                                        @foreach($team->users as $user)
+                                            {{ $user->user_name }},
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        <strong>Car</strong>
+                                        <br>
+                                        @if($team->car)
+                                            {{ $team->car->car_number }}
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Date</strong>
+                                        <br>
+                                        {{ \Carbon\Carbon::parse($team->agenda->agenda_date)-> format('d, M Y') }}                                        
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <strong>Status</strong>
+                                        <br>
+                                        <?php
+                                            if($team->agenda->agenda_status == true) {
+                                                echo("On Progress");
+                                            } else {
+                                                echo("Done");
+                                            }
+                                        ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>           
                         @if($team->agenda->checkpoints)
-                        <div class="maps-agenda2" id="maps-agenda2"></div>  
+                            <div class="maps-agenda2" id="maps-agenda2"></div>  
                         @else
-                        <div style="text-align:center">Map Not Rendered Because Checkpoints Isn't Created Yet</div>
+                            <div style="text-align:center">Map Not Rendered Because Checkpoints Isn't Created Yet</div>
                         @endif
+                        <br>
+                        <div class="container-details-btn">
+                            <a href="{{ route('agenda.delete', ['id' => $team->agenda->agenda_id]) }}">
+                                <button type="button" class="crud-btn pull-right">Delete</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,4 +154,6 @@
     }
     ?>
 </script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>	
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug&callback=initMap"></script>
 @endsection

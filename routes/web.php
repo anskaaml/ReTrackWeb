@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'AuthController@root');
-
 // * Auth *
 // Load Login Page
 Route::get('/login', 'AuthController@loginPage')->name('login');
@@ -20,7 +18,9 @@ Route::get('/login', 'AuthController@loginPage')->name('login');
 Route::post('/testLogin', 'AuthController@login')->name('testLogin');
 // Log out
 Route::get('/logout', 'AuthController@logout')->name('logout');
-// * Auth *
+// Home
+Route::get('/', 'AuthController@root');
+Route::get('/home', 'AuthController@home')->name('home');
 
 // * Live Tracking *
 Route::get('/maps', 'MapsController@index')->name('maps');
@@ -47,13 +47,14 @@ Route::get('/data-polisi/{id}/delete', 'PoliceController@delete')->name('police.
 // * Agenda *
 Route::get('/agenda', 'AgendaController@index')->name('agenda');
 Route::get('/agenda/create', 'AgendaController@create')->name('agenda.create');
-Route::get('/agenda/add-member', 'AgendaController@addmember')->name('agenda.add-member');
+Route::post('/agenda/store', 'AgendaController@store')->name('agenda.store');
 Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
+Route::get('/agenda/{id}/delete', 'AgendaController@delete')->name('agenda.delete');
 
 // Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
-Route::post('/data-mobil/store_car', 'CarController@store')->name('car.store');
+Route::post('/data-mobil/store', 'CarController@store')->name('car.store');
 Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
 Route::post('/data-mobil/{id}/update', 'CarController@update')->name('car.update');
 Route::get('/data-mobil/{id}/edit', 'CarController@edit')->name('car.edit');
@@ -94,8 +95,6 @@ Route::get('/data-lokasi/{id}', 'LocationController@show')->name('location.show'
 Route::post('/data-lokasi/{id}/update', 'LocationController@update')->name('location.update');
 Route::get('/data-lokasi/{id}/edit', 'LocationController@edit')->name('location.edit');
 Route::get('/data-lokasi/{id}/delete', 'LocationController@delete')->name('location.delete');
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/laporan-warga', 'CaseEntryController@index')->name('case_entry');
 Route::get('/laporan-warga/create', 'CaseEntryController@create')->name('case_entry.create');
