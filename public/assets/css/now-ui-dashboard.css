@@ -809,7 +809,7 @@
 .maps-agenda2{
   width: 760px;
   height: 360px; 
-  position: absolute;
+  /* position: absolute; */
   align-items: center;
 }
 

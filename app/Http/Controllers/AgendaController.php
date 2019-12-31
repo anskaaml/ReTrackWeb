@@ -165,16 +165,6 @@ class AgendaController extends Controller{
             }
         }
     }
-
-    public function addmember()
-    {
-        if(Session::get('token')) {
-            return view('agenda.add-member');
-        } else {
-            return redirect()
-                ->route('login');
-        }
-    }
     
     public function show($id)
     {
@@ -189,6 +179,29 @@ class AgendaController extends Controller{
             $jsonObjs = json_decode($response);
             
             return view('agenda.detail-agenda', ['team' => $jsonObjs]);
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+            if($e->getResponse()->getStatusCode() == 401) {
+                return redirect()
+                    ->route('login');
+            } else {
+                echo($e->getResponse()->getBody());
+            }
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            $token = Session::get('token');
+            $response= $this->client->request('DELETE', $this->base_url.'/agenda/'.$id.'/delete', [
+                'headers' => [
+                    'Authorization' => "Bearer {$token}"
+                    ]
+            ])->getBody()->getContents();
+
+            return redirect()
+                ->route('agenda')
+                ->with('success', 'Agenda has been deleted!');
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

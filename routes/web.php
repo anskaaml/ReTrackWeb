@@ -48,13 +48,13 @@ Route::get('/data-polisi/{id}/delete', 'PoliceController@delete')->name('police.
 Route::get('/agenda', 'AgendaController@index')->name('agenda');
 Route::get('/agenda/create', 'AgendaController@create')->name('agenda.create');
 Route::post('/agenda/store', 'AgendaController@store')->name('agenda.store');
-Route::get('/agenda/add-member', 'AgendaController@addmember')->name('agenda.add-member');
 Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
+Route::get('/agenda/{id}/delete', 'AgendaController@delete')->name('agenda.delete');
 
 // Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
-Route::post('/data-mobil/store_car', 'CarController@store')->name('car.store');
+Route::post('/data-mobil/store', 'CarController@store')->name('car.store');
 Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
 Route::post('/data-mobil/{id}/update', 'CarController@update')->name('car.update');
 Route::get('/data-mobil/{id}/edit', 'CarController@edit')->name('car.edit');
