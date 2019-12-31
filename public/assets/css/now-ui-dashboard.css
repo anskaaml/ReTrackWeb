@@ -1081,11 +1081,11 @@
 /* MS supports */
 @supports (-ms-overflow-style: none) {
   .ps {
-    overflow: auto !important; } }
+    overflow: hidden !important; } }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .ps {
-    overflow: auto !important; } }
+    overflow: hidden !important; } }
 
 .btn,
 .navbar .navbar-nav > a.btn {
@@ -3432,7 +3432,7 @@ Created using IcoMoon - icomoon.io
   z-index: 598;
 }
 .dropdown-submenu ul li:hover > ul { visibility: visible; }
-.dropdown-submenu ul ul { top: 0; left: 1000%; }
+.dropdown-submenu ul ul { top: 0; left: 1403%; }
 .dropdown-submenu p, .dropdown-submenu a {
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
@@ -3446,9 +3446,9 @@ Created using IcoMoon - icomoon.io
   padding: 16px 8px 16px 28px;
   width: 135px; }
 .dropdown-submenu ul ul li {
-  background: #6495ED;
-  border-bottom: 1px solid #6495ED; }
-.dropdown-submenu ul ul li:hover { background: #6495ED; }
+  background: #366FDF;
+  border-bottom: 1px solid #366FDF; }
+.dropdown-submenu ul ul li:hover { background: #366FDF; }
 
 /* Sub Menu */
 
@@ -3458,7 +3458,7 @@ Created using IcoMoon - icomoon.io
   top: 0;
   height: 100%;
   bottom: 0;
-  width: 260px;
+  width: 200px;
   left: 0;
   z-index: 1030; }
   .sidebar .sidebar-wrapper,
@@ -3466,7 +3466,7 @@ Created using IcoMoon - icomoon.io
     position: relative;
     height: calc(100vh - 75px);
     overflow: auto;
-    width: 200px;
+    width: 300px;
     z-index: 4;
     padding-bottom: 100px; }
     .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,
@@ -3509,7 +3509,7 @@ Created using IcoMoon - icomoon.io
       margin-top: 7px; }
     .sidebar .nav li > a,
     .off-canvas-sidebar .nav li > a {
-      margin: 10px 15px 0;
+      /* margin: 10px 15px 0; */
       color: #FFFFFF;
       display: block;
       text-decoration: none;
@@ -3521,7 +3521,7 @@ Created using IcoMoon - icomoon.io
       line-height: 1.625rem; }
     .sidebar .nav li:first-child > a,
     .off-canvas-sidebar .nav li:first-child > a {
-      margin: 0 15px; }
+      margin: 0px; }
     .sidebar .nav li:hover:not(.active) > a,
     .sidebar .nav li:focus:not(.active) > a,
     .off-canvas-sidebar .nav li:hover:not(.active) > a,
@@ -3741,7 +3741,7 @@ Created using IcoMoon - icomoon.io
 .main-panel {
   position: relative;
   float: right;
-  width: calc(100% - 185px); 
+  width: calc(100% - 140px); 
   background-color: #E3E3E3;
   background-color: #FFFFFF;
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1); }

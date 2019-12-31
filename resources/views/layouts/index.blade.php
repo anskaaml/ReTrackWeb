@@ -58,11 +58,11 @@
                   <p class="p6">Data</p>
               </a>
               <ul>
-                <li><a href=" {{ route('car') }}"><p>Car</p></a></li>
-                <li><a href=" {{ route('police') }}"><p>Police</p></a></li>
-                <li><a href=" {{ route('role') }}"><p>Role</p></a></li>
-                <li><a href=" {{ route('location') }}"><p>Location</p></a></li>
-                <li><a href=" {{ route('category') }}"><p>Category</p></a></li>
+                <li><a href=" {{ route('car') }}"><p>Car Data</p></a></li>
+                <li><a href=" {{ route('police') }}"><p>Police Data</p></a></li>
+                <li><a href=" {{ route('role') }}"><p>Role Data</p></a></li>
+                <li><a href=" {{ route('location') }}"><p>Location Data</p></a></li>
+                <li><a href=" {{ route('category') }}"><p>Category Data</p></a></li>
               </ul>  
             </li>    
           </ul>
