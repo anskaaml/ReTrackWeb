@@ -74,7 +74,6 @@
               <ul>
                 <li><a href=" {{ route('car') }}"><p>Car Data</p></a></li>
                 <li><a href=" {{ route('police') }}"><p>Police Data</p></a></li>
-                <li><a href=" {{ route('role') }}"><p>Role Data</p></a></li>
                 <li><a href=" {{ route('location') }}"><p>Location Data</p></a></li>
                 <li><a href=" {{ route('category') }}"><p>Category Data</p></a></li>
               </ul>  
