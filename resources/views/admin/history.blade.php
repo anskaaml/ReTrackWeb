@@ -64,7 +64,9 @@
             @endif
           </tbody>
         </table>
+        <div class="pull-right">
         {{ $histories->links() }}
+        </div> 
       </div>
     </div>
   </div>

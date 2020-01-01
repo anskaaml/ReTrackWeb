@@ -65,7 +65,7 @@
                     </td>
                     <td>
                       @if($patrol_report->patrol_photo)
-                        <img src="<?= "https://api.retrack-app.site".$patrol_report->patrol_photo ?>" height="120px">
+                        <img src="<?= "https://api.retrack-app.site".$patrol_report->patrol_photo ?>" width="150px">
                       @endif
                     </td>
                     <td>
