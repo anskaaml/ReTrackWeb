@@ -77,7 +77,8 @@
           </table>
         </div>
         <div class="pull-right">
-        {{ $polices->links() }}
+          {{ $polices->links() }}
+        </div>
         </div>
       </div>
     </div>
