@@ -39,7 +39,7 @@ class HistoryController extends Controller{
             // set url path for generted links
             $paginatedItems->setPath($request->url());
             
-            return view('admin.history', ['histories' => $paginatedItems]);
+            return view('admin.history', ['histories' => $paginatedItems, 'perPage' => $perPage, 'currentPage' => $currentPage]);
         } catch(Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

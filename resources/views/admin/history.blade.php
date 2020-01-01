@@ -45,7 +45,7 @@
             @if($histories)
               @foreach($histories as $history)
                 <tr>
-                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $loop->iteration + $perPage * ($currentPage - 1) }}</td>
                   <td>{{ $history-> user-> user_name }}</td>
                   <td>
                     @if($history->history_latitude && $history->history_longitude)
