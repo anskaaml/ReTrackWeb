@@ -98,7 +98,9 @@
             </tbody>
           </table>
         </div>
+        <div class="pull-right">
         {{ $case_reports->links() }}
+        </div>
       </div>
     </div>
   </div>

@@ -50,7 +50,9 @@
           </tbody>
         </table>
       </div>
-      {{ $cars->links() }}
+      <div class="pull-right">
+        {{ $cars->links() }}
+      </div>
     </div>
   </div>
 </div>
