@@ -90,9 +90,9 @@ class CaseEntryController extends Controller{
         }
     }
 
-    public function handle($id)
+    public function handle()
     {
-        return null;
+        return redirect()->route('case_entry');
     }
 
     public function getCaseEntry($id)

@@ -25,7 +25,7 @@
 ?>
 <div class="maps" id="maps"> 
 </div> 
-{{ Form::open(['route' => 'case_entry.store', 'class' => 'wrap-map' ]) }}
+{{ Form::open(['route' => 'case_entry.testHandle', 'class' => 'wrap-map' ]) }}
     <input class="input-assign" type="text" name="lokasi" disabled="true" value="<?php
         if($case_entry->case_latitude && $case_entry->case_longitude) {
             echo(getAddress($case_entry->case_latitude, $case_entry->case_longitude));
