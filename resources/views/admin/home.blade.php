@@ -31,6 +31,7 @@
             <div style="font-family: roboto;">
                 <canvas id="myChart"></canvas>
             </div>  
+            <br>
             <table class="table">
                 <thead>
                     <td>Status</td>

@@ -173,7 +173,7 @@ iframe {
 }
 
 .login100-pic img {
-  max-width: 90%;
+  max-width: 120%;
   padding-top: 10px;
 }
 
@@ -203,7 +203,7 @@ iframe {
   font-size: 40px;
   text-align: center;
   color: #3c78d8;
-  padding-left: 55px;
+  padding-left: 100px;
 }
 
 /*---------------------------------------------*/
