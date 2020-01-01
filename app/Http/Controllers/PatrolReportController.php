@@ -27,7 +27,7 @@ class PatrolReportController extends Controller{
             $itemCollection = collect($jsonObjs);
     
             // Define how many items we want to be visible in each page
-            $perPage = 5;
+            $perPage = 3;
 
             // Slice the collection to get the items to display in current page
             $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
@@ -39,7 +39,7 @@ class PatrolReportController extends Controller{
             $paginatedItems->setPath($request->url());
 
             return view('laporan.laporan-patroli', ['patrol_reports' => $paginatedItems]);
-        } catch(Exception $e) {
+        } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
                     ->route('login');
