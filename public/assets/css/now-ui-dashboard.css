@@ -820,7 +820,15 @@
   align-items: center;
 }
 
-#maps{
+.maps2{
+  width: 1100px;
+  height: 500px;
+  position: absolute;
+  align-items: center;
+  /* right: 15px;   */
+}
+
+.maps{
   width: 700px;
   height: 500px;
   position: absolute;

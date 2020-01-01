@@ -21,14 +21,14 @@ class PoliceController extends Controller{
             $jsonObjs = json_decode($response);
             
              // Get current page form url e.x. &page=1
-             $currentPage = LengthAwarePaginator::resolveCurrentPage();
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
     
              // Create a new Laravel collection from the array data
-             $itemCollection = collect($jsonObjs);
-     
+            $itemCollection = collect($jsonObjs);
+
              // Define how many items we want to be visible in each page
-             $perPage = 5;
- 
+            $perPage = 3;
+
              // Slice the collection to get the items to display in current page
              $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
  
@@ -148,7 +148,7 @@ class PoliceController extends Controller{
             if($request->user_photo) {
                 $file = fopen($request->user_photo->path(), 'r');
                 $response = $this->client
-                    ->request('PUT', $this->base_url.'/user/'.$jsonObjs->user_id, [
+                    ->request('PUT', $this->base_url.'/user/'.$jsonObj->user_id, [
                     'multipart' => [
                         [
                             'name'     => 'user_photo',

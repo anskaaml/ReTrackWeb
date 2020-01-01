@@ -24,7 +24,6 @@ Route::get('/home', 'AuthController@home')->name('home');
 
 // * Live Tracking *
 Route::get('/maps', 'MapsController@index')->name('maps');
-Route::get('/maps-one', 'MapsController@mapsOne')->name('maps-one');
 // * Live Tracking *
 
 // * Polisi *
@@ -102,6 +101,8 @@ Route::post('/laporan-warga/store', 'CaseEntryController@store')->name('case_ent
 Route::get('/laporan-warga/{id}', 'CaseEntryController@show')->name('case_entry.show');
 Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('case_entry.update');
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
+Route::get('/laporan-warga/{id}/handle', 'CaseEntryController@handlePage')->name('case_entry.handle');
+Route::post('/laporan-warga/{id}/testHandle', 'CaseEntryController@handle')->name('case_entry.testHandle');
 Route::get('/laporan-warga/{id}/delete', 'CaseEntryController@delete')->name('case_entry.delete');
 
 Route::get('/laporan-patroli', 'PatrolReportController@index')->name('patrol_report');

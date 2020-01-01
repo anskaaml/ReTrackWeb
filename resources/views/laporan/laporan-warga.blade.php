@@ -68,14 +68,16 @@
                     <!-- <td>{{ $case_entry-> case_longitude }} , {{ $case_entry-> case_latitude }}</td> -->
                     <td>
                       @if($case_entry->case_photo)
-                        <img src="<?= "https://api.retrack-app.site".$case_entry->case_photo ?>" height="120px">
+                        <img src="<?= "https://api.retrack-app.site".$case_entry->case_photo ?>" width="200px">
                       @endif
                     </td>
                     <td>
                       <a href="{{ route('case_entry.show', ['id' => $case_entry->case_id]) }}">
                         <button class="details-btn" type="button">Details</button>
                       </a>
-                      <button class="tangani-btn" type="button" onclick="window.location='http://localhost:8000/maps' ">Handle</button>
+                      <a href="{{ route('case_entry.handle', ['id' => $case_entry->case_id]) }}">
+                        <button class="tangani-btn" type="button">Handle</button>
+                      </a>
                     </td>
                   </tr>
                 @endforeach
