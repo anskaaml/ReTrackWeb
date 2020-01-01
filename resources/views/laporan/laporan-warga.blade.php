@@ -87,7 +87,9 @@
             </tbody>
           </table>
         </div>
-        {{ $case_entries->links() }}
+        <div class="pull-right">
+          {{ $case_entries->links() }}
+        </div>
       </div>
     </div>
   </div>
