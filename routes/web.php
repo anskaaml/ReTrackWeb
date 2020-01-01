@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'AuthController@root');
-
 // * Auth *
 // Load Login Page
 Route::get('/login', 'AuthController@loginPage')->name('login');
@@ -20,11 +18,12 @@ Route::get('/login', 'AuthController@loginPage')->name('login');
 Route::post('/testLogin', 'AuthController@login')->name('testLogin');
 // Log out
 Route::get('/logout', 'AuthController@logout')->name('logout');
-// * Auth *
+// Home
+Route::get('/', 'AuthController@root');
+Route::get('/home', 'AuthController@home')->name('home');
 
 // * Live Tracking *
 Route::get('/maps', 'MapsController@index')->name('maps');
-Route::get('/maps-one', 'MapsController@mapsOne')->name('maps-one');
 // * Live Tracking *
 
 // * Polisi *
@@ -47,18 +46,14 @@ Route::get('/data-polisi/{id}/delete', 'PoliceController@delete')->name('police.
 // * Agenda *
 Route::get('/agenda', 'AgendaController@index')->name('agenda');
 Route::get('/agenda/create', 'AgendaController@create')->name('agenda.create');
-Route::get('/agenda/add-member', 'AgendaController@addmember')->name('agenda.add-member');
+Route::post('/agenda/store', 'AgendaController@store')->name('agenda.store');
 Route::get('/agenda/{id}', 'AgendaController@show')->name('agenda.show');
-// * Agenda *
-// Route::get('/add-member', function () {
-// return view('agenda.add-member');
-//     });
+Route::get('/agenda/{id}/delete', 'AgendaController@delete')->name('agenda.delete');
 
-// ** Belum Dirapiin **
 // Mobil
 Route::get('/data-mobil', 'CarController@index')->name('car');
 Route::get('/data-mobil/create', 'CarController@create')->name('car.create');
-Route::post('/data-mobil/store_car', 'CarController@store')->name('car.store');
+Route::post('/data-mobil/store', 'CarController@store')->name('car.store');
 Route::get('/data-mobil/{id}', 'CarController@show')->name('car.show');
 Route::post('/data-mobil/{id}/update', 'CarController@update')->name('car.update');
 Route::get('/data-mobil/{id}/edit', 'CarController@edit')->name('car.edit');
@@ -100,14 +95,14 @@ Route::post('/data-lokasi/{id}/update', 'LocationController@update')->name('loca
 Route::get('/data-lokasi/{id}/edit', 'LocationController@edit')->name('location.edit');
 Route::get('/data-lokasi/{id}/delete', 'LocationController@delete')->name('location.delete');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/laporan-warga', 'CaseEntryController@index')->name('case_entry');
 Route::get('/laporan-warga/create', 'CaseEntryController@create')->name('case_entry.create');
 Route::post('/laporan-warga/store', 'CaseEntryController@store')->name('case_entry.store');
 Route::get('/laporan-warga/{id}', 'CaseEntryController@show')->name('case_entry.show');
 Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('case_entry.update');
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
+Route::get('/laporan-warga/{id}/handle', 'CaseEntryController@handlePage')->name('case_entry.handle');
+Route::post('/laporan-warga/{id}/testHandle', 'CaseEntryController@handle')->name('case_entry.testHandle');
 Route::get('/laporan-warga/{id}/delete', 'CaseEntryController@delete')->name('case_entry.delete');
 
 Route::get('/laporan-patroli', 'PatrolReportController@index')->name('patrol_report');

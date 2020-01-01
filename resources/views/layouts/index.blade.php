@@ -1,6 +1,5 @@
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
   <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
@@ -14,6 +13,7 @@
   <link href=" {{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/css/now-ui-dashboard.css?v=1.3.0') }}" rel="stylesheet" />
   <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body class="">
@@ -49,12 +49,25 @@
               <p class="p5">Report</p>
             </a>
           </li>
-          <li>
-            <a href="">
-            <img class="nav-icon" src="{{ asset('assets/img/data.png') }}" width="25" heigth="30">
-              <p class="p6">Data</p>
-            </a>
-          </li>
+          
+        <div class="dropdown-submenu">
+          <ul>
+            <li>
+              <a href="">
+                <img class="nav-icon" src="{{ asset('assets/img/data.png') }}" width="25" heigth="30">
+                  <p class="p6">Data</p>
+              </a>
+              <ul>
+                <li><a href=" {{ route('car') }}"><p>Car Data</p></a></li>
+                <li><a href=" {{ route('police') }}"><p>Police Data</p></a></li>
+                <li><a href=" {{ route('role') }}"><p>Role Data</p></a></li>
+                <li><a href=" {{ route('location') }}"><p>Location Data</p></a></li>
+                <li><a href=" {{ route('category') }}"><p>Category Data</p></a></li>
+              </ul>  
+            </li>    
+          </ul>
+        </div>
+
           <li>
             <a href="{{ route('history') }}">
               <img class="nav-icon" src="{{ asset('assets/img/riwayat.png') }}" width="25" heigth="30">
@@ -86,24 +99,20 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            
             <ul class="navbar-nav">
-              
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="font-admin">Admin</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Admin 1</a>
-                  <a class="dropdown-item" href="#">Admin 2</a>
-                  <a class="dropdown-item" href="#">Admin 3</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link">
-                  <img src="{{ asset('assets/img/admin.png') }}" width="30" heigth="35">
+                  <img src="{{ asset('assets/img/police-icon.png') }}" width="30" heigth="35">
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -116,7 +125,6 @@
           @yield('content')
       </div>
     </div>
-  </div>
   <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
   <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>

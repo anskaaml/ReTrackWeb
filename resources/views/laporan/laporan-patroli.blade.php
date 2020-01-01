@@ -72,7 +72,7 @@
                       <?php 
                       if($patrol_report->patrol_status == 0)
                         echo("Aman");
-                      else if($patrol_report->patrol_status == 0)
+                      else if($patrol_report->patrol_status == 1)
                         echo("Rawan");
                       ?>
                     </td>

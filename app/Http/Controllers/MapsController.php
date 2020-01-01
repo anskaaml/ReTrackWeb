@@ -16,15 +16,5 @@ class MapsController extends Controller {
                 ->route('login');
         }
     }
-
-    public function mapsOne()
-    {
-        if(Session::get('token')) {
-            return view('admin.maps-one');
-        } else {
-            return redirect()
-                ->route('login');
-        }
-    }
 }
 
