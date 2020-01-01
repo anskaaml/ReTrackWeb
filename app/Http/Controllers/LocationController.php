@@ -39,7 +39,7 @@ class LocationController extends Controller{
             // set url path for generted links
             $paginatedItems->setPath($request->url());
 
-            return view('data.data-lokasi', ['locations' => $paginatedItems]);
+            return view('data.data-lokasi', ['locations' => $paginatedItems, 'perPage' => $perPage, 'currentPage' => $currentPage ]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

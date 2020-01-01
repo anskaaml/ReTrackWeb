@@ -46,7 +46,7 @@
                       @if($locations)
                         @foreach($locations as $location)
                       <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $loop->iteration + $perPage * ($currentPage - 1) }}</td>
                         <td>{{ $location->location_name }}</td>
                         <td>
                           @if($location->location_latitude && $location->location_longitude)

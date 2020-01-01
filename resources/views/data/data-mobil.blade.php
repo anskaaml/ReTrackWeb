@@ -33,7 +33,7 @@
             @if($cars)
               @foreach($cars as $car)
                 <tr>
-                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $loop->iteration + $perPage * ($currentPage - 1) }}</td>
                   <td>{{ $car->car_number }}</td>
                   <td>{{ $car->car_brand }}</td>
                   <td>{{ $car->car_type }}</td>

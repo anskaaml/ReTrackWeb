@@ -44,7 +44,7 @@
               @if($case_reports)
                 @foreach($case_reports as $case_report)
                   <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration + $perPage * ($currentPage - 1) }}</td>
                     <td>
                       @if($case_report-> user)
                         {{ $case_report-> user-> user_name }}

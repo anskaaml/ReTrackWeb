@@ -38,7 +38,7 @@ class PoliceController extends Controller{
              // set url path for generted links
              $paginatedItems->setPath($request->url());
 
-            return view('data.data-polisi', ['polices' => $paginatedItems]);
+            return view('data.data-polisi', ['polices' => $paginatedItems, 'perPage' => $perPage, 'currentPage' => $currentPage]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

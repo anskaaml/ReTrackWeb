@@ -36,7 +36,7 @@
               @if($polices)
                 @foreach($polices as $police)
                   <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration + $perPage * ($currentPage - 1) }}</td>
                     <td>{{ $police->user_employee_id }}</td>
                     <td>{{ $police->user_name }}</td>
                     <td>
