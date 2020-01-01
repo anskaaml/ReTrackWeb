@@ -102,7 +102,7 @@ Route::get('/laporan-warga/{id}', 'CaseEntryController@show')->name('case_entry.
 Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('case_entry.update');
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
 Route::get('/laporan-warga/{id}/handle', 'CaseEntryController@handlePage')->name('case_entry.handle');
-Route::post('/laporan-warga/{id}/testHandle', 'CaseEntryController@handle')->name('case_entry.testHandle');
+Route::post('/laporan-warga/testHandle', 'CaseEntryController@handle')->name('case_entry.testHandle');
 Route::get('/laporan-warga/{id}/delete', 'CaseEntryController@delete')->name('case_entry.delete');
 
 Route::get('/laporan-patroli', 'PatrolReportController@index')->name('patrol_report');
