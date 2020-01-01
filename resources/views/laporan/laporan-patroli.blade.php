@@ -89,7 +89,9 @@
             </tbody>
           </table>
         </div>
+        <div class="pull-right">
         {{ $patrol_reports->links() }}
+        </div>
       </div>
     </div>
   </div>

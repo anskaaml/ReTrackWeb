@@ -73,7 +73,9 @@
             </tbody>
           </table>
         </div>
+        <div class="pull-right">
         {{ $teams->links() }}
+        </div>
       </div>
     </div>
   </div>
