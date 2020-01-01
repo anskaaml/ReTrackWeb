@@ -108,11 +108,11 @@
                   <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
               </li>
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link">
                   <img src="{{ asset('assets/img/police-icon.png') }}" width="30" heigth="35">
                 </a>
-              </li> -->
+              </li>
             </ul>
           </div>
         </div>
