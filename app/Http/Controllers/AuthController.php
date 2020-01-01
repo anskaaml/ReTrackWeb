@@ -64,7 +64,25 @@ class AuthController extends Controller {
 
     public function home(){
         if(Session::get('token')) {
-            return view('admin.home');
+            try {
+                $token = Session::get('token');
+                $response= $this->client->request('GET', $this->base_url.'/patrol-report/count/status', [
+                    'headers' => [
+                        'Authorization' => "Bearer {$token}"
+                        ]
+                ])->getBody()->getContents();
+            
+                $jsonObjs = json_decode($response);
+            
+                return view('admin.home', ['patrolStatuses' => $jsonObjs]);
+            } catch(\GuzzleHttp\Exception\BadResponseException $e) {
+                if($e->getResponse()->getStatusCode() == 401) {
+                    return redirect()
+                        ->route('login');
+                } else {
+                    echo($e->getResponse()->getBody());
+                }
+            }
         } else {
             return redirect()->route('login');
         }
