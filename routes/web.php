@@ -24,7 +24,6 @@ Route::get('/home', 'AuthController@home')->name('home');
 
 // * Live Tracking *
 Route::get('/maps', 'MapsController@index')->name('maps');
-Route::get('/maps-one', 'MapsController@mapsOne')->name('maps-one');
 // * Live Tracking *
 
 // * Polisi *
@@ -70,22 +69,22 @@ Route::get('/data-kategori/{id}/edit', 'CategoryController@edit')->name('categor
 Route::get('/data-kategori/{id}/delete', 'CategoryController@delete')->name('category.delete');
 
 
-// * Role *
-// Show All
-Route::get('/data-role', 'RoleController@index')->name('role');
-// Load Create Form
-Route::get('/data-role/create', 'RoleController@create')->name('role.create');
-// Post To API
-Route::post('/data-role/store', 'RoleController@store')->name('role.store');
-// Show Data
-Route::get('/data-role/{id}', 'RoleController@show')->name('role.show');
-// Load Update Form
-Route::post('/data-role/{id}/update', 'RoleController@update')->name('role.update');
-// Put To API
-Route::get('/data-role/{id}/edit', 'RoleController@edit')->name('role.edit');
-// Delete Data
-Route::get('/data-role/{id}/delete', 'RoleController@delete')->name('role.delete');
-// * Role *
+// // * Role *
+// // Show All
+// Route::get('/data-role', 'RoleController@index')->name('role');
+// // Load Create Form
+// Route::get('/data-role/create', 'RoleController@create')->name('role.create');
+// // Post To API
+// Route::post('/data-role/store', 'RoleController@store')->name('role.store');
+// // Show Data
+// Route::get('/data-role/{id}', 'RoleController@show')->name('role.show');
+// // Load Update Form
+// Route::post('/data-role/{id}/update', 'RoleController@update')->name('role.update');
+// // Put To API
+// Route::get('/data-role/{id}/edit', 'RoleController@edit')->name('role.edit');
+// // Delete Data
+// Route::get('/data-role/{id}/delete', 'RoleController@delete')->name('role.delete');
+// // * Role *
 
 // Lokasi
 Route::get('/data-lokasi', 'LocationController@index')->name('location');
@@ -102,6 +101,8 @@ Route::post('/laporan-warga/store', 'CaseEntryController@store')->name('case_ent
 Route::get('/laporan-warga/{id}', 'CaseEntryController@show')->name('case_entry.show');
 Route::post('/laporan-warga/{id}/update', 'CaseEntryController@update')->name('case_entry.update');
 Route::get('/laporan-warga/{id}/edit', 'CaseEntryController@edit')->name('case_entry.edit');
+Route::get('/laporan-warga/{id}/handle', 'CaseEntryController@handlePage')->name('case_entry.handle');
+Route::post('/laporan-warga/{id}/testHandle', 'CaseEntryController@handle')->name('case_entry.testHandle');
 Route::get('/laporan-warga/{id}/delete', 'CaseEntryController@delete')->name('case_entry.delete');
 
 Route::get('/laporan-patroli', 'PatrolReportController@index')->name('patrol_report');

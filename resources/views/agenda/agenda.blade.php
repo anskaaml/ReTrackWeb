@@ -23,9 +23,11 @@
           <table class="table" id="table">
             <thead class=" text-primary">
               <th>#</th>
+              <th>Coordinator</th>
               <th>Member Name</th>
               <th>Car</th>  
               <th>Date</th>
+              <th>Status</th>
               <th>Action</th>    
             </thead>
             <tbody id="myTable">
@@ -34,16 +36,30 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
+                    @if($team->coordinator)
+                      {{ $team->coordinator->user_name }}
+                    @endif
+                    </td>
+                    <td>
                       @foreach($team->users as $user)
                         {{ $user->user_name }},
                       @endforeach
                     </td>
+                    <td>
                     @if($team->car)
-                    <td>{{ $team->car->car_number }}</td>
-                    @else
-                    <td></td>
+                      {{ $team->car->car_number }}
                     @endif
+                    </td>
                     <td>{{ \Carbon\Carbon::parse($team->agenda->agenda_date)-> format('d, M Y') }}</td>
+                    <td>
+                      <?php
+                        if($team->agenda->agenda_status == true) {
+                          echo("On Progress");
+                        } else {
+                          echo("Done");
+                        }
+                      ?>
+                    </td>
                     <td>
                       <a href="{{ route('agenda.show', ['id' => $team->team_id]) }}">
                         <button class="details-btn" id="myBtn-agenda" type="button">Details</button>
@@ -57,7 +73,9 @@
             </tbody>
           </table>
         </div>
+        <div class="pull-right">
         {{ $teams->links() }}
+        </div>
       </div>
     </div>
   </div>

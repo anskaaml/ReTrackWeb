@@ -18,7 +18,7 @@
           {{ Form::select('car_id', [null=>'Select Car'] + $cars, Request::old('car_id'), ['class' => 'form-agenda', 'required']) }}
           <div class="card-body">
             <div class="table-responsive">
-              <p class="sub-title">Add Checkpoints</p>
+              <p class="sub-title">Add Checkpoints</p>Click Map To Create & Click Marker To Delete
               <table class="table" id="dynamicTable">
                 <thead class="text-primary">
                   <th>Date</th>
@@ -122,6 +122,7 @@
     
     marker.setMap(map);
     markers.push(marker);
+    map.setCenter(location);
     
     marker.addListener('click', function() {
       for(var i = 0 ; i < markers.length ; i++) {

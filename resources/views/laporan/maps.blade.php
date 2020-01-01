@@ -5,12 +5,51 @@
 @endsection
 
 @section('name')
-    Live Tracking Teams
+    Maps
 @endsection
 
 @section('content')
-<div class="maps2" id="maps"> 
-</div>
+<?php
+    function getAddress($lat,$lng)
+    {
+        $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&key=AIzaSyB1JkAkXXIIS0UWKlJQt9fsO-v6sg4Cdug';
+        $json = @file_get_contents($url);
+        $data = json_decode($json);
+        $status = $data->status;
+        
+        if ($status == "OK")
+            return $data->results[0]->formatted_address;
+        else
+            return false;
+    }
+?>
+<div class="maps" id="maps"> 
+</div> 
+{{ Form::open(['route' => 'case_entry.store', 'class' => 'wrap-map' ]) }}
+    <input class="input-assign" type="text" name="lokasi" disabled="true" value="<?php
+        if($case_entry->case_latitude && $case_entry->case_longitude) {
+            echo(getAddress($case_entry->case_latitude, $case_entry->case_longitude));
+        } else {
+            echo "Location";
+        }
+    ?>">
+    <br>
+    <input class="input-assign" type="text" name="category" disabled="true" value="<?php
+        if($case_entry->category_id) {
+            echo($case_entry->category->category_name);
+        } else {
+            echo "Category";
+        }
+    ?>">
+    <br>
+    {{ Form::select('total_car', [null=>'Jumlah Mobil'] + $chooseTotal, Request::old('total_car'), ['class' => 'select-assign']) }}
+    <br>
+    <textarea class="input-deskripsi" name="deskripsi" placeholder="Deskripsi" disabled="true">{{ $case_entry-> case_description }}</textarea>
+    <br>
+    <br>
+    <button class="assign-btn">Assign Tugas</button>
+{{ Form::close() }}
+
     <script>
         var map;
         var markerList = [];
@@ -72,7 +111,7 @@
                         lng: parseFloat(data.history_longitude)
                     },
                     //label: location.user.user_employee_id,
-                    icon: 'assets/img/police-car.png'
+                    icon: '{{ asset('assets/img/police-car.png') }}'
                 })
                 marker.addListener('click', function() {
                     infowindow.open(map, marker);

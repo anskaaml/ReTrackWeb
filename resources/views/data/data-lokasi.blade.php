@@ -67,8 +67,10 @@
                   @endif
                     </tbody>
                   </table>
-                </div>
+                </div>          
+                <div class="pull-right">
                 {{ $locations->links() }}
+                </div>
               </div>
             </div>
           </div>

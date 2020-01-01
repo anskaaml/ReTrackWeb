@@ -65,14 +65,14 @@
                     </td>
                     <td>
                       @if($patrol_report->patrol_photo)
-                        <img src="<?= "https://api.retrack-app.site".$patrol_report->patrol_photo ?>" height="120px">
+                        <img src="<?= "https://api.retrack-app.site".$patrol_report->patrol_photo ?>" width="150px">
                       @endif
                     </td>
                     <td>
                       <?php 
                       if($patrol_report->patrol_status == 0)
                         echo("Aman");
-                      else if($patrol_report->patrol_status == 0)
+                      else if($patrol_report->patrol_status == 1)
                         echo("Rawan");
                       ?>
                     </td>
@@ -89,7 +89,9 @@
             </tbody>
           </table>
         </div>
+        <div class="pull-right">
         {{ $patrol_reports->links() }}
+        </div>
       </div>
     </div>
   </div>

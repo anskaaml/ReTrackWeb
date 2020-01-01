@@ -76,7 +76,10 @@
             </tbody>
           </table>
         </div>
-        {{ $polices->links() }}
+        <div class="pull-right">
+          {{ $polices->links() }}
+        </div>
+        </div>
       </div>
     </div>
   </div>
