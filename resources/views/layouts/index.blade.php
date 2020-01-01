@@ -43,13 +43,27 @@
               <p class="p3">Maps</p>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="{{ route('case_entry') }}">
               <img class="nav-icon" src="{{ asset('assets/img/laporan.png') }}" width="25" heigth="30">
               <p class="p5">Report</p>
             </a>
-          </li>
-          
+          </li> -->
+          <div class="dropdown-submenu">
+          <ul>
+            <li>
+              <a href="">
+                <img class="nav-icon" src="{{ asset('assets/img/laporan.png') }}" width="25" heigth="30">
+                  <p class="p6">Report</p>
+              </a>
+              <ul>
+                <li><a href=" {{ route('patrol_report') }}"><p>Laporan Patroli</p></a></li>
+                <li><a href=" {{ route('case_entry') }}"><p>Laporan Warga</p></a></li>
+                <li><a href=" {{ route('case_report') }}"><p>Laporan Polisi</p></a></li>
+              </ul>  
+            </li>    
+          </ul>
+        </div>  
         <div class="dropdown-submenu">
           <ul>
             <li>
