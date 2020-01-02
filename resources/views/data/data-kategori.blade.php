@@ -33,7 +33,7 @@
               @if($categories)
                 @foreach($categories as $category)
                   <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration + $perPage * ($currentPage - 1) }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>{{ date("Y-m-d H:i:s T", strtotime($category->created_at.' UTC')) }}</td>
                     <td>{{ date("Y-m-d H:i:s T", strtotime($category->updated_at.' UTC')) }}</td>

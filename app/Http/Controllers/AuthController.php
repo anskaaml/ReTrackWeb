@@ -72,9 +72,9 @@ class AuthController extends Controller {
                         ]
                 ])->getBody()->getContents();
             
-                $jsonObjs = json_decode($response);
-            
-                return view('admin.home', ['patrolStatuses' => $jsonObjs]);
+                $patrolStatuses = json_decode($response);
+
+                return view('admin.home', ['patrolStatuses' => $patrolStatuses]);
             } catch(\GuzzleHttp\Exception\BadResponseException $e) {
                 if($e->getResponse()->getStatusCode() == 401) {
                     return redirect()

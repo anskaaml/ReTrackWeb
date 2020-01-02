@@ -62,50 +62,90 @@
     </div>
 </div>
 <script>
+    var aman = [];
+    var rawan = [];
+    $.ajax({
+                url: 'https://api.retrack-app.site/patrol-report',
+                crossDomain: true,
+                async: false,
+                type: 'GET',
+                contentType: 'json',
+                headers: {
+                    'Authorization': 'Bearer <?php echo Session::get('token');?>'
+                },
+                success: function (result) {
+                    for (let j = 0; j < 12; j++) {
+                        var totalAman = 0;
+                        var totalRawan = 0;
+                        for (let i = 0; i < result.length; i++) {
+                            var d = new Date(result[i].patrol_date);
+                            if(j == d.getMonth()) {
+                                if(result[i].patrol_status == 0) {
+                                    totalAman++;
+                                }else if(result[i].patrol_status == 1) {
+                                    totalRawan++;
+                                }
+                            }
+                        }    
+                        aman.push(totalAman);
+                        rawan.push(totalRawan);                    
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+    
+    console.log(aman);
+    console.log(rawan);
     var ctx = document.getElementById("myChart").getContext('2d');
 		var myChart = new Chart(ctx, {
 			type: 'line',
 			data: {
 				labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
-				datasets: [{
-					label: 'Aman',
-					data: [2, 5, 3, 6, 2, 3, 7, 10, 11, 8, 5, 4],
-					backgroundColor: [
-					'rgba(0, 0, 0, 0)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 3,
-				},
-					{
-					label: 'Rawan',
-					data: [4, 3, 2, 7, 2, 5, 10, 9, 1, 2, 6, 5],
-					backgroundColor: [
-					'rgba(0, 0, 0, 0)'
-					],
-					borderColor: [
-					'rgba(54, 225, 235, 1)'
-					],
-					borderWidth: 3,
+                datasets: 
+                    [
+                        {
+                            label: 'Aman',
+                            data: aman,
+                            backgroundColor: [
+                                'rgba(0, 0, 0, 0)'
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 3,
+                        },
+                        {
+                            label: 'Rawan',
+                            data: rawan,
+                            backgroundColor: [
+                                'rgba(0, 0, 0, 0)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 225, 235, 1)'
+                            ],
+                            borderWidth: 3,
 
-					}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            }
+        );
 </script>
 <!-- <script src="../assets/js/chart-data.js"></script> -->
 @endsection

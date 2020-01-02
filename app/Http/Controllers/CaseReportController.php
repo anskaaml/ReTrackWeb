@@ -40,7 +40,7 @@ class CaseReportController extends Controller
             // set url path for generted links
             $paginatedItems->setPath($request->url());
             
-            return view('laporan.laporan-polisi', ['case_reports' => $paginatedItems]);
+            return view('laporan.laporan-polisi', ['case_reports' => $paginatedItems, 'perPage' => $perPage, 'currentPage' => $currentPage ]);
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

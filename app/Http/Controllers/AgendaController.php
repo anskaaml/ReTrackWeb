@@ -66,12 +66,12 @@ class AgendaController extends Controller{
                 $cars[$jsonObjs[$i]->car_id] = $jsonObjs[$i]->car_number;
             }
 
-            $response= $this->client->request('GET', $this->base_url.'/user', [
+            $response= $this->client->request('GET', $this->base_url.'/user/role/1', [
                 'headers' => [
                     'Authorization' => "Bearer {$token}"
                     ]
             ])->getBody()->getContents();
-        
+
             $jsonObjs = json_decode($response);
 
             $users = [];
@@ -79,7 +79,7 @@ class AgendaController extends Controller{
                 $users[$jsonObjs[$i]->user_id] = $jsonObjs[$i]->user_name;
             }
             
-            return view('agenda.create-agenda', ['cars' => $cars, 'users' => $users]);
+            return view('agenda.create-agenda', ['cars' => $cars, 'users' => $users] );
         } catch(\GuzzleHttp\Exception\BadResponseException $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()

@@ -38,7 +38,7 @@ class CaseEntryController extends Controller{
             // set url path for generted links
             $paginatedItems->setPath($request->url()); 
 
-            return view('laporan.laporan-warga', ['case_entries' => $paginatedItems]);
+            return view('laporan.laporan-warga', ['case_entries' => $paginatedItems, 'perPage' => $perPage, 'currentPage' => $currentPage]);
         } catch(\Exception $e) {
             if($e->getResponse()->getStatusCode() == 401) {
                 return redirect()
@@ -90,9 +90,9 @@ class CaseEntryController extends Controller{
         }
     }
 
-    public function handle($id)
+    public function handle()
     {
-        return null;
+        return redirect()->route('case_entry');
     }
 
     public function getCaseEntry($id)
