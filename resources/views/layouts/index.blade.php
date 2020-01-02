@@ -54,7 +54,7 @@
             <li>
               <a href="">
                 <img class="nav-icon" src="{{ asset('assets/img/laporan.png') }}" width="25" heigth="30">
-                  <p class="p6">Report</p>
+                  <p class="p5">Report</p>
               </a>
               <ul>
                 <li><a href=" {{ route('patrol_report') }}"><p>Laporan Patroli</p></a></li>
